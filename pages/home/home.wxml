@@ -1,0 +1,13 @@
+<view class="container">
+
+  <view class="home-top">
+    <text class="left"> 多云</text>
+    <text> 22/28℃</text>
+  </view>
+
+  <view class="home-tap" >
+    <text bindtap="toMorning" >早读</text>
+    <text bindtap="toNight" >晚讲</text>
+  </view>
+
+</view>
