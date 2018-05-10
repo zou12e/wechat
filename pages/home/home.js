@@ -11,7 +11,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+      isMorning: true
+      
   },
 
   /**
@@ -21,7 +22,9 @@ Component({
 
     toMorning(event) {
 
-      console.log(getApp().host());
+        this.setData({
+            isMorning: true
+        })
 
       wx.setNavigationBarColor({
         frontColor: '#ffffff',
@@ -33,9 +36,13 @@ Component({
     },
     toNight(event) {
 
+        this.setData({
+            isMorning: false
+        })
+
       wx.setNavigationBarColor({
         frontColor: '#ffffff',
-        backgroundColor: "#ff0000"
+        backgroundColor: "#00132A"
       })
     }
   },
