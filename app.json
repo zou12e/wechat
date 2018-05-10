@@ -14,14 +14,20 @@
     "backgroundColor": "#fff",
     "list": [
       {
+        "iconPath": "images/icon-nav-1.png",
+        "selectedIconPath": "images/icon-nav-1-on.png",
         "pagePath": "pages/home/home",
         "text": "主页"
       },
       {
+        "iconPath": "images/icon-nav-2.png",
+        "selectedIconPath": "images/icon-nav-2-on.png",
         "pagePath": "pages/home/home",
         "text": "慧言广场"
       },
       {
+        "iconPath": "images/icon-nav-3.png",
+        "selectedIconPath": "images/icon-nav-3-on.png",
         "pagePath": "pages/home/home",
         "text": "我的"
       }
