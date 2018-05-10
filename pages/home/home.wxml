@@ -4,19 +4,87 @@
         <text> 22/28℃
         </text>
     </view>
-
-    <view class="home-tap">
+    <view class="home-tab">
         <image bindtap="toMorning" class="left" src="/images/icon-home-1{{isMorning ? '-on' : '' }}.png"></image>
         <image bindtap="toNight" src="/images/icon-home-2{{!isMorning ? '-on' : '' }}.png"></image>
     </view>
     <view class="home-dot">
         <view class="left {{isMorning ? 'on' : '' }}">
         </view>
-        <view  class="{{!isMorning ? 'on' : '' }}">
+        <view class="{{!isMorning ? 'on' : '' }}">
         </view>
     </view>
+    <view class="home-panel {{isMorning ? '' : 'hide' }}">
+        <view class='title'>
+            <text>【月亮与六便士】</text>
+            <image src='/images/icon-home-3.png'></image>
+        </view>
+        <view class='date'>
+            <text>2018-05-05</text>
+        </view>
+        <view class='slider'>
+            <slider min="0" max="2000" isCustom="true" blockSrc='/images/icon-home-4.png' blockImageWidth="52rpx" blockImageHeight="62rpx" data-property-name="duration" activeColor="#FFB307" backgroundColor="#F5F5F5">
+            </slider>
+            <view class='time'>
+                <text>00:00</text>
+                <text class='right'>03:27</text>
+            </view>
+        </view>
+        <view class='bottom'>
+            <view class='left'>
+                <image class='home5' src='/images/icon-home-5.png'></image>
+                <text>换一篇</text>
+            </view>
 
-    <view class="home-panel">
+            <view class='center'>
+                <image class='home6' src='/images/icon-home-6.png'></image>
+            </view>
+
+            <view class='right'>
+                <image class='home7' src='/images/icon-home-7.png'></image>
+                <text>分享</text>
+            </view>
+
+        </view>
+
 
     </view>
+
+    <view class="home-panel home-panel-night {{!isMorning ? '' : 'hide' }}">
+
+        <view class='title-night' >
+            即学即用的职场说话课
+        </view>
+
+        <view class='date-night' >
+            2018-05-07
+        </view>
+
+        <view class='pre-night' >
+            <image  src='/images/icon-home-9.png'></image>
+             <text>18:00准时开讲</text>
+        </view>
+
+        <view class='bottom'>
+            <view class='left'>
+                <image class='home5' src='/images/icon-home-5-night.png'></image>
+                <text>换一篇</text>
+            </view>
+
+
+            <view class='right'>
+                <image class='home7' src='/images/icon-home-7-night.png'></image>
+                <text>分享</text>
+            </view>
+
+        </view>
+
+
+    </view>
+
+    <button class='home-button'>
+        <image src='/images/icon-home-8.png'></image>
+        我要读
+    </button>
+
 </view>

@@ -1,0 +1,7 @@
+.hide {
+    display: none;
+}
+
+button::after{
+    border: none;
+}

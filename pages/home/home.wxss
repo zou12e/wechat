@@ -1,53 +1,216 @@
 .home-top {
-  color: #888;
-  font-size: 24rpx;
-  text-align: right;
-  padding: 40rpx 30px 0 0;
-
-  
+    color: #888;
+    font-size: 24rpx;
+    text-align: right;
+    padding: 40rpx 30px 0 0;
 }
+
 .home-top .left {
-  margin-right: 50rpx;
+    margin-right: 50rpx;
 }
 
-.home-tap {
-  text-align: center;
-  margin-top: 20rpx;
+.home-tab {
+    text-align: center;
+    margin-top: 20rpx;
 }
-.home-tap image {
-  width: 92rpx;
-  height: 92rpx;
+
+.home-tab image {
+    width: 92rpx;
+    height: 92rpx;
 }
-.home-tap .left {
-  margin-right: 30rpx;
+
+.home-tab .left {
+    margin-right: 30rpx;
 }
+
 .home-dot {
     text-align: center;
     height: 12rpx;
     width: 214rpx;
     margin: 0 auto;
 }
+
 .home-dot .left {
     margin-left: 40rpx;
 }
+
 .home-dot view {
     float: left;
-    width:12rpx;
-    height:12rpx;
+    width: 12rpx;
+    height: 12rpx;
     border-radius: 50%;
     margin-left: 110rpx;
 }
 
-.home-dot .on{
-   background-color:#130D00;
+.home-dot .on {
+    background-color: #130d00;
 }
-
 
 .home-panel {
     margin: 40rpx auto 0;
     width: 690rpx;
     height: 540rpx;
-    background: #FFFFFF;
-    box-shadow: 0 10rpx 39rpx 0 #E0E1E4;
+    background-color: #fff;
+    box-shadow: 0 10rpx 39rpx 0 #e0e1e4;
     border-radius: 10rpx;
+    position: relative;
+}
+
+.home-panel-night {
+    background-color: #00132a;
+    text-align: center;
+    color: #fff;
+}
+
+.home-panel .title {
+    height: 50rpx;
+    padding: 60rpx 38rpx 0 20rpx;
+}
+
+.home-panel .title text {
+    display: inline-block;
+    font-size: 34rpx;
+    color: #353535;
+    letter-spacing: 0.49rpx;
+    text-align: left;
+}
+
+.home-panel .title image {
+    width: 44rpx;
+    height: 47rpx;
+    float: right;
+}
+
+.home-panel .date {
+    font-size: 26rpx;
+    height: 38rpx;
+    color: #888;
+    letter-spacing: 0.37rpx;
+    padding: 18rpx 0 0 42rpx;
+}
+
+.home-panel .slider {
+    padding: 30rpx 0rpx 0;
+}
+
+.home-panel .slider text {
+    padding: 0 40rpx;
+    font-size: 22rpx;
+    color: #888;
+    letter-spacing: 0.31rpx;
+    text-align: left;
+    line-height: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.home-panel .slider .right {
+    float: right;
+}
+
+.home-panel .home5 {
+    width: 40rpx;
+    height: 40rpx;
+    margin-bottom: -8rpx;
+}
+
+.home-panel .home6 {
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.home-panel .home7 {
+    width: 36rpx;
+    height: 40rpx;
+    margin-bottom: -8rpx;
+}
+
+.home-panel .bottom {
+    padding: 0 60rpx 0;
+    position: absolute;
+    height: 130rpx;
+    left: 0;
+    right: 0;
+    bottom: 60rpx;
+}
+
+.home-panel .bottom .left {
+    float: left;
+    margin-top: 35rpx;
+}
+
+.home-panel .bottom .right {
+    float: right;
+    margin-top: 35rpx;
+}
+
+.home-panel .bottom text {
+    font-size: 26rpx;
+    color: #353535;
+    letter-spacing: 0.37rpx;
+    margin: 0 0 0 25rpx;
+}
+
+.home-panel-night .bottom text {
+    color: #fff;
+}
+
+.home-panel .bottom .center {
+    position: absolute;
+    left: 50%;
+    margin-left: -65rpx;
+    top: 0;
+}
+
+.home-panel .title-night {
+    font-size: 34rpx;
+    letter-spacing: 0.49rpx;
+    padding: 105rpx 0 0 0;
+    height: 48rpx;
+}
+
+.home-panel .date-night {
+    font-size: 26rpx;
+    letter-spacing: 0.37rpx;
+    padding: 30rpx 0 0 0;
+    height: 37rpx;
+}
+
+.home-panel .pre-night {
+    font-size: 26rpx;
+    color: #888;
+    letter-spacing: 0.37rpx;
+    padding: 50rpx 0 0 0;
+    height: 37rpx;
+}
+
+.home-panel .pre-night  image {
+    width: 32rpx;
+    height: 32rpx;
+    margin:0 20rpx -4rpx 0; 
+}
+
+.home-button {
+    width: 600rpx;
+    height: 133rpx;
+    line-height: 133rpx;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 10rpx 39rpx 0 #e0e1e4;
+    border-radius: 100rpx;
+    font-size: 40rpx;
+    color: #353535;
+    letter-spacing: 0.57px;
+    margin: 70rpx auto 0;
+    border: none;
+    background: #fff;
+    text-align: center;
+}
+
+.home-button  image {
+    height: 121rpx;
+    width: 117rpx;
+    position: absolute;
+    bottom: 0;
+    left: 55rpx;
 }
