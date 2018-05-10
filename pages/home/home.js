@@ -31,7 +31,14 @@ Component({
         backgroundColor: "#FFB307"
       })
 
-      
+      wx.setTabBarStyle({
+          backgroundColor: '#fff',
+      })
+
+      wx.setTabBarBadge({
+          index: 1,
+          text: '1'
+      })
 
     },
     toNight(event) {
@@ -43,6 +50,10 @@ Component({
       wx.setNavigationBarColor({
         frontColor: '#ffffff',
         backgroundColor: "#00132A"
+      })
+
+      wx.setTabBarStyle({
+          backgroundColor: '#fff',
       })
     }
   },

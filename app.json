@@ -1,36 +1,39 @@
 {
-  "pages": [
-    "pages/home/home"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "backgroundColorTop": "#FFB307",
-    "navigationBarBackgroundColor": "#FFB307",
-    "navigationBarTitleText": "慧言帮",
-    "navigationBarTextStyle": "#fff"
-  },
-  "tabBar": {
-    "selectedColor": "#000",
-    "backgroundColor": "#fff",
-    "list": [
-      {
-        "iconPath": "images/icon-nav-1.png",
-        "selectedIconPath": "images/icon-nav-1-on.png",
-        "pagePath": "pages/home/home",
-        "text": "主页"
-      },
-      {
-        "iconPath": "images/icon-nav-2.png",
-        "selectedIconPath": "images/icon-nav-2-on.png",
-        "pagePath": "pages/home/home",
-        "text": "慧言广场"
-      },
-      {
-        "iconPath": "images/icon-nav-3.png",
-        "selectedIconPath": "images/icon-nav-3-on.png",
-        "pagePath": "pages/home/home",
-        "text": "我的"
-      }
-    ]
-  }
+    "pages": [
+        "pages/home/home",
+        "pages/square/square",
+        "pages/mine/mine"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "backgroundColorTop": "#FFB307",
+        "navigationBarBackgroundColor": "#FFB307",
+        "navigationBarTitleText": "慧言帮",
+        "navigationBarTextStyle": "#fff"
+    },
+    "tabBar": {
+        "color": "#888",
+        "selectedColor": "#000",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "iconPath": "images/icon-nav-1.png",
+                "selectedIconPath": "images/icon-nav-1-on.png",
+                "pagePath": "pages/home/home",
+                "text": "主页"
+            },
+            {
+                "iconPath": "images/icon-nav-2.png",
+                "selectedIconPath": "images/icon-nav-2-on.png",
+                "pagePath": "pages/square/square",
+                "text": "慧言广场"
+            },
+            {
+                "iconPath": "images/icon-nav-3.png",
+                "selectedIconPath": "images/icon-nav-3-on.png",
+                "pagePath": "pages/mine/mine",
+                "text": "我的"
+            }
+        ]
+    }
 }
