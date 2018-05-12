@@ -5,3 +5,9 @@
 button::after{
     border: none;
 }
+
+.flex-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

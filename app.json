@@ -1,7 +1,8 @@
 {
     "pages": [
-        "pages/home/home",
+        
         "pages/square/square",
+        "pages/home/home",
         "pages/mine/mine"
     ],
     "window": {

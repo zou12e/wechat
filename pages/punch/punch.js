@@ -1,4 +1,4 @@
-// pages/square/square.js.js
+// pages/punch/punch.js
 Component({
   /**
    * 组件的属性列表
