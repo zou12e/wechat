@@ -29,6 +29,8 @@
                 <view class='day' >32天</view>
             </view>
         </view>
+
+        <image class='bottom-bg' src='/images/icon-ranking-4.png'></image>
     </view>
 
     <scroll-view class='list' scroll-y='true' >
