@@ -1,1 +1,131 @@
-/* pages/punch/punch.wxss */
+.punch {
+    background-color: #f1f1ef;
+    display: flex; 
+    flex-flow: column; 
+    min-height: 100vh; 
+    overflow:auto;
+}
+.top {
+
+    background: #5298FF;
+    height: 422rpx;
+
+}
+.top .tab  {
+    height: 86rpx;
+    line-height: 86rpx;
+    border-bottom: 1rpx solid rgba(255, 255, 255, .2)
+}
+
+.top .tab view {
+    float: left;
+    font-size: 28rpx;
+    color: rgba(255, 255, 255, .5);
+    letter-spacing: 0.4rpx;
+    height: 86rpx;
+    padding: 0 30rpx;
+    margin-right: 20rpx;
+}
+.top .tab .on {
+    color: #fff;
+    position: relative
+}
+.top .tab .on::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -20rpx;
+    width: 40rpx;
+    height: 4rpx;
+    background: #fff;
+}
+.ranking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30rpx;
+    margin-top: 20rpx;
+}
+.ranking > view{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.ranking image {
+    width: 144rpx;
+    height: 218rpx;
+    position: absolute;
+    z-index: 2;
+}
+.ranking .head {
+    z-index: 1;
+    width: 144rpx;
+    height: 144rpx;
+    top: 30rpx;
+}
+.ranking .head1 {
+    width: 164rpx;
+    height: 164rpx;
+    top: 10rpx;
+}
+.ranking .ranking1 {
+    width: 164rpx;
+    height: 218rpx;
+}
+.ranking .name {
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0.4rpx;
+    line-height: 40rpx;
+    margin-top: 218rpx;
+}
+.ranking .day {
+    font-size: 22rpx;
+    color: #FFFFFF;
+    letter-spacing: 0.31rpx;
+    line-height: 30rpx;
+    margin-top: 7rpx;
+}
+
+.list {
+    background: #fff;
+    position: absolute;
+    width: auto;
+    top: 452rpx;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 0;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+.list  .li {
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1px solid #DFDFDF;
+    font-size: 28rpx;
+    color: #353535;
+    letter-spacing: 0.4rpx;
+}
+.list .node {
+    float: left;
+}
+.list .num {
+    margin-left: 30rpx;
+    width: 45rpx;
+}
+.list .head {
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 20rpx;
+    border-radius: 100%;
+    border:1px solid #979797;
+    margin-right: 20rpx;
+}
+.list .day {
+    float: right;
+    margin-right: 30rpx;
+}

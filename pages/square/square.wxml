@@ -2,73 +2,73 @@
 
     <view class='raking'>
 
-        <view class='left flex-text'>
+        <view bindtap="toPunch" class='left flex-text'>
             <image src='/images/icon-square-1.png'></image>
                 打卡榜
         </view>
 
-        <view class='right flex-text'>
+        <view bindtap="toThumb" class='right flex-text'>
             <image src='/images/icon-square-2.png'></image>
                 点赞榜
         </view>
     </view>
 
     <view class='list'>
+        <block wx:for="{{data}}" wx:key="index" >
+                <view class='li'>
 
-        <view class='li'>
-
-            <view class='top'>
-                <view class='left flex-text' >
-                    <image class='head' src='/images/icon-nav-3-on.png'></image>
-                    天天爱读书
-                </view>
-                <button>
-                    关注
-                </button>
-            </view>
-
-
-
-            <view class='content'>
-
-                <view class='left' >
-                        <view class='title' >
-                            月亮与六便士
+                    <view class='top'>
+                        <view class='left flex-text' >
+                            <image class='head' src='/images/icon-nav-3-on.png'></image>
+                            天天爱读书
                         </view>
-                        <view class='time' >
-                            2018-05-07 12:00
+                        <button>
+                            关注
+                        </button>
+                    </view>
+
+
+
+                    <view class='content'>
+
+                        <view class='left' >
+                                <view class='title' >
+                                    月亮与六便士
+                                </view>
+                                <view class='time' >
+                                    2018-05-07 12:00
+                                </view>
                         </view>
+
+                        <image src='/images/icon-square-3.png'>
+                        </image>
+                    </view>
+
+
+                    <view class='operation flex-text' >
+
+                        <view>
+                            <image src='/images/icon-square-4.png' ></image>
+                        </view>
+
+                        <view>
+                            <image src='/images/icon-square-5.png' ></image>
+                        </view>
+
+                        <view class='flex-text' >
+                            <image src='/images/icon-square-6.png' ></image>
+                            0
+                        </view>
+
+                        <view class='flex-text' >
+                            <image src='/images/icon-square-7.png' ></image>
+                            0
+                        </view>
+
+                    </view>
+
                 </view>
-
-                <image src='/images/icon-square-3.png'>
-                </image>
-            </view>
-
-
-            <view class='operation flex-text' >
-
-                <view>
-                    <image src='/images/icon-square-4.png' ></image>
-                </view>
-
-                <view>
-                    <image src='/images/icon-square-5.png' ></image>
-                </view>
-
-                <view class='flex-text' >
-                    <image src='/images/icon-square-6.png' ></image>
-                    0
-                </view>
-
-                <view class='flex-text' >
-                    <image src='/images/icon-square-7.png' ></image>
-                    0
-                </view>
-
-            </view>
-
-        </view>
-
+        </block>
         <view class='li'>
 
             <view class='recom' >

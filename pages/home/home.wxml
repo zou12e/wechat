@@ -84,7 +84,7 @@
 
     <button class='home-button'>
         <image src='/images/icon-home-8.png'></image>
-        我要读
+        我要{{isMorning ? '读' : '讲' }}
     </button>
 
 </view>

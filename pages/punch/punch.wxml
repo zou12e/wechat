@@ -1,0 +1,44 @@
+<view class='punch'>
+    <view class='top'>
+        <view class='tab'>
+            <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">
+                连续打卡榜
+            </view>
+            <view bindtap="toTab" data-tab='1' class="{{tab==1?'on':''}}">
+                累计打卡榜
+            </view>
+        </view>
+
+        <view class='ranking'>
+            <view>
+                <image class='ranking2' src='/images/icon-punch-2.png'></image>
+                <image class='head' src='/images/head.jpg'></image>
+                <view class='name' >张小丫</view>
+                <view class='day' >132天</view>
+            </view>
+            <view>
+                <image class='ranking1' src='/images/icon-punch-1.png'></image>
+                <image class='head head1' src='/images/head.jpg'></image>
+                <view class='name'  >Jeff</view>
+                <view class='day' >232天</view>
+            </view>
+            <view>
+                <image class='ranking3' src='/images/icon-punch-3.png'></image>
+                <image class='head' src='/images/head.jpg'></image>
+                <view class='name' >Cathy</view>
+                <view class='day' >32天</view>
+            </view>
+        </view>
+    </view>
+
+    <scroll-view class='list' scroll-y='true' >
+        <block wx:for="{{ranking}}" wx:key="index" >
+                <view class='li' >
+                    <view class='node num' >{{4 +index }}</view>
+                    <image class='node head' src='/images/head.jpg'></image>
+                    <view class='node name'>Jeff1</view>
+                    <view class='node day' >13天</view>
+                </view>
+        </block>
+    </scroll-view>
+</view>

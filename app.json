@@ -1,8 +1,11 @@
 {
     "pages": [
+        "pages/home/home",
         "pages/punch/punch",
         "pages/square/square",
-        "pages/home/home",
+        
+        
+        "pages/thumb/thumb",
         "pages/mine/mine"
     ],
     "window": {
