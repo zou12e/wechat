@@ -1,6 +1,6 @@
 {
     "pages": [
-        
+        "pages/punch/punch",
         "pages/square/square",
         "pages/home/home",
         "pages/mine/mine"
