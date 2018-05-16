@@ -1,1 +1,128 @@
-/* pages/thumb.wxss */
+.thumb {
+    background-color: #f1f1ef;
+    display: flex; 
+    flex-flow: column; 
+    min-height: 100vh; 
+    overflow:auto;
+}
+.thumb .top{
+    margin: 35rpx 30rpx;
+    background: #FF5D60;
+    border-radius: 10rpx;
+    height: 360rpx;
+}
+
+.top  .li {
+    height: 120rpx;
+    line-height: 120rpx;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    color: #FFFFFF;
+    letter-spacing: 0.4rpx;
+    
+}
+.top  .li:last-child {
+    border-bottom: none;
+}
+.top .node {
+    float: left;
+}
+.top .name {
+     margin-left: 20rpx;
+}
+.top .name .nick{
+    font-size: 22rpx;
+    letter-spacing: 0.31rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-top: 25rpx;
+}
+.top .name .article{
+    font-size: 28rpx;
+    letter-spacing: 0.4rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 3rpx; 
+}
+ .top .rank {
+    width: 82rpx;
+    height: 99rpx;
+    margin:17rpx 20rpx 0;
+}
+.top .head {
+    width: 78rpx;
+    height: 78rpx;
+    margin: 22rpx 0 0;
+    border-radius: 4rpx;
+}
+.top .size {
+    float: right;
+    margin-right: 30rpx;
+    font-size: 28rpx;
+}
+.top .size image{
+    width: 34rpx;
+    height: 32rpx;
+    margin:0 10rpx -5rpx 0;
+}
+
+
+.list {
+    background: #fff;
+    position: absolute;
+    width: auto;
+    top: 420rpx;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 0;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+.list  .li {
+    height: 120rpx;
+    line-height: 120rpx;
+    border-bottom: 1px solid #DFDFDF;
+    font-size: 28rpx;
+    color: #353535;
+    letter-spacing: 0.4rpx;
+}
+.list .node {
+    float: left;
+}
+
+.list .name .nick{
+    font-size: 22rpx;
+    color: #353535;
+    letter-spacing: 0.31rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-top: 25rpx;
+}
+.list .name .article{
+    font-size: 28rpx;
+    color: #353535;
+    letter-spacing: 0.4rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 3rpx; 
+}
+.list .num {
+    margin-left: 30rpx;
+    width: 45rpx;
+}
+.list .head {
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 36rpx;
+    border-radius: 100%;
+    border:1px solid #979797;
+    margin-right: 20rpx;
+}
+.list .size {
+    float: right;
+    margin-right: 30rpx;
+}
+.list .size image{
+    width: 34rpx;
+    height: 32rpx;
+    margin:0 10rpx -5rpx 0;
+}

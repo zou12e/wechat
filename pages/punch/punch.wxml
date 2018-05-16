@@ -42,5 +42,12 @@
                     <view class='node day' >13天</view>
                 </view>
         </block>
+
+           <view class='li' >
+                <view class='node num' >1412</view>
+                 <image class='node head' src='/images/head.jpg'></image> 
+                <view class='node name'>Jeff1(自己)</view>
+                <view class='node day' >13天</view>
+            </view>
     </scroll-view>
 </view>

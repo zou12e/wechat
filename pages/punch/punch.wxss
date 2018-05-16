@@ -128,7 +128,7 @@
 }
 .list .num {
     margin-left: 30rpx;
-    width: 45rpx;
+    min-width: 45rpx;
 }
 .list .head {
     width: 50rpx;
