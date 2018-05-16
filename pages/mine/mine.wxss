@@ -1,1 +1,245 @@
-/* pages/mine/mine.wxss */
+.mine {
+    background-color: ;
+}
+.mine .top {
+    background: #fff;
+    height:470rpx;
+    position: relative
+}
+.mine .top .bg {
+    width: 100%;
+    height: 150rpx;
+}
+.mine .top .head {
+    width: 150rpx;
+    height: 150rpx;
+    border:15rpx solid #fff;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 75rpx;
+    margin-left: -75rpx;
+    box-sizing: border-box;
+}
+.top .bom {
+    position: absolute;
+    left:0;
+    right: 0;
+    bottom: 0;
+    height: 220rpx;
+}
+.top .bom .nick{
+    text-align: center;
+    font-size: 32rpx;
+    letter-spacing: 0.46rpx;
+    color: #000;
+}
+.top .bom .info {
+    display: flex;
+    margin-top: 40rpx;
+}
+.top .bom .info>view {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+.bom .info .num {
+    font-size: 30rpx;
+    color: #000;
+    letter-spacing: 0.43rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+}
+.bom .info .explain {
+    font-size: 28rpx;
+    color: #888;
+    letter-spacing: 0.43rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 10rpx;
+    
+    
+}
+
+.bom .info .c::before,.bom .info .c::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 15rpx;
+    height: 60rpx;
+    width: 2rpx;
+    background: #DFDFDF;
+}
+.bom .info .c::after {
+    left: auto;
+    right: 0;
+}
+.bom .info .new .num {
+    position: relative;
+    display: inline-block;
+
+}
+.bom .info .new .num::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background:  #FF0000;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 100%;
+    top: -2rpx;
+    right: -8rpx;
+}
+.mine  .my-audio {
+    height: 98rpx;
+    background: #fff;
+    border-top: 20rpx solid #f1f1ef;
+    line-height: 98rpx;
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0.4rpx;
+}
+.mine  .my-audio .icon {
+    width: 46rpx;
+    height: 46rpx;
+    margin:23rpx 20rpx 0rpx 30rpx;
+    float: left;
+}
+.mine  .calendar {
+    border-top: 20rpx solid #f1f1ef;
+    background: #fff;
+    padding-bottom: 50rpx;
+}
+
+.mine  .calendar .top{
+    height: 98rpx;
+    line-height: 98rpx;
+    font-size: 28rpx;
+    letter-spacing: 0.4rpx;
+    color: #353535;
+}
+.mine  .calendar .top .icon {
+    width: 46rpx;
+    height: 43rpx;
+    margin: 26rpx 20rpx 0rpx 31rpx;
+    float: left;
+
+}
+.calendar .top .day {
+    color: #0DB4B2;
+}
+.mine  .calendar .msg {
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    border-bottom: 1px solid #DFDFDF;
+    padding-left: 97rpx;
+    height: 60rpx;
+ 
+}
+
+.calendar .box .head {
+    height: 90rpx;
+    line-height: 90rpx;
+    position: relative
+}
+.calendar .box .head .l {
+    float: left;
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    padding-left: 54rpx;
+}
+.calendar .box .head .r {
+    float: right;
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    padding-right: 54rpx;
+}
+.calendar .box .head .c {
+    position: absolute;
+    left: 200rpx;
+    right: 200rpx;
+    bottom: 0;
+    top: 0;
+    text-align: center;
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0.4rpx;
+}
+
+.calendar .box .week  {
+    background: #F6F6F6;
+    height: 70rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30rpx;
+}
+.calendar .box .week >view {
+    flex: 1;
+    font-size: 24rpx;
+    color: #B2B2B2;
+    letter-spacing: 0.34rpx;
+    text-align: center;
+}
+.calendar .box .line  {
+    height: 70rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: #353535;
+    padding: 0 30rpx;
+}
+
+.calendar .box .line >view {
+    flex: 1;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+}
+.calendar .box .today {
+    color: #0DB4B2;
+}
+
+.calendar .box .line .no {
+    color: #bbb;
+}
+
+.calendar .box .line .no {
+    color: #bbb;
+}
+
+.calendar .box .line .punch {
+     position: relative;
+}
+.calendar .box .line .punch::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #07B2B0;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 100%;
+    top: 12rpx;
+    left: 50%;
+    margin-left: 18rpx;    
+}
+
+.calendar .box .line .continu {
+  background: #D5FAF1;
+
+}
+.calendar .box .line .continu-f {
+    border-top-left-radius: 100rpx;
+    border-bottom-left-radius: 100rpx;
+}
+.calendar .box .line .continu-l {
+    border-top-right-radius: 100rpx;
+    border-bottom-right-radius: 100rpx;
+}
+
+ 

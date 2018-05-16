@@ -80,7 +80,7 @@
 .li .content {
     border-bottom: 1rpx solid #DFDFDF;
     height: 150rpx;
-    padding:  0 35rpx 0 110rpx;
+    padding:  0 35rpx 0 101rpx;
 }
 .li .content .left{
     float: left;
