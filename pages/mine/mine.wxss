@@ -38,7 +38,7 @@
     display: flex;
     margin-top: 40rpx;
 }
-.top .bom .info>view {
+.top .bom .info> navigator {
     flex: 1;
     text-align: center;
     position: relative;

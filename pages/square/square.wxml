@@ -2,15 +2,15 @@
 
     <view class='raking'>
 
-        <view bindtap="toPunch" class='left flex-text'>
+        <navigator  url='/pages/punch/punch'  class='left flex-text'>
             <image src='/images/icon-square-1.png'></image>
                 打卡榜
-        </view>
+        </navigator>
 
-        <view bindtap="toThumb" class='right flex-text'>
+        <navigator  url='/pages/thumb/thumb'  class='right flex-text'>
             <image src='/images/icon-square-2.png'></image>
                 点赞榜
-        </view>
+        </navigator>
     </view>
 
     <view class='list'>
@@ -19,7 +19,7 @@
 
                     <view class='top'>
                         <view class='left flex-text' >
-                            <image class='head' src='/images/icon-nav-3-on.png'></image>
+                            <image class='head' src='/images/head.jpg'></image>
                             天天爱读书
                         </view>
                         <button>
@@ -77,7 +77,7 @@
 
             <view class='top'>
                 <view class='left flex-text' >
-                    <image class='head' src='/images/icon-nav-3-on.png'></image>
+                    <image class='head' src='/images/head.jpg'></image>
                     天天爱读书
                 </view>
                 <button>

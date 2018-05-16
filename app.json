@@ -1,11 +1,16 @@
 {
     "pages": [
-        "pages/mine/mine",
+        
         "pages/home/home",
+        "pages/myaudio/myaudio",
+        "pages/mine/mine",
+        
         "pages/punch/punch",
         "pages/square/square",
-        
-        "pages/thumb/thumb"
+        "pages/follow/follow",
+        "pages/thumb/thumb",
+        "pages/collection/collection",
+        "pages/comment/comment"
         
     ],
     "window": {

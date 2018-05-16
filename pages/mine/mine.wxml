@@ -9,27 +9,27 @@
             <view class='nick' >萌猴酱</view>
 
             <view class='info' >
-                    <view class='l new' >
+                    <navigator url='/pages/follow/follow' class='l new' >
                         <view class='num' >2</view>
                         <view class='explain' >关注</view>
-                    </view>
-                    <view class='c' >
+                    </navigator>
+                    <navigator  url='/pages/collection/collection'  class='c' >
                         <view class='num' >111</view>
                         <view class='explain' >收藏</view>
-                    </view>
-                    <view class='r' >
+                    </navigator>
+                    <navigator  url='/pages/comment/comment'  class='r' >
                         <view class='num' >2</view>
                         <view class='explain' >评论</view>
-                    </view>
+                    </navigator>
             </view>
         </view>
     
     </view>
 
-    <view class='my-audio' >
+    <navigator url='/pages/myaudio/myaudio' class='my-audio' >
         <image class='icon' src='/images/icon-mine-2.png' ></image>
         我的语音
-    </view>
+    </navigator>
 
     <view class='calendar' >
         <view class='top'>

@@ -1,4 +1,4 @@
-.square {
+.collection {
     background-color: #f1f1ef;
     
     display: flex; 
@@ -7,38 +7,6 @@
     overflow:auto;
 }
 
-.raking {
-    margin-top: 30rpx;
-    height: 160rpx;
-    display: flex;
-}
-
-.raking navigator {
-    background-color: #fff;
-    flex: 1;
-    text-align: center;
-    font-size: 30rpx;
-    color: #353535;
-    letter-spacing: 0.43rpx;
-}
-
-.raking .left {
-    margin-right: 5rpx;
-}
-
-.raking .right {
-    margin-left: 5rpx;
-}
-
-.raking image {
-    width: 133rpx;
-    height: 133rpx;
-    margin-right: 60rpx;
-}
-
-.list {
-    margin-top: 30rpx;
-}
 
 .list .li {
     background-color: #fff;
@@ -78,9 +46,9 @@
     margin-right: 20rpx;
 }
 .li .content {
-    border-bottom: 1rpx solid #DFDFDF;
     height: 150rpx;
     padding:  0 35rpx 0 101rpx;
+    border-bottom: 1rpx solid #DFDFDF;
 }
 .li .content .left{
     float: left;
@@ -120,13 +88,12 @@
     float: right;
     margin-top: 32rpx;
 }
-
-.li .operation {
+ .li .operation {
     display: flex;
     height: 90rpx;
     
 }
-.li .operation >view {
+ .li .operation >view {
     flex: 1;
     font-size: 20rpx;
     color: #888888;
