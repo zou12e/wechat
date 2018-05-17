@@ -1,0 +1,65 @@
+
+
+<view class='my-page others'>
+
+    <view class='top' >
+        <view class='bg-view' >
+            <image class='bg' src='/images/icon-others-1.png' ></image>
+
+            <view class='flex-text' >
+                <image src='/images/head.jpg' ></image>
+                萌猴酱
+            </view>
+
+            <button class='button' >
+                关注
+            </button>
+        </view>
+    </view>
+
+    <view class='my-list'>
+        <block wx:for="{{data}}" wx:key="index">
+            <view class='li'>
+
+                <view class='content'>
+
+                    <view class='left'>
+                        <view class='title'>
+                            月亮与六便士
+                        </view>
+                        <view class='time'>
+                            2018-05-07 12:00
+                        </view>
+                    </view>
+
+                    <image src='/images/icon-square-3.png'>
+                    </image>
+                </view>
+
+
+                <view class='operation flex-text'>
+
+                    <view>
+                        <image src='/images/icon-square-4.png'></image>
+                    </view>
+
+                    <view>
+                        <image src='/images/icon-square-5.png'></image>
+                    </view>
+
+                    <view class='flex-text'>
+                        <image src='/images/icon-square-6.png'></image>
+                        0
+                    </view>
+
+                    <view class='flex-text'>
+                        <image src='/images/icon-square-7.png'></image>
+                        0
+                    </view>
+
+                </view>
+
+            </view>
+        </block>
+    </view>
+</view>

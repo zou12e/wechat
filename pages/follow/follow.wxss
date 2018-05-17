@@ -1,30 +1,22 @@
-.tab  {
-    height: 86rpx;
-    line-height: 86rpx;
-    border-bottom: 1rpx solid #f1f1f1;
+.list {
+    position: absolute;
+    top: 88rpx;
+    left: 0rpx;
+    right: 0rpx;
+    bottom: 0;
 }
 
-.tab view {
-    float: left;
-    font-size: 28rpx;
-    color:#B2B2B2;
-    letter-spacing: 0.4rpx;
-    height: 86rpx;
-    padding: 0 30rpx;
-    margin-right: 20rpx;
+.list .li{
+    height: 112rpx;
+    line-height: 112rpx;
+   border-bottom: 1rpx solid #f1f1f1;
 }
-.tab .on {
-    color: #353535;
-    position: relative
+.list .li image{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 100%;
+    margin: 0 20rpx 0 30rpx;
 }
-.tab .on::after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 50%;
-    bottom: 4rpx;
-    margin-left: -20rpx;
-    width: 40rpx;
-    height: 4rpx;
-    background:#FFB307;
+.list .li .flex-text {
+    justify-content: left;
 }

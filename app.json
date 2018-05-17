@@ -1,17 +1,17 @@
 {
     "pages": [
-       
         "pages/home/home",
+        "pages/others/others",
+       
         "pages/myaudio/myaudio",
         "pages/mine/mine",
         "pages/follow/follow",
         "pages/punch/punch",
         "pages/square/square",
-        
         "pages/thumb/thumb",
         "pages/collection/collection",
         "pages/comment/comment"
-        
+      
     ],
     "window": {
         "backgroundTextStyle": "light",

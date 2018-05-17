@@ -5,34 +5,17 @@
     height: 422rpx;
     position: relative;
 }
-.top .tab  {
-    height: 86rpx;
-    line-height: 86rpx;
+.my-tab  {
     border-bottom: 1rpx solid rgba(255, 255, 255, .2);
 }
 
-.top .tab view {
-    float: left;
-    font-size: 28rpx;
+.my-tab view {
     color: rgba(255, 255, 255, .5);
-    letter-spacing: 0.4rpx;
-    height: 86rpx;
-    padding: 0 30rpx;
-    margin-right: 20rpx;
 }
-.top .tab .on {
+.my-tab .on {
     color: #fff;
-    position: relative
 }
-.top .tab .on::after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 50%;
-    bottom: 4rpx;
-    margin-left: -20rpx;
-    width: 40rpx;
-    height: 4rpx;
+.my-tab  .on::after {
     background: #fff;
 }
 

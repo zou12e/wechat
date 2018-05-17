@@ -1,6 +1,6 @@
 <view class='my-page punch'>
     <view class='top'>
-        <view class='tab'>
+        <view class='my-tab'>
             <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">
                 连续打卡榜
             </view>

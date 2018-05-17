@@ -1,19 +1,22 @@
-// pages/follow/follow.js
+// pages/others/others.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      tab: 0,
-      data: new Array(12)
+    id : 0,
+    data: new Array(8)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      console.log(options);
+      this.setData({
+          id:  options.id || 0
+      })
   },
 
   /**
@@ -63,11 +66,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  toTab: function (event) {
-      this.setData({
-          tab: event.currentTarget.dataset.tab
-      })
-
   }
 })
