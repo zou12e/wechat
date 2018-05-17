@@ -1,2 +1,24 @@
-<!--pages/follow/follow.wxml-->
-<text>pages/follow/follow.wxml</text>
+<view class='follow' >
+    <view class='tab'>
+            <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">
+                我关注的
+            </view>
+            <view bindtap="toTab" data-tab='1' class="{{tab==1?'on':''}}">
+                关注我的
+            </view>
+        </view>
+
+        <view class='list' >
+
+            <view class='li' >
+
+                <view class='flex-text' >
+                    <image src='/images/head.jpg' ></image>
+                    萌猴酱
+                </view>
+
+
+            </view>
+            
+        </view>
+</view>

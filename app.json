@@ -1,13 +1,13 @@
 {
     "pages": [
-        
+       
         "pages/home/home",
         "pages/myaudio/myaudio",
         "pages/mine/mine",
-        
+        "pages/follow/follow",
         "pages/punch/punch",
         "pages/square/square",
-        "pages/follow/follow",
+        
         "pages/thumb/thumb",
         "pages/collection/collection",
         "pages/comment/comment"

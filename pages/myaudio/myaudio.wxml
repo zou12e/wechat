@@ -1,50 +1,47 @@
-<view class='myaudio'>
+<view class='my-page  myaudio'>
+    <view class='my-list'>
+        <block wx:for="{{data}}" wx:key="index">
 
-    <block wx:for="{{data}}" wx:key="index">
+            <view class='li'>
 
-        <view class='li'>
+                <view class='content'>
 
-
-
-
-
-            <view class='content'>
-
-                <view class='left'>
-                    <view class='title'>
-                        月亮与六便士
+                    <view class='left'>
+                        <view class='title'>
+                            月亮与六便士
+                        </view>
+                        <view class='time'>
+                            2018-05-07 12:00
+                        </view>
                     </view>
-                    <view class='time'>
-                        2018-05-07 12:00
-                    </view>
+
+                    <image src='/images/icon-square-3.png'>
+                    </image>
                 </view>
 
-                <image src='/images/icon-square-3.png'>
-                </image>
+
+                <view class='operation flex-text'>
+
+                    <view>
+                        <image src='/images/icon-square-4.png'></image>
+                    </view>
+
+
+
+                    <view class='flex-text'>
+                        <image src='/images/icon-square-6.png'></image>
+                        0
+                    </view>
+
+                    <view class='flex-text'>
+                        <image src='/images/icon-square-7.png'></image>
+                        0
+                    </view>
+
+                </view>
+
             </view>
 
-
-            <view class='operation flex-text'>
-
-                <view>
-                    <image src='/images/icon-square-4.png'></image>
-                </view>
-
-
-
-                <view class='flex-text'>
-                    <image src='/images/icon-square-6.png'></image>
-                    0
-                </view>
-
-                <view class='flex-text'>
-                    <image src='/images/icon-square-7.png'></image>
-                    0
-                </view>
-
-            </view>
-
-        </view>
-
-    </block>
+        </block>
+    </view>
 </view>

@@ -26,14 +26,15 @@
     
     </view>
 
-    <navigator url='/pages/myaudio/myaudio' class='my-audio' >
+    <navigator url='/pages/myaudio/myaudio' class='my-audio flex-text' >
         <image class='icon' src='/images/icon-mine-2.png' ></image>
         我的语音
     </navigator>
 
     <view class='calendar' >
-        <view class='top'>
-            <image class='icon' src='/images/icon-mine-3.png' ></image>连续打卡 <text class='day'>4</text> 天，累计打卡  <text class='day'>14</text> 天
+        <view class='top flex-text'>
+            <image class='icon' src='/images/icon-mine-3.png' ></image>
+            连续打卡 <text class='day'>4</text> 天，累计打卡  <text class='day'>14</text> 天
         </view>
          <view class='msg' >
             早读晚讲已陪伴你第 23 天

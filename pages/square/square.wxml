@@ -1,4 +1,4 @@
-<view class='square'>
+<view class='my-page square'>
 
     <view class='raking'>
 
@@ -13,7 +13,7 @@
         </navigator>
     </view>
 
-    <view class='list'>
+    <view class='my-list'>
         <block wx:for="{{data}}" wx:key="index" >
                 <view class='li'>
 

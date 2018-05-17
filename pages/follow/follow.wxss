@@ -1,1 +1,30 @@
-/* pages/follow/follow.wxss */
+.tab  {
+    height: 86rpx;
+    line-height: 86rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
+.tab view {
+    float: left;
+    font-size: 28rpx;
+    color:#B2B2B2;
+    letter-spacing: 0.4rpx;
+    height: 86rpx;
+    padding: 0 30rpx;
+    margin-right: 20rpx;
+}
+.tab .on {
+    color: #353535;
+    position: relative
+}
+.tab .on::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 4rpx;
+    margin-left: -20rpx;
+    width: 40rpx;
+    height: 4rpx;
+    background:#FFB307;
+}

@@ -1,6 +1,4 @@
-.mine {
-    background-color: ;
-}
+.mine {}
 .mine .top {
     background: #fff;
     height:470rpx;
@@ -99,11 +97,12 @@
     font-size: 28rpx;
     color: #000000;
     letter-spacing: 0.4rpx;
+    justify-content: left;
 }
 .mine  .my-audio .icon {
     width: 46rpx;
     height: 46rpx;
-    margin:23rpx 20rpx 0rpx 30rpx;
+    margin:0 20rpx 0rpx 30rpx;
     float: left;
 }
 .mine  .calendar {
@@ -118,11 +117,12 @@
     font-size: 28rpx;
     letter-spacing: 0.4rpx;
     color: #353535;
+    justify-content: left;
 }
 .mine  .calendar .top .icon {
     width: 46rpx;
     height: 43rpx;
-    margin: 26rpx 20rpx 0rpx 31rpx;
+    margin: 0rpx 20rpx 0rpx 31rpx;
     float: left;
 
 }
@@ -133,7 +133,7 @@
     font-size: 24rpx;
     color: #888888;
     letter-spacing: 0.34rpx;
-    border-bottom: 1px solid #DFDFDF;
+    border-bottom: 1rpx solid #DFDFDF;
     padding-left: 97rpx;
     height: 60rpx;
  

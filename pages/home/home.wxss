@@ -2,7 +2,7 @@
     color: #888;
     font-size: 24rpx;
     text-align: right;
-    padding: 40rpx 30px 0 0;
+    padding: 40rpx 30rpx 0 0;
 }
 
 .home-top .left {
@@ -99,8 +99,8 @@
     color: #888;
     letter-spacing: 0.31rpx;
     text-align: left;
-    line-height: 30px;
-    height: 30px;
+    line-height: 30rpx;
+    height: 30rpx;
     display: inline-block;
 }
 
@@ -111,7 +111,6 @@
 .home-panel .home5 {
     width: 40rpx;
     height: 40rpx;
-    margin-bottom: -8rpx;
 }
 
 .home-panel .home6 {
@@ -122,7 +121,6 @@
 .home-panel .home7 {
     width: 36rpx;
     height: 40rpx;
-    margin-bottom: -8rpx;
 }
 
 .home-panel .bottom {
@@ -187,7 +185,7 @@
 .home-panel .pre-night  image {
     width: 32rpx;
     height: 32rpx;
-    margin:0 20rpx -4rpx 0; 
+    margin:0 20rpx 0 0; 
 }
 
 .home-button {
@@ -200,7 +198,7 @@
     border-radius: 100rpx;
     font-size: 40rpx;
     color: #353535;
-    letter-spacing: 0.57px;
+    letter-spacing: 0.57rpx;
     margin: 70rpx auto 0;
     border: none;
     background: #fff;

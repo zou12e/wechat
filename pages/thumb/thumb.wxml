@@ -1,4 +1,4 @@
-<view class='thumb'>
+<view class='my-page thumb'>
 
     <view class='top' >
         <view class='li' >
@@ -8,7 +8,7 @@
                 <view class='nick' >jeff</view>
                 <view class='article' >月亮与六便士</view>
             </view>
-            <view class='node size'>
+            <view class='node size flex-text'>
                 <image src='/images/icon-square-7-rank.png' ></image>
                 13
             </view>
@@ -20,7 +20,7 @@
                 <view class='nick' >jeff</view>
                 <view class='article' >月亮与六便士</view>
             </view>
-            <view class='node size'>
+            <view class='node size flex-text'>
                 <image src='/images/icon-square-7-rank.png' ></image>
                 13
             </view>
@@ -32,7 +32,7 @@
                 <view class='nick' >jeff3</view>
                 <view class='article' >月亮与六便士</view>
             </view>
-            <view class='node size'>
+            <view class='node size flex-text'>
                 <image src='/images/icon-square-7-rank.png' ></image>
                 13
             </view>
@@ -48,7 +48,7 @@
                     <view class='nick' >jeff</view>
                     <view class='article' >月亮与六便士</view>
                 </view>
-                <view class='node size'>
+                <view class='node size flex-text'>
                     <image src='/images/icon-square-7-on.png' ></image>
                     13
                 </view>

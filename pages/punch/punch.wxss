@@ -1,10 +1,4 @@
-.punch {
-    background-color: #f1f1ef;
-    display: flex; 
-    flex-flow: column; 
-    min-height: 100vh; 
-    overflow:auto;
-}
+.punch {}
 .top {
 
     background: #5298FF;
@@ -14,7 +8,7 @@
 .top .tab  {
     height: 86rpx;
     line-height: 86rpx;
-    border-bottom: 1rpx solid rgba(255, 255, 255, .2)
+    border-bottom: 1rpx solid rgba(255, 255, 255, .2);
 }
 
 .top .tab view {
@@ -35,7 +29,7 @@
     display: block;
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 4rpx;
     margin-left: -20rpx;
     width: 40rpx;
     height: 4rpx;
@@ -118,7 +112,7 @@
 .list  .li {
     height: 90rpx;
     line-height: 90rpx;
-    border-bottom: 1px solid #DFDFDF;
+    border-bottom: 1rpx solid #DFDFDF;
     font-size: 28rpx;
     color: #353535;
     letter-spacing: 0.4rpx;
@@ -135,7 +129,7 @@
     height: 50rpx;
     margin-top: 20rpx;
     border-radius: 100%;
-    border:1px solid #979797;
+    border:1rpx solid #979797;
     margin-right: 20rpx;
 }
 .list .day {

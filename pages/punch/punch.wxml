@@ -1,4 +1,4 @@
-<view class='punch'>
+<view class='my-page punch'>
     <view class='top'>
         <view class='tab'>
             <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">

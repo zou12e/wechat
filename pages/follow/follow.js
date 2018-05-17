@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      tab: 0,
   },
 
   /**
@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  toTab: function (event) {
+      this.setData({
+          tab: event.currentTarget.dataset.tab
+      })
+
   }
 })

@@ -1,4 +1,4 @@
-<view class="container">
+<view class="home">
     <view class="home-top">
         <text class="left"> 多云</text>
         <text> 22/28℃
@@ -31,7 +31,7 @@
             </view>
         </view>
         <view class='bottom'>
-            <view class='left'>
+            <view class='left flex-text'>
                 <image class='home5' src='/images/icon-home-5.png'></image>
                 <text>换一篇</text>
             </view>
@@ -40,7 +40,7 @@
                 <image class='home6' src='/images/icon-home-6.png'></image>
             </view>
 
-            <view class='right'>
+            <view class='right flex-text'>
                 <image class='home7' src='/images/icon-home-7.png'></image>
                 <text>分享</text>
             </view>
@@ -60,19 +60,19 @@
             2018-05-07
         </view>
 
-        <view class='pre-night' >
+        <view class='pre-night flex-text' >
             <image  src='/images/icon-home-9.png'></image>
              <text>18:00准时开讲</text>
         </view>
 
         <view class='bottom'>
-            <view class='left'>
+            <view class='left flex-text'>
                 <image class='home5' src='/images/icon-home-5-night.png'></image>
                 <text>换一篇</text>
             </view>
 
 
-            <view class='right'>
+            <view class='right flex-text'>
                 <image class='home7' src='/images/icon-home-7-night.png'></image>
                 <text>分享</text>
             </view>

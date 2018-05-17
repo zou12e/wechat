@@ -11,3 +11,112 @@ button::after{
     justify-content: center;
     align-items: center;
 }
+
+.my-page {
+    background-color: #f1f1ef;
+    display: flex; 
+    flex-flow: column; 
+    min-height: 100vh; 
+    overflow:auto;
+}
+
+
+
+.my-list .li {
+    background-color: #fff;
+    margin-bottom: 15rpx;
+    position: relative;
+}
+.my-list .li .top{
+    height: 80rpx;
+    font-size: 28rpx;
+    color: #888888;
+    letter-spacing: 0.4rpx;
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #DFDFDF;
+}
+.my-list .li .top .left {
+    float: left;
+    margin-top: 15rpx;
+}
+.my-list .li .top button {
+    width: 84rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    background: #fff;
+    padding: 0;
+    text-align: center;
+    float: right;
+    border: 1rpx solid #FFB307;
+    border-radius: 6rpx;
+    font-size: 24rpx;
+    color: #FFB307;
+    letter-spacing: 0.34rpx;
+    margin-top: 19rpx;
+}
+.my-list .li .head {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 20rpx;
+}
+.my-list .li .content {
+    border-bottom: 1rpx solid #DFDFDF;
+    height: 150rpx;
+    padding:  0 35rpx 0 101rpx;
+}
+.my-list .li .content .left{
+    float: left;
+    
+}
+.my-list .li  .recom{
+    position: absolute;
+    width: 82rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background-color: #000;
+    top: 90rpx;
+    font-size: 20rpx;
+    color: #FFB307;
+    letter-spacing: 0.29rpx;
+    text-align: center;
+}
+.my-list .li .content .title{
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0.4rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 30rpx;
+}
+.my-list .li .content .time{
+    font-size: 22rpx;
+    color: #888888;
+    letter-spacing: 0.31rpx;
+     height: 30rpx;
+    line-height: 30rpx;
+    margin-top: 16rpx;
+}
+.my-list .li .content image {
+    width: 86rpx;
+    height: 86rpx;
+    float: right;
+    margin-top: 32rpx;
+}
+
+.my-list .li .operation {
+    display: flex;
+    height: 90rpx;
+    
+}
+.my-list .li .operation >view {
+    flex: 1;
+    font-size: 20rpx;
+    color: #888888;
+    letter-spacing: 0.29rpx;
+    text-align: center;
+}
+.my-list .li .operation image {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}

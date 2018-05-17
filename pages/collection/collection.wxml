@@ -1,5 +1,5 @@
-<view class='collection'>
-    <view class='list'>
+<view class='my-page collection'>
+    <view class='my-list'>
         <block wx:for="{{data}}" wx:key="index">
             <view class='li'>
 
@@ -12,9 +12,6 @@
                         关注
                     </button>
                 </view>
-
-
-
                 <view class='content'>
 
                     <view class='left'>
