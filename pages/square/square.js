@@ -4,6 +4,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        tab:0,
         data: new Array(10)
     },
 
@@ -71,6 +72,12 @@ Page({
         wx.navigateTo({
             url: '/pages/thumb/thumb'
         })
+    },
+    toTab: function (event) {
+        this.setData({
+            tab: event.currentTarget.dataset.tab
+        })
+
     }
 
 })

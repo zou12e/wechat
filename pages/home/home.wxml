@@ -82,7 +82,7 @@
 
     </view>
 
-    <button class='home-button'>
+    <button bindtap="toUrl"  class='home-button'>
         <image src='/images/icon-home-8.png'></image>
         我要{{isMorning ? '读' : '讲' }}
     </button>

@@ -13,6 +13,15 @@
         </navigator>
     </view>
 
+    <view class='my-tab'>
+        <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">
+            全部动态
+        </view>
+        <view bindtap="toTab" data-tab='1' class="{{tab==1?'on':''}}">
+            我关注的
+        </view>
+    </view>
+
     <view class='my-list'>
         <block wx:for="{{data}}" wx:key="index" >
                 <view class='li'>

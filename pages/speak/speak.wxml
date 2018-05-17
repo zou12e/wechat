@@ -1,0 +1,34 @@
+<view class='my-page read' >
+
+    <view class='article' style='background-image:url("/images/icon-speak-1.png")' >
+        <view class='content flex-text' >
+        【即学即用的职场说话课】
+        </view>
+    </view>
+    <view class='my-record' >
+        <view class='tip' >
+            注：最长录制时间2分钟
+        </view>
+        <view class='time' >
+            <view class='ing hide'>
+                0:00
+            </view>
+            <view class='begin ' >
+                点击开始录音
+            </view>
+        </view>
+        <view class='operation' >
+            <view class='left flex-text hide' >
+                <image src='/images/icon-record-2.png' ></image>
+                重录
+            </view>
+            <view class='center' >
+                <image src='/images/icon-record-3-begin.png' ></image>
+            </view>
+            <view class='right flex-text hide' >
+                <image src='/images/icon-record-1.png' ></image>
+                保存
+            </view>
+        </view>
+    </view>
+</view>

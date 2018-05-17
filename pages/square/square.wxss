@@ -28,7 +28,9 @@
     height: 133rpx;
     margin-right: 60rpx;
 }
-
+.my-tab  {
+    margin-top: 30rpx;
+}
 .my-list {
     margin-top: 30rpx;
 }

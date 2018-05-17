@@ -1,0 +1,25 @@
+
+.article {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    flex: 1;
+    position: relative;
+}
+ 
+ 
+
+.article .content {
+    font-size: 34rpx;
+    color: #FFFFFF;
+    letter-spacing: 0.49rpx;
+    position: absolute;
+    left: 30rpx;
+    right: 30rpx;
+    text-align: center;
+    top: 50%;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-top: -25rpx;
+}
+ 

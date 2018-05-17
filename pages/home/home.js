@@ -96,6 +96,18 @@ Page({
         wx.setTabBarStyle({
             backgroundColor: '#fff',
         })
+    },
+    toUrl:function(){
+        
+        if (this.data.isMorning){
+            wx.navigateTo({
+                url: '/pages/read/read'
+            })
+        }else {
+            wx.navigateTo({
+                url: '/pages/speak/speak'
+            })
+        }
     }
 })
  

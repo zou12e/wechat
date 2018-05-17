@@ -1,0 +1,43 @@
+<view class='my-page read' >
+
+    <view class='article' style='background-image:url("/images/icon-read-1.png")' >
+        <view class='title' >
+                【月亮与六便士】
+        </view>
+        <view class='author' >
+                [英]威廉·萨默塞特·毛姆
+        </view>
+
+        <scroll-view class='content' scroll-y='true' >
+            世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。
+            世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。
+            世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。
+        </scroll-view>
+    </view>
+    <view class='my-record' >
+        <view class='tip' >
+            注：最长录制时间2分钟
+        </view>
+        <view class='time' >
+            <view class='ing '>
+                1:23
+            </view>
+            <view class='begin hide' >
+                点击开始录音
+            </view>
+        </view>
+        <view class='operation' >
+            <view class='left flex-text' >
+                <image src='/images/icon-record-2.png' ></image>
+                重录
+            </view>
+            <view class='center' >
+                <image src='/images/icon-record-3-play.png' ></image>
+            </view>
+            <view class='right flex-text' >
+                <image src='/images/icon-record-1.png' ></image>
+                保存
+            </view>
+        </view>
+    </view>
+</view>
