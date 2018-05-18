@@ -97,13 +97,22 @@
     font-size: 28rpx;
     color: #000000;
     letter-spacing: 0.4rpx;
-    justify-content: left;
+    
 }
 .mine  .my-audio .icon {
     width: 46rpx;
     height: 46rpx;
     margin:0 20rpx 0rpx 30rpx;
     float: left;
+}
+.mine  .my-audio .left {
+    float: left;
+}
+.mine  .my-audio .right {
+    width: 16rpx;
+    height: 38rpx;
+    margin:30rpx 30rpx 0rpx 30rpx;
+    float: right;
 }
 .mine  .calendar {
     border-top: 20rpx solid #f1f1ef;

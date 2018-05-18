@@ -26,9 +26,12 @@
     
     </view>
 
-    <navigator url='/pages/myaudio/myaudio' class='my-audio flex-text' >
-        <image class='icon' src='/images/icon-mine-2.png' ></image>
-        我的语音
+    <navigator url='/pages/myaudio/myaudio' class='my-audio ' >
+        <view class='left flex-text' >
+            <image class='icon' src='/images/icon-mine-2.png' ></image>
+            我的语音
+        </view>
+        <image class='right' src='/images/icon-mine-4.png' ></image>
     </navigator>
 
     <view class='calendar' >

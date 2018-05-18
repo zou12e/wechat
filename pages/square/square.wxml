@@ -78,12 +78,11 @@
 
                 </view>
         </block>
-        <view class='li'>
 
+        <view class='li'>
             <view class='recom' >
                 推荐
             </view>
-
             <view class='top'>
                 <view class='left flex-text' >
                     <image class='head' src='/images/head.jpg'></image>
@@ -93,11 +92,7 @@
                     关注
                 </button>
             </view>
-
-
-
             <view class='content'>
-
                 <view class='left' >
                         <view class='title' >
                             月亮与六便士
@@ -106,36 +101,26 @@
                             2018-05-07 12:00
                         </view>
                 </view>
-
                 <image src='/images/icon-square-3.png'>
                 </image>
             </view>
-
-
             <view class='operation flex-text' >
-
                 <view>
                     <image src='/images/icon-square-4.png' ></image>
                 </view>
-
                 <view>
-                    <image src='/images/icon-square-5.png' ></image>
+                    <image src='/images/icon-square-5-on.png' ></image>
                 </view>
-
                 <view class='flex-text' >
                     <image src='/images/icon-square-6.png' ></image>
                     10
                 </view>
-
                 <view class='flex-text' >
                     <image src='/images/icon-square-7-on.png' ></image>
                     320
                 </view>
-
             </view>
-
         </view>
-
+        
     </view>
-
 </view>
