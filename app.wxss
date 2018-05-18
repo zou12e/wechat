@@ -189,7 +189,7 @@ button::after{
     width: 190rpx;
     height: 55rpx;
     line-height: 55rpx;
-    background: rgba(0, 0, 0, .3);
+    background: #ddd;
     border-radius: 5rpx;
     padding: 0;
     font-size: 26rpx;
@@ -203,13 +203,13 @@ button::after{
     content: "";
     display: block;
     position: absolute;
-    bottom: -32rpx;
+    top: 55rpx;
     left: 50%;
     margin-left: -16rpx;
     border-left: 16rpx solid transparent;
     border-right: 16rpx solid transparent;
-    border-top: 16rpx solid rgba(0, 0, 0, .3);
-    border-bottom: 16rpx solid transparent;
+    border-top: 16rpx solid #ddd;
+    border-bottom: 0 solid transparent;
 }
 .my-record .operation {
     display: flex;
@@ -234,3 +234,39 @@ button::after{
     height: 150rpx;
 }
 /*----record----*/
+
+
+/*----article----*/
+
+.my-article .title{
+    font-size: 34rpx;
+    color: #000000;
+    letter-spacing: 0.49rpx;
+    text-align: center;
+    line-height: 48rpx;
+    margin-top: 38rpx;
+}
+.my-article .author {
+    font-size: 26rpx;
+    color: #888;
+    letter-spacing: 0.37rpx;
+    text-align: center;
+    line-height:38rpx;
+    margin-top: 18rpx;
+}
+
+.my-article .content {
+    position: absolute;
+    top: 170rpx;
+    left: 0rpx;
+    right: 0rpx;
+    padding: 0 50rpx;
+    bottom: 60rpx;
+    font-size: 26rpx;
+    color: #353535;
+    letter-spacing: 0.37rpx;
+    box-sizing: border-box;
+    text-indent: 55rpx;
+
+}
+ /*----record----*/

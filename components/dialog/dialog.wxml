@@ -1,0 +1,14 @@
+<view class='dialog' hidden="{{!isShow}}"  >
+
+    <view class='show'  hidden="{{!isShow}}" >
+        <image bindtap="togglerShow" class='close' src='/images/icon-dialog-1.png' ></image>
+        <view class='my-article' >
+            <view class='title' >{{showData.title}}</view>
+            <view class='author' >{{showData.author}}</view>
+            <scroll-view class='content' scroll-y='true' >
+                {{showData.content}}
+            </scroll-view>
+         </view>
+    </view>
+
+</view>

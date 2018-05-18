@@ -4,7 +4,6 @@
         "pages/home/home",
         "pages/speak/speak",
         "pages/read/read",
-        
         "pages/others/others",
         "pages/myaudio/myaudio",
         "pages/mine/mine",
@@ -14,7 +13,6 @@
         "pages/thumb/thumb",
         "pages/collection/collection",
         "pages/comment/comment"
-        
         
     ],
     "window": {

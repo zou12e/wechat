@@ -17,7 +17,7 @@
     <view class="home-panel {{isMorning ? '' : 'hide' }}">
         <view class='title'>
             <text>【月亮与六便士】</text>
-            <image src='/images/icon-home-3.png'></image>
+            <image bindtap="showContent" src='/images/icon-home-3.png'></image>
         </view>
         <view class='date'>
             <text>2018-05-05</text>
@@ -86,5 +86,10 @@
         <image src='/images/icon-home-8.png'></image>
         我要{{isMorning ? '读' : '讲' }}
     </button>
-
+    
 </view>
+
+<dialog id='dialog' 
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+</dialog>

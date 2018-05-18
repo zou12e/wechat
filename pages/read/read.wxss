@@ -1,40 +1,7 @@
-
-
-.article {
+.my-article {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-color: #fff;
     flex: 1;
     position: relative;
 }
-.article .title{
-    font-size: 34rpx;
-    color: #000000;
-    letter-spacing: 0.49rpx;
-    text-align: center;
-    line-height: 48rpx;
-    margin-top: 38rpx;
-}
-.article .author {
-    font-size: 26rpx;
-    color: #888;
-    letter-spacing: 0.37rpx;
-    text-align: center;
-    line-height:38rpx;
-    margin-top: 18rpx;
-}
-
-.article .content {
-    position: absolute;
-    top: 170rpx;
-    left: 0rpx;
-    right: 0rpx;
-    padding: 0 50rpx;
-    bottom: 60rpx;
-    font-size: 26rpx;
-    color: #353535;
-    letter-spacing: 0.37rpx;
-    box-sizing: border-box;
-    text-indent: 55rpx;
-}
- 

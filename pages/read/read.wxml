@@ -1,6 +1,6 @@
 <view class='my-page read' >
 
-    <view class='article' style='background-image:url("/images/icon-read-1.png")' >
+    <view class='my-article' style='background-image:url("/images/icon-read-1.png")' >
         <view class='title' >
                 【月亮与六便士】
         </view>
