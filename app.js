@@ -15,5 +15,11 @@ App({
   },
   host: function () {
     return "abc"
+  },
+  retain : function (num) {
+      num = "0" + parseInt(num);
+      return num.length > 2 ? num.substring(1) : num;
   }
+
+
 })

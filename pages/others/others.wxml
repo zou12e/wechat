@@ -39,20 +39,20 @@
 
                 <view class='operation flex-text'>
 
-                    <view>
+                    <view class='view flex-text' >
                         <image src='/images/icon-square-4.png'></image>
                     </view>
 
-                    <view>
+                    <view class='view flex-text' >
                         <image src='/images/icon-square-5.png'></image>
                     </view>
 
-                    <view class='flex-text'>
+                    <navigator url='/pages/audio/audio?id=1&comment=1' class='view flex-text'>
                         <image src='/images/icon-square-6.png'></image>
                         0
-                    </view>
+                    </navigator>
 
-                    <view class='flex-text'>
+                    <view class='view flex-text'>
                         <image src='/images/icon-square-7.png'></image>
                         0
                     </view>

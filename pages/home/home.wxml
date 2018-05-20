@@ -16,28 +16,28 @@
     </view>
     <view class="home-panel {{isMorning ? '' : 'hide' }}">
         <view class='title'>
-            <text>【月亮与六便士】</text>
+            <text>{{playInfo.title}}</text>
             <image bindtap="showContent" src='/images/icon-home-3.png'></image>
         </view>
         <view class='date'>
             <text>2018-05-05</text>
         </view>
         <view class='slider'>
-            <slider min="0" max="2000" isCustom="true" blockSrc='/images/icon-home-4.png' blockImageWidth="52rpx" blockImageHeight="62rpx" data-property-name="duration" activeColor="#FFB307" backgroundColor="#F5F5F5">
+            <slider min="0" max="{{playInfo.time}}" value='{{playInfo.current}}' bindchange='changeTime' activeColor="#FFB307" backgroundColor="#F5F5F5">
             </slider>
             <view class='time'>
-                <text>00:00</text>
-                <text class='right'>03:27</text>
+                <stom id='startime'></stom>
+                <stom id='endtime' class='right'></stom>
             </view>
         </view>
         <view class='bottom'>
-            <view class='left flex-text'>
+            <view  bindtap="changeAudio" class='left flex-text'>
                 <image class='home5' src='/images/icon-home-5.png'></image>
                 <text>换一篇</text>
             </view>
 
             <view class='center'>
-                <image class='home6' src='/images/icon-home-6.png'></image>
+                <image  bindtap="play" class='home6' src='/images/icon-home-6{{isPlay?"-on":""}}.png'></image>
             </view>
 
             <view class='right flex-text'>

@@ -1,6 +1,6 @@
 <view class='audio'>
-    <view class='top' style='background-image:url("/images/banner.png")'>
-
+    <view class='top' >
+        <image class='bg'  src="/images/banner.png" ></image>
         <view class='author'>
             <view class='left flex-text'>
                 <image src='/images/head.jpg'></image>
@@ -14,7 +14,7 @@
     <view class='info'>
         <view class='title'>
             <view class='left'>
-                【月亮与六便士】
+                {{playInfo.title}}
             </view>
             <image bindtap="showContent" src='/images/icon-home-3.png'></image>
         </view>
@@ -23,14 +23,14 @@
         </view>
 
         <view class='player'>
-            <image class='button' src='/images/icon-home-6.png'></image>
+            <image bindtap="play" class='button' src='/images/icon-home-6{{isPlay?"-on":""}}.png'></image>
 
             <view class='slider'>
-                <slider min="0" max="2000" isCustom="true" blockSrc='/images/icon-home-4.png' blockImageWidth="52rpx" blockImageHeight="62rpx" data-property-name="duration" activeColor="#FFB307" backgroundColor="#F5F5F5">
+                <slider min="0" max="{{playInfo.time}}" value='{{playInfo.current}}' bindchange='changeTime' activeColor="#FFB307" backgroundColor="#F5F5F5">
                 </slider>
                 <view class='time'>
-                    <text>00:00</text>
-                    <text class='right'>03:27</text>
+                    <stom id='startime'></stom>
+                    <stom id='endtime' class='right'></stom>
                 </view>
             </view>
         </view>

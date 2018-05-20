@@ -1,7 +1,29 @@
 .my-article {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
     background-color: #fff;
     flex: 1;
     position: relative;
+}
+.my-article .bg{ 
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 85%;
+    z-index: 0;
+}
+
+.my-article .title{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 38rpx;
+    margin-top: 0;
+    z-index: 1;
+}
+.my-article .author {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 104rpx;
+    margin-top: 0;
+    z-index: 1;
 }

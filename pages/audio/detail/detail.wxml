@@ -11,6 +11,9 @@
                         很好，说的很好，受益匪浅，希望自己也能像你一样能一
                     </view>
                 </view>
+                <view class='bottom'>
+                    <image data-name='萌猴奖'  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
+                </view>
                 <view   class='reply'>
                     <view class='t'>
                         <image class='head' src='/images/head.jpg' ></image>
@@ -32,9 +35,7 @@
                         </view>
                     </view>
                 </view>
-                <view class='bottom'>
-                    <image data-name='萌猴奖'  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
-                </view>
+                
        
         </view>
 

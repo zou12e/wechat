@@ -85,7 +85,6 @@
 .data .bottom image{
     width: 30rpx;
     height: 24rpx;
-    margin-right: 20rpx;
 }
 
  

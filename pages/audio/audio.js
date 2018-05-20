@@ -4,8 +4,11 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {
+     data: {
+        isPlay: false,
+        playInfo: {
 
+        }
     },
 
     /**
@@ -17,6 +20,36 @@ Page({
             this.showComment();
         }
         
+
+        const playInfo = {
+            title: "【月亮与六便士】",
+            src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
+            time: 401,
+            current: 0
+        };
+        this.setData({
+            playInfo: playInfo
+        });
+        this.dialog = this.selectComponent("#dialog");
+        this.start = this.selectComponent("#startime");
+        this.end = this.selectComponent("#endtime");
+
+        this.start.stom(0);
+        this.end.stom(playInfo.time);
+
+        this.innerAudioContext = wx.createInnerAudioContext();
+        this.innerAudioContext.src = playInfo.src;
+        this.innerAudioContext.onPlay(() => {
+            console.log('开始播放')
+        })
+        this.innerAudioContext.onTimeUpdate(() => {
+            var playInfo = this.data.playInfo;
+            playInfo.current = this.innerAudioContext.currentTime
+            this.setData({
+                playInfo: playInfo
+            });
+            this.start.stom(playInfo.current);
+        })
     },
 
     /**
@@ -37,7 +70,7 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+        this.stop();
     },
 
     /**
@@ -91,5 +124,39 @@ Page({
     _confirmMsgEvent: function () {
         console.log(this.dialog.data);
         this.dialog.togglerMsg();
+    },
+    play: function () {
+
+        this.setData({
+            isPlay: !this.data.isPlay
+        })
+
+        if (this.data.isPlay) {
+            this.innerAudioContext.play();
+        } else {
+            this.innerAudioContext.pause();
+        }
+
+    },
+    stop: function () {
+        this.setData({
+            isPlay: false
+        })
+
+        this.innerAudioContext.pause();
+
     }
+    ,
+    changeTime: function (event) {
+
+        var playInfo = this.data.playInfo;
+        playInfo.current = (event && event.detail.value) || 0;
+        this.setData({
+            playInfo: playInfo
+        });
+        this.start.stom(playInfo.current);
+        this.innerAudioContext.seek(playInfo.current);
+    },
+
+
 })

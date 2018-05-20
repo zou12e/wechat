@@ -17,7 +17,7 @@
                         <view class='num' >111</view>
                         <view class='explain' >收藏</view>
                     </navigator>
-                    <navigator  url='/pages/mine/comment/comment'  class='r' >
+                    <navigator  url='/pages/audio/detail/detail'  class='r' >
                         <view class='num' >2</view>
                         <view class='explain' >评论</view>
                     </navigator>

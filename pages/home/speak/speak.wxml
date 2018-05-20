@@ -1,6 +1,7 @@
-<view class='my-page read' >
+<view class='my-page speak' >
 
-    <view class='article' style='background-image:url("/images/icon-speak-1.png")' >
+    <view class='article'  >
+        <image class='bg' src='/images/icon-speak-1.png'  ></image>
         <view class='content flex-text' >
         【即学即用的职场说话课】
         </view>
@@ -10,22 +11,20 @@
             注：最长录制时间2分钟
         </view>
         <view class='time' >
-            <view class='ing hide'>
-                0:00
-            </view>
-            <view class='begin ' >
+            <stom id='time' class='ing {{type==0?"hide":""}}'></stom>
+            <view class='begin {{type!=0?"hide":""}}' >
                 点击开始录音
             </view>
         </view>
         <view class='operation' >
-            <view class='left flex-text hide' >
+            <view bindtap="rego" class='left flex-text  {{type<2?"hide":""}}' >
                 <image src='/images/icon-record-2.png' ></image>
                 重录
             </view>
             <view class='center' >
-                <image src='/images/icon-record-3-begin.png' ></image>
+                <image bindtap="go" src='/images/icon-record-3-{{classer[type]}}.png' ></image>
             </view>
-            <view class='right flex-text hide' >
+            <view bindtap="savego"  class='right flex-text  {{type<2?"hide":""}}' >
                 <image src='/images/icon-record-1.png' ></image>
                 保存
             </view>

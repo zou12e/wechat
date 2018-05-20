@@ -255,6 +255,7 @@ button::after{
     text-align: center;
     line-height: 48rpx;
     margin-top: 38rpx;
+    z-index: 1;
 }
 .my-article .author {
     font-size: 26rpx;
@@ -263,6 +264,7 @@ button::after{
     text-align: center;
     line-height:38rpx;
     margin-top: 18rpx;
+    z-index: 1;
 }
 
 .my-article .content {
@@ -277,6 +279,7 @@ button::after{
     letter-spacing: 0.37rpx;
     box-sizing: border-box;
     text-indent: 55rpx;
+    z-index: 2
 
 }
  /*----record----*/

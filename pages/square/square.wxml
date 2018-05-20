@@ -15,19 +15,19 @@
 
     <view class='my-tab'>
         <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">
-            全部动态
+            早读
         </view>
         <view bindtap="toTab" data-tab='1' class="{{tab==1?'on':''}}">
-            我关注的
+            晚讲
         </view>
     </view>
 
     <view class='my-list'>
-        <block wx:for="{{data}}" wx:key="index" >
+        <block wx:for="{{data}}" wx:for-index="idx" wx:key="item" >
                 
                 <view class='li'>
                     <view class='recom' >
-                        推荐
+                        推荐 
                     </view>
                     <view class='top'>
                         <view class='left flex-text' >
@@ -52,7 +52,7 @@
                                 </view>
                         </view>
 
-                        <image src='/images/icon-square-3.png'>
+                        <image bindtap="play" data-index='{{idx}}'  src='/images/icon-square-3{{item.isPlay?"-on":""}}.png'>
                         </image>
                     </view>
 
