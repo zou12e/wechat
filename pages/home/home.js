@@ -104,11 +104,11 @@ Page({
         
         if (this.data.isMorning){
             wx.navigateTo({
-                url: '/pages/read/read'
+                url: '/pages/home/read/read'
             })
         }else {
             wx.navigateTo({
-                url: '/pages/speak/speak'
+                url: '/pages/home/speak/speak'
             })
         }
     },

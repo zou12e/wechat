@@ -2,12 +2,12 @@
 
     <view class='raking'>
 
-        <navigator  url='/pages/punch/punch'  class='left flex-text'>
+        <navigator  url='/pages/square/punch/punch'  class='left flex-text'>
             <image src='/images/icon-square-1.png'></image>
                 打卡榜
         </navigator>
 
-        <navigator  url='/pages/thumb/thumb'  class='right flex-text'>
+        <navigator  url='/pages/square/thumb/thumb'  class='right flex-text'>
             <image src='/images/icon-square-2.png'></image>
                 点赞榜
         </navigator>

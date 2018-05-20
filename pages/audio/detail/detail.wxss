@@ -1,0 +1,91 @@
+
+.data {
+    position: relative;
+    background: #fff;
+    
+}
+.data .head {
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    left: 35rpx;
+    top: 20rpx;
+}
+.data .content {
+    margin: 0 35rpx 0 120rpx;
+    
+}
+.data .content .top{
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    height: 33rpx;
+    line-height: 33rpx;
+    padding-top: 20rpx;
+}
+.data .content .top .r {
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+
+}
+.data .content .msg {
+    text-align: left;
+    font-size: 24rpx;
+    color: #353535;
+    letter-spacing: 0.34rpx;
+    margin-top: 7rpx;
+}
+
+.data .reply {
+    background: #F0F3F7;
+    margin: 0 35rpx 0 120rpx;
+}
+.data .reply {
+    font-size: 22rpx;
+    color: #353535;
+    letter-spacing: 0.31rpx;
+    padding: 15rpx 20rpx;
+    margin-top: 15rpx;
+}
+.data .reply .t{
+    padding: 5rpx 0 15rpx 60rpx;
+    position: relative;
+}
+.data .reply .t .head{
+    width: 45rpx;
+    height: 45rpx;
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.data .reply .time {
+    font-size: 20rpx;
+    color: #888888;
+    letter-spacing: 0.29rpx;
+    text-align: right;
+    line-height: 50rpx;
+    height: 50rpx;
+
+
+    justify-content: flex-end;
+}
+.data .reply .time image {
+    width: 30rpx;
+    height: 24rpx;
+    margin-left: 20rpx;
+}
+.data .bottom {
+    margin: 0 35rpx 0 120rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+    text-align: right;
+}
+.data .bottom image{
+    width: 30rpx;
+    height: 24rpx;
+    margin-right: 20rpx;
+}
+
+ 

@@ -9,15 +9,15 @@
             <view class='nick' >萌猴酱</view>
 
             <view class='info' >
-                    <navigator url='/pages/follow/follow' class='l new' >
+                    <navigator url='/pages/mine/follow/follow' class='l new' >
                         <view class='num' >2</view>
                         <view class='explain' >关注</view>
                     </navigator>
-                    <navigator  url='/pages/collection/collection'  class='c' >
+                    <navigator  url='/pages/mine/collection/collection'  class='c' >
                         <view class='num' >111</view>
                         <view class='explain' >收藏</view>
                     </navigator>
-                    <navigator  url='/pages/comment/comment'  class='r' >
+                    <navigator  url='/pages/mine/comment/comment'  class='r' >
                         <view class='num' >2</view>
                         <view class='explain' >评论</view>
                     </navigator>
@@ -26,7 +26,7 @@
     
     </view>
 
-    <navigator url='/pages/myaudio/myaudio' class='my-audio ' >
+    <navigator url='/pages/mine/audio/audio' class='my-audio ' >
         <view class='left flex-text' >
             <image class='icon' src='/images/icon-mine-2.png' ></image>
             我的语音

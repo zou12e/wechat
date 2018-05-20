@@ -60,16 +60,16 @@
                         很好，说的很好，受益匪浅，希望自己也能像你一样能一
                     </view>
                 </view>
-                <view class='reply'>
+                <navigator  url='/pages/audio/detail/detail' class='reply'>
                     <view class='t1'>
                         天天爱读书：加油，你也可以的，你是最棒的，我们很看好你的
                     </view>
                     <view class='t2'>
                         共2条回复 >
                     </view>
-                </view>
+                </navigator>
                 <view class='bottom'>
-                    <image  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
+                    <image data-name='萌猴奖'  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
                 </view>
             </view>
             <view class='li'>
@@ -85,7 +85,7 @@
                 </view>
                
                 <view class='bottom'>
-                    <image bindtap="showReply" src='/images/icon-square-6-reply.png' ></image>
+                    <image data-name='mayi1298' bindtap="showReply" src='/images/icon-square-6-reply.png' ></image>
                 </view>
             </view>
         </view>
@@ -103,7 +103,7 @@
     </view>
 
     <view >
-        <image bindtap="showComment" src='/images/icon-square-6.png' ></image>
+        <image  bindtap="showComment" src='/images/icon-square-6.png' ></image>
     </view>
 
     <view class='hide' >

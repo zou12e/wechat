@@ -1,20 +1,21 @@
 {
     "pages": [
+
         
         "pages/home/home",
-        "pages/audio/audio",
-        
-        "pages/speak/speak",
-        "pages/read/read",
-        "pages/others/others",
-        "pages/myaudio/myaudio",
-        "pages/mine/mine",
-        "pages/follow/follow",
-        "pages/punch/punch",
+        "pages/audio/detail/detail",
         "pages/square/square",
-        "pages/thumb/thumb",
-        "pages/collection/collection",
-        "pages/comment/comment"
+        "pages/mine/mine",
+        "pages/audio/audio",
+        "pages/others/others",
+        "pages/home/speak/speak",
+        "pages/home/read/read",
+        "pages/square/punch/punch",
+        "pages/square/thumb/thumb",
+        "pages/mine/follow/follow",
+        "pages/mine/audio/audio",
+        "pages/mine/collection/collection",
+        "pages/mine/comment/comment"
         
     ],
     "window": {

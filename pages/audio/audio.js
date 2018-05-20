@@ -75,16 +75,16 @@ Page({
             content: "世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。"
         });
     },
-    showReply: function () {
+    showReply: function (event) {
         this.dialog.togglerMsg({
-            placeholder: "回复",
+            placeholder: "回复" + event.currentTarget.dataset.name,
             value:""
         });
     }
     ,
-    showComment: function () {
+    showComment: function (event) {
         this.dialog.togglerMsg({
-            placeholder:"评论",
+            placeholder: "评论" ,
             value: ""
         });
     },
