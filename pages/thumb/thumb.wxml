@@ -1,59 +1,59 @@
 <view class='my-page thumb'>
 
-    <view class='top' >
-        <view class='li' >
+    <view class='top'>
+        <navigator url='/pages/audio/audio' class='li'>
             <image class='node rank' src='/images/icon-ranking-sm-1.png'></image>
             <image class='node head' src='/images/head.jpg'></image>
             <view class='node name'>
-                <view class='nick' >jeff</view>
-                <view class='article' >月亮与六便士</view>
+                <view class='nick'>jeff</view>
+                <view class='article'>月亮与六便士</view>
             </view>
             <view class='node size flex-text'>
-                <image src='/images/icon-square-7-rank.png' ></image>
+                <image src='/images/icon-square-7-rank.png'></image>
                 13
             </view>
-        </view>
-         <view class='li' >
+        </navigator>
+        <navigator url='/pages/audio/audio' class='li'>
             <image class='node rank' src='/images/icon-ranking-sm-2.png'></image>
             <image class='node head' src='/images/head.jpg'></image>
             <view class='node name'>
-                <view class='nick' >jeff</view>
-                <view class='article' >月亮与六便士</view>
+                <view class='nick'>jeff</view>
+                <view class='article'>月亮与六便士</view>
             </view>
             <view class='node size flex-text'>
-                <image src='/images/icon-square-7-rank.png' ></image>
+                <image src='/images/icon-square-7-rank.png'></image>
                 13
             </view>
-        </view>
-         <view class='li' >
+        </navigator>
+        <navigator url='/pages/audio/audio' class='li'>
             <image class='node rank' src='/images/icon-ranking-sm-3.png'></image>
             <image class='node head' src='/images/head.jpg'></image>
             <view class='node name'>
-                <view class='nick' >jeff3</view>
-                <view class='article' >月亮与六便士</view>
+                <view class='nick'>jeff3</view>
+                <view class='article'>月亮与六便士</view>
             </view>
             <view class='node size flex-text'>
-                <image src='/images/icon-square-7-rank.png' ></image>
+                <image src='/images/icon-square-7-rank.png'></image>
                 13
             </view>
-        </view>
+        </navigator>
     </view>
 
     <scroll-view class='list' scroll-y='true'>
         <block wx:for="{{ranking}}" wx:key="index">
-            <view class='li'>
+            <navigator url='/pages/audio/audio' class='li'>
                 <view class='node num'>{{4 +index }}</view>
                 <image class='node head' src='/images/head.jpg'></image>
                 <view class='node name'>
-                    <view class='nick' >jeff</view>
-                    <view class='article' >月亮与六便士</view>
+                    <view class='nick'>jeff</view>
+                    <view class='article'>月亮与六便士</view>
                 </view>
                 <view class='node size flex-text'>
-                    <image src='/images/icon-square-7-on.png' ></image>
+                    <image src='/images/icon-square-7-on.png'></image>
                     13
                 </view>
-            </view>
-           
+            </navigator>
+
         </block>
     </scroll-view>
 </view>

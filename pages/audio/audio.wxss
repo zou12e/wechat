@@ -1,0 +1,223 @@
+.audio {
+    padding-bottom: 100rpx;
+    box-sizing: border-box;
+}
+.audio .top {
+    height: 350rpx;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.audio .author {
+    height: 90rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0.4rpx;
+    padding:  20rpx 30rpx 0;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .4);
+}
+.audio .author image{ 
+    width: 50rpx;
+    height: 50rpx;
+    margin: 0 20rpx 0 0rpx;
+}
+.audio .author .left {
+    float: left;
+}
+.audio .author button{ 
+    background-color: transparent;
+    float: right;
+    margin-top: 4rpx;
+}
+
+.audio .info {
+    height: 380rpx;
+    padding: 35rpx 30rpx;
+    background: #fff;
+    box-sizing: border-box;
+}
+.audio .info .title {
+    line-height: 48rpx;
+    height: 48rpx;
+}
+.audio .info .title .left{
+    float: left;
+    font-size: 34rpx;
+    color: #353535;
+    letter-spacing: 0.49rpx;
+}
+.audio .info .title image{
+    float: right;
+    width: 44rpx;
+    height: 47rpx;
+}
+.audio .info .time {
+    font-size: 26rpx;
+    color: #888888;
+    letter-spacing: 0.37rpx;
+    line-height: 37rpx;
+    margin-top: 20rpx;
+}
+
+.player {
+    position: relative;
+    overflow: hidden;
+}
+.player .button{
+    position: absolute;
+    width: 90rpx;
+    height: 90rpx;
+    left: 50rpx;
+    top: 60rpx;
+}
+.player .slider {
+    margin:85rpx 0 0 200rpx;
+}
+
+.player .slider text {
+    padding: 0 40rpx;
+    font-size: 22rpx;
+    color: #888;
+    letter-spacing: 0.31rpx;
+    text-align: left;
+    line-height: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+}
+
+.player  .slider .right {
+    float: right;
+}
+
+
+.audio .comment {
+    border-top: 20rpx solid #f1f1ef;
+    background: #fff;
+    min-height: 350rpx;
+}
+.audio .comment .title{
+    line-height: 90rpx;
+    height: 90rpx;
+    font-size: 28rpx;
+    color: #888888;
+    letter-spacing: 0.4rpx;
+    padding:  0 30rpx;
+    border-bottom: 1rpx solid #CFCFCF;
+    overflow: hidden;
+}
+
+
+.audio .comment .no-data {
+    padding-top: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #B2B2B2;
+    letter-spacing: 0.4rpx;
+}
+
+.audio .comment .data .li{
+    position: relative;
+
+    
+}
+.audio .comment .data .head {
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    left: 35rpx;
+    top: 20rpx;
+}
+.audio .comment .data .content {
+    margin: 0 35rpx 0 120rpx;
+    
+}
+.comment .data .content .top{
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    height: 33rpx;
+    line-height: 33rpx;
+    padding-top: 20rpx;
+}
+.comment .data .content .top .r {
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+
+}
+.comment .data .content .msg {
+    text-align: left;
+    font-size: 24rpx;
+    color: #353535;
+    letter-spacing: 0.34rpx;
+    margin-top: 7rpx;
+}
+
+.comment .data .reply {
+    background: #F0F3F7;
+    margin: 0 35rpx 0 120rpx;
+}
+.comment .data .reply {
+    font-size: 22rpx;
+    color: #353535;
+    letter-spacing: 0.31rpx;
+    padding: 15rpx 20rpx;
+    margin-top: 15rpx;
+}
+.comment .data .reply .t1{
+    height: 30rpx;
+    line-height: 30rpx;
+    overflow: hidden;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+.comment .data .reply .t2 {
+    color: #3273BC;
+    margin-top: 10rpx;
+}
+
+.comment .data .bottom {
+    margin: 0 35rpx 0 120rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+    text-align: right;
+    border-bottom: 1px solid #CFCFCF;
+}
+.comment .data .bottom image{
+    width: 30rpx;
+    height: 24rpx;
+}
+
+.comment .data .li:last-child .bottom{
+    border-bottom: none;
+}
+
+
+.audio-operation {
+    display: flex;
+    height: 90rpx;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    box-shadow: 0 10rpx 24rpx 0 #BBBBBB;
+    
+}
+.audio-operation >view {
+    flex: 1;
+    font-size: 20rpx;
+    color: #888888;
+    letter-spacing: 0.29rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.audio-operation image {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}

@@ -1,7 +1,9 @@
 {
     "pages": [
-
+        
         "pages/home/home",
+        "pages/audio/audio",
+        
         "pages/speak/speak",
         "pages/read/read",
         "pages/others/others",

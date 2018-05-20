@@ -10,24 +10,24 @@
         </view>
 
         <view class='ranking'>
-            <view>
+            <navigator hover-class='navigator-hover' url='/pages/others/others?id=1'>
                 <image class='ranking2' src='/images/icon-punch-2.png'></image>
                 <image class='head' src='/images/head.jpg'></image>
                 <view class='name' >张小丫</view>
                 <view class='day' >132天</view>
-            </view>
-            <view>
+            </navigator>
+            <navigator hover-class='navigator-hover' url='/pages/others/others?id=1'>
                 <image class='ranking1' src='/images/icon-punch-1.png'></image>
                 <image class='head head1' src='/images/head.jpg'></image>
                 <view class='name'  >Jeff</view>
                 <view class='day' >232天</view>
-            </view>
-            <view>
+            </navigator>
+            <navigator hover-class='navigator-hover' url='/pages/others/others?id=1'>
                 <image class='ranking3' src='/images/icon-punch-3.png'></image>
                 <image class='head' src='/images/head.jpg'></image>
                 <view class='name' >Cathy</view>
                 <view class='day' >32天</view>
-            </view>
+            </navigator>
         </view>
 
         <image class='bottom-bg' src='/images/icon-ranking-4.png'></image>
@@ -35,12 +35,12 @@
 
     <scroll-view class='list' scroll-y='true' >
         <block wx:for="{{ranking}}" wx:key="index" >
-                <view class='li' >
+                <navigator url='/pages/others/others?id=1' class='li' >
                     <view class='node num' >{{4 +index }}</view>
                     <image class='node head' src='/images/head.jpg'></image>
                     <view class='node name'>Jeff1</view>
                     <view class='node day' >13天</view>
-                </view>
+                </navigator>
         </block>
 
            <view class='li' >

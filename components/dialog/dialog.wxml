@@ -10,5 +10,21 @@
             </scroll-view>
          </view>
     </view>
+</view>
+
+<view class='dialog' hidden="{{!isMsg}}"  >
+    
+    <view class='msg'  hidden="{{!isMsg}}" >
+        <image bindtap="togglerMsg" class='close' src='/images/icon-dialog-1.png' ></image>
+        <view class='box' >
+            <textarea placeholder='{{msgData.placeholder}}'  name='msg' 
+                bindinput="bindMsg" value='{{msgData.value}}'
+            >
+            </textarea>
+        </view>
+        <view class='bottom' >
+            <button catchtap='_confirmMsgEvent' >确定</button>
+        </view>
+    </view>
 
 </view>

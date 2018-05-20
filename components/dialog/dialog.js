@@ -15,10 +15,15 @@ Component({
      */
     data: {
         isShow: false,
+        isMsg: false,
         showData: {
             title: "",
             author: "",
             content: ""
+        },
+        msgData: {
+            placeholder: "",
+            value:"",
         }
     },
     /**
@@ -31,6 +36,25 @@ Component({
                 isShow: !this.data.isShow,
                 showData: cfg
             });
+        },
+        togglerMsg: function (cfg) {
+            cfg = cfg || this.data.msgData,
+                this.setData({
+                    isMsg: !this.data.isMsg,
+                    msgData: cfg
+                });
+        },
+        bindMsg:function(e){
+            var msgData = this.data.msgData;
+            msgData.value = e.detail.value;
+            this.setData({
+                msgData: msgData
+            })
+
+        },
+        _confirmMsgEvent() {
+
+            this.triggerEvent("confirmMsgEvent")
         }
     }
 })

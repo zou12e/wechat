@@ -6,16 +6,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
-
-}   
+}
 
 .dialog .show {
-
     width: 90%;
     height: 80%;
     background-color: #fff;
@@ -23,7 +21,7 @@
     position: relative;
 }
 
-.dialog .show .close {
+.dialog  .close {
     width: 37rpx;
     height: 37rpx;
     position: absolute;
@@ -31,3 +29,46 @@
     top: 40rpx;
 }
 
+.dialog .msg {
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 500rpx;
+}
+
+.dialog .msg .box {
+    margin: 100rpx 30rpx 0;
+}
+
+.dialog .msg textarea {
+    background: #f8f8f8;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    color: #888;
+    letter-spacing: 0.31rpx;
+    box-sizing: border-box;
+    height: 240rpx;
+    padding: 20rpx;
+    width: 100%;
+    line-height: 30rpx;
+}
+
+.dialog .msg .bottom {
+    text-align: right;
+    margin: 20rpx 30rpx 0;
+}
+
+.dialog .msg .bottom button {
+    
+    color: #FFB307;
+    height: 60rpx;
+    line-height: 60rpx;
+    display: inline-block;
+    border: 1rpx solid #FFB307;
+    border-radius: 6rpx;
+    background: transparent;
+    padding: 0 40rpx;
+    font-size: 26rpx;
+}

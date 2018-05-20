@@ -24,9 +24,9 @@
                 <view class='content'>
 
                     <view class='left'>
-                        <view class='title'>
+                        <navigator url='/pages/audio/audio' class='title'>
                             月亮与六便士
-                        </view>
+                        </navigator>
                         <view class='time'>
                             2018-05-07 12:00
                         </view>

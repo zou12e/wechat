@@ -1,0 +1,117 @@
+<view class='audio'>
+    <view class='top' style='background-image:url("/images/banner.png")'>
+
+        <view class='author'>
+            <view class='left flex-text'>
+                <image src='/images/head.jpg'></image>
+                天天爱读书
+            </view>
+            <button class='follow-button'>
+                关注
+            </button>
+        </view>
+    </view>
+    <view class='info'>
+        <view class='title'>
+            <view class='left'>
+                【月亮与六便士】
+            </view>
+            <image bindtap="showContent" src='/images/icon-home-3.png'></image>
+        </view>
+        <view class='time'>
+            2018-05-10
+        </view>
+
+        <view class='player'>
+            <image class='button' src='/images/icon-home-6.png'></image>
+
+            <view class='slider'>
+                <slider min="0" max="2000" isCustom="true" blockSrc='/images/icon-home-4.png' blockImageWidth="52rpx" blockImageHeight="62rpx" data-property-name="duration" activeColor="#FFB307" backgroundColor="#F5F5F5">
+                </slider>
+                <view class='time'>
+                    <text>00:00</text>
+                    <text class='right'>03:27</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='comment'>
+        <view class='title'>
+            <view class='my-left'>
+                评论（0）
+            </view>
+            <view class='my-right'>
+                赞 2
+            </view>
+        </view>
+        <view class='no-data hide'>
+            暂无评论
+        </view>
+        <view class='data'>
+            <view class='li'>
+                <image class='head' src='/images/head.jpg'></image>
+                <view class='content'>
+                    <view class='top'>
+                        <view class='l'>萌猴奖</view>
+                        <view class='r'>2018-05-18 12:00</view>
+                    </view>
+                    <view class='msg'>
+                        很好，说的很好，受益匪浅，希望自己也能像你一样能一
+                    </view>
+                </view>
+                <view class='reply'>
+                    <view class='t1'>
+                        天天爱读书：加油，你也可以的，你是最棒的，我们很看好你的
+                    </view>
+                    <view class='t2'>
+                        共2条回复 >
+                    </view>
+                </view>
+                <view class='bottom'>
+                    <image  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
+                </view>
+            </view>
+            <view class='li'>
+                <image class='head' src='/images/head.jpg'></image>
+                <view class='content'>
+                    <view class='top'>
+                        <view class='l'>mayi1298</view>
+                        <view class='r'>2018-05-18 12:00</view>
+                    </view>
+                    <view class='msg'>
+                        很棒，赞一个。
+                    </view>
+                </view>
+               
+                <view class='bottom'>
+                    <image bindtap="showReply" src='/images/icon-square-6-reply.png' ></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='audio-operation' >
+
+    <view>
+        <image src='/images/icon-square-4.png' ></image>
+    </view>
+
+    <view class='hide' >
+        <image src='/images/icon-square-5.png' ></image>
+    </view>
+
+    <view >
+        <image bindtap="showComment" src='/images/icon-square-6.png' ></image>
+    </view>
+
+    <view class='hide' >
+        <image src='/images/icon-square-7.png' ></image>
+    </view>
+
+</view>
+
+<dialog id='dialog' 
+    bind:confirmMsgEvent="_confirmMsgEvent">
+</dialog>
