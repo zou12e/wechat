@@ -3,21 +3,18 @@
         "pages/home/home",
         "pages/square/square",
         "pages/home/read/read",
-        
         "pages/audio/detail/detail",
-        
         "pages/mine/mine",
         "pages/audio/audio",
         "pages/others/others",
         "pages/home/speak/speak",
-        
         "pages/square/punch/punch",
         "pages/square/thumb/thumb",
         "pages/mine/follow/follow",
         "pages/mine/audio/audio",
         "pages/mine/collection/collection",
         "pages/mine/comment/comment"
-        
+       
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -16,11 +16,11 @@
     </view>
     <view class="home-panel {{isMorning ? '' : 'hide' }}">
         <view class='title'>
-            <text>{{playInfo.title}}</text>
+            <text>{{data.read.title}}</text>
             <image bindtap="showContent" src='/images/icon-home-3.png'></image>
         </view>
         <view class='date'>
-            <text>2018-05-05</text>
+            <text>{{data.read.date}}</text>
         </view>
         <view class='slider'>
             <slider min="0" max="{{playInfo.time}}" value='{{playInfo.current}}' bindchange='changeTime' activeColor="#FFB307" backgroundColor="#F5F5F5">
@@ -44,20 +44,18 @@
                 <image class='home7' src='/images/icon-home-7.png'></image>
                 <text>分享</text>
             </view>
-
         </view>
-
 
     </view>
 
     <view class="home-panel home-panel-night {{!isMorning ? '' : 'hide' }}">
 
         <view class='title-night' >
-            即学即用的职场说话课
+            {{data.speak.title}}
         </view>
 
         <view class='date-night' >
-            2018-05-07
+            {{data.speak.date}}
         </view>
 
         <view class='pre-night flex-text' >
@@ -66,7 +64,7 @@
         </view>
 
         <view class='bottom'>
-            <view class='left flex-text'>
+            <view bindtap="changeAudio" class='left flex-text'>
                 <image class='home5' src='/images/icon-home-5-night.png'></image>
                 <text>换一篇</text>
             </view>
@@ -78,7 +76,6 @@
             </view>
 
         </view>
-
 
     </view>
 
