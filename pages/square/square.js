@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
 
     /**
@@ -5,15 +7,23 @@ Page({
      */
     data: {
         tab: 0,
-        data: [{ isPlay: false, audio: null }, { isPlay: false, audio: null }, { isPlay: false, audio: null }, { isPlay: false, audio: null }],
+        data: [],
         last: -1
     },
-
+    getBlogList: async function () {
+        const ret = await app.get('/blog/list', { type: parseInt(this.data.tab) + 1 });
+        if (ret && ret.code === 1) {
+            const list = ret.data.list;
+            this.setData({
+                data: list
+            });
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.getBlogList();
     },
 
     /**
@@ -78,31 +88,26 @@ Page({
         this.setData({
             tab: event.currentTarget.dataset.tab
         })
-
+        this.getBlogList();
     },
     play: function (event) {
 
+        const index = event.currentTarget.dataset.index;
+        const blog = this.data.data[index];
+        console.log(blog);
+        blog.isPlay = !blog.isPlay;
 
-
-        var index = event.currentTarget.dataset.index;
-        this.data.data[index].isPlay = !this.data.data[index].isPlay;
-
-        const playInfo = {
-            src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46"
-        };
-        if (!this.data.data[index].audio) {
-            this.data.data[index].audio = wx.createInnerAudioContext();
-            this.data.data[index].audio.src = playInfo.src;
-            this.data.data[index].audio.onEnded(() => {
-                this.data.data[index].isPlay = false;
+        if (!blog.audio) {
+            blog.audio = wx.createInnerAudioContext();
+            blog.audio.src = blog.url;
+            blog.audio.onEnded(() => {
+                blog.isPlay = false;
             });
         }
 
-
-
-        if (this.data.last != -1 && this.data.data[index].isPlay && this.data.last != index) {
+        if (this.data.last != -1 && blog.isPlay && this.data.last != index) {
             this.data.data[this.data.last].isPlay = false;
-            this.data.data[index].audio.pause();
+            blog.audio.pause();
         }
 
         this.setData({
@@ -110,12 +115,60 @@ Page({
             last: index
         });
 
-        if (this.data.data[index].isPlay) {
-            this.data.data[index].audio.play();
+        if (blog.isPlay) {
+            blog.audio.play();
         } else {
-            this.data.data[index].audio.pause();
+            blog.audio.pause();
         }
 
+    },
+    goFollow: async function (event) {
+        const index = event.currentTarget.dataset.index;
+        const blog = this.data.data[index];
+        app.loading();
+        const ret =await app.post('/user/follow', { id: blog.userId });
+        app.hide();
+        if (ret && ret.code === 1) {
+            blog.isFollow = !blog.isFollow;
+            this.setData({
+                data: this.data.data,
+            });
+            app.success();
+        }
+    },
+    goForward: function (event) {
+        const index = event.currentTarget.dataset.index;
+        const blog = this.data.data[index];
+        app.success('转发成功');
+    },
+    goCollection: async function (event) {
+        const index = event.currentTarget.dataset.index;
+        const blog = this.data.data[index];
+        app.loading();
+        const ret = await app.post('/user/follow', { id: blog.userId });
+        app.hide();
+        if (ret && ret.code === 1) {
+            blog.isCollection = !blog.isCollection;
+            this.setData({
+                data: this.data.data,
+            });
+            app.success();
+        }     
+    },
+    goThumb: async function (event) {
+        const index = event.currentTarget.dataset.index;
+        const blog = this.data.data[index];
+        app.loading();
+        const ret = await app.post('/user/follow', { id: blog.userId });
+        app.hide();
+        if (ret && ret.code === 1) {
+            blog.isThumb = !blog.isThumb;
+            blog.thumbs = parseInt(blog.thumbs) + (blog.isThumb ? 1 : -1);
+            this.setData({
+                data: this.data.data,
+            });
+            app.success();
+        }   
     }
 
 })

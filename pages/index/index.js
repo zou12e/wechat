@@ -6,7 +6,7 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
     onLoad: function () {
-        app.loading();
+        app.loading('加载中...');
         if (app.globalData.userInfo) {
             this.judge();
         } else {
@@ -27,7 +27,6 @@ Page({
             const userInfo = e.detail.userInfo;
             app.globalData.userInfo.nickName = userInfo.nickName
             app.globalData.userInfo.av9atarUrl = userInfo.avatarUrl
-            console.log('--goHome--');
             this.goHome();
             // TODO updatUserinfo
         } else {
@@ -35,8 +34,11 @@ Page({
         }
     },
     goHome: function () {
+        console.log('--goHome--');
+        console.log(app.globalData.userInfo);
         wx.reLaunch({
-            url: '/pages/home/home'
+            // url: '/pages/home/home'
+            url: '/pages/square/square'
         })
     }
 })

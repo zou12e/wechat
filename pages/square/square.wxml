@@ -22,20 +22,20 @@
         </view>
     </view>
 
-    <view class='my-list'>
+    <view wx:if="{{data && data.length > 0}}" class='my-list'>
         <block wx:for="{{data}}" wx:for-index="idx" wx:key="item" >
                 
                 <view class='li'>
-                    <view class='recom' >
+                    <view class='recom' hidden='{{!item.isRecommend}}' >
                         推荐 
                     </view>
                     <view class='top'>
                         <view class='left flex-text' >
-                            <image class='head' src='/images/head.jpg'></image>
-                            天天爱读书
+                            <image class='head' src='{{item.avatarUrl}}'></image>
+                            {{item.nickName}}
                         </view>
-                        <button class='follow-button' >
-                            关注
+                        <button bindtap="goFollow" data-index='{{idx}}' class='follow-button' >
+                            {{item.isFollow ? "取关" : "关注"}}
                         </button>
                     </view>
 
@@ -44,11 +44,11 @@
                     <view class='content'>
 
                         <view class='left' >
-                                <navigator url='/pages/audio/audio'  class='title' >
-                                    月亮与六便士
+                                <navigator url='/pages/audio/audio?id={{item.id}}'  class='title' >
+                                    {{item.title}}
                                 </navigator>
                                 <view class='time' >
-                                    2018-05-07 12:00
+                                    {{item.createTime}}
                                 </view>
                         </view>
 
@@ -59,29 +59,34 @@
 
                     <view class='operation flex-text' >
 
-                        <view class='view flex-text' >
+                        <view bindtap="goForward" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-4.png' ></image>
                         </view>
 
-                        <view class='view flex-text' >
-                            <image src='/images/icon-square-5.png' ></image>
+                        <view bindtap="goCollection" data-index='{{idx}}' class='view flex-text' >
+                            <image src='/images/icon-square-5{{item.isCollection ? "-on":""}}.png' ></image>
                         </view>
 
-                        <navigator url='/pages/audio/audio?id=1&comment=1' class='view flex-text' >
+                        <navigator url='/pages/audio/audio?id={{item.id}}&comment=1' class='view flex-text' >
                             <image src='/images/icon-square-6.png' ></image>
-                            0
+                             {{item.comments}}
                         </navigator>
 
-                        <view class='view flex-text' >
-                            <image src='/images/icon-square-7.png' ></image>
-                            0
+                        <view bindtap="goThumb" data-index='{{idx}}' class='view flex-text' >
+                            <image src='/images/icon-square-7{{item.isThumb ? "-on":""}}.png' ></image>
+                             {{item.thumbs}}
                         </view>
 
                     </view>
 
                 </view>
         </block>
- 
-        
     </view>
+    <view wx:else class='my-list'>
+            <view class='my-nodata' >
+                暂无数据
+            </view>
+    </view>
+
+
 </view>

@@ -15,6 +15,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
+        console.log(options.id);
+
         this.dialog = this.selectComponent("#dialog");
         if (options.comment){
             this.showComment();
@@ -43,7 +46,7 @@ Page({
             console.log('开始播放')
         })
         this.innerAudioContext.onTimeUpdate(() => {
-            var playInfo = this.data.playInfo;
+            const playInfo = this.data.playInfo;
             playInfo.current = this.innerAudioContext.currentTime
             this.setData({
                 playInfo: playInfo
@@ -149,7 +152,7 @@ Page({
     ,
     changeTime: function (event) {
 
-        var playInfo = this.data.playInfo;
+        const playInfo = this.data.playInfo;
         playInfo.current = (event && event.detail.value) || 0;
         this.setData({
             playInfo: playInfo

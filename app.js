@@ -40,7 +40,8 @@ App({
                 method: type || 'GET',
                 header: {
                     "user-sessionkey": user.session_key,
-                    "user-opeind": user.openid
+                    "user-opeind": user.openid,
+                    "user-id": user.id
                 },
                 data: data,
                 success: function (res) {
@@ -58,21 +59,21 @@ App({
     post: function (fn, data) {
         return this.api(fn, data,'POST');
     },
-    loading: function (msg = '加载中...', time = 10000){
+    loading: function (msg = '提交中...', time = 10000){
         wx.showToast({
             title: msg,
             icon: 'loading',
             duration: time
         })
     },
-    success: function (msg ='成功', time = 2000) {
+    success: function (msg ='操作成功', time = 2000) {
         wx.showToast({
             title: msg,
             icon: 'success',
             duration: time
         })
     },
-    fail:function(msg = '失败', time = 2000){
+    fail: function (msg = '操作失败', time = 2000){
         wx.showToast({
             title: msg,
             icon: 'none',

@@ -17,6 +17,11 @@ button::after{
 .my-right {
     float: right !important;
 }
+.my-nodata {
+    text-align: center;
+    font-size: 30rpx;
+    padding: 30rpx 0 0 0;
+}
 /*----page----*/
 .my-page {
     background-color: #f1f1ef;
