@@ -1,7 +1,2 @@
-.myaudio {}
- 
-.my-list .li .content {
-    border-bottom: 1rpx solid #DFDFDF;
-    height: 150rpx;
-    padding:  0 35rpx 0;
-}
+
+

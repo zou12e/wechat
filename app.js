@@ -1,3 +1,5 @@
+import regeneratorRuntime from '/utils/regenerator-runtime';
+
 App({
     onLaunch: function () {
         wx.login({
@@ -6,7 +8,6 @@ App({
                     this.login(res.code);
                 } else {
                     this.fail(res.errMsg);
-                    console.log('登录失败！' + res.errMsg)
                 }
             }
         });
@@ -15,10 +16,10 @@ App({
     globalData: {
         userInfo: null,
         host: 'http://192.168.4.248',
-        // host: "http://192.168.1.106",
-        // host: "https://www.zourunze.com",
+        host: "http://192.168.1.106",
+        host: "https://www.zourunze.com",
         port: "4001",
-        // port: "443",
+        port: "443",
         apiversion: '/wechat/api/v1',
     },
     uri: function () {
@@ -44,10 +45,11 @@ App({
                     "user-id": user.id
                 },
                 data: data,
-                success: function (res) {
+                success:  (res) => {
                     resolve(res.data)
                 },
-                fail: function (res) {
+                fail:  (res) => {
+                    this.success(res.errMsg.split(":")[1],100000);
                     reject(res);
                 },
             });
@@ -86,9 +88,10 @@ App({
     login: async function (code) {
         const ret = await this.post('/user/login', {
             code: code
-        }).catch(function(err){
+        }).catch((err) => {
             this.fail('登录失败');
         });
+
         if(ret && ret.code){
             this.globalData.userInfo = ret.data;
             if (this.userInfoReadyCallback) {

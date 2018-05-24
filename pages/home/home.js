@@ -1,4 +1,6 @@
-// pages/square/square.js
+
+import regeneratorRuntime from '../../utils/regenerator-runtime';
+
 const app = getApp();
 Page({
 

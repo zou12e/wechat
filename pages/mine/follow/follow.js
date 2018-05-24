@@ -6,7 +6,7 @@ Page({
    */
   data: {
       tab: 0,
-      data: new Array(12)
+      data: new Array(3)
   },
 
   /**

@@ -1,3 +1,5 @@
+import regeneratorRuntime from '../../utils/regenerator-runtime';
+
 const app = getApp();
 
 Page({
@@ -6,23 +8,20 @@ Page({
      * 页面的初始数据
      */
     data: {
-        tab: 0,
-        data: [],
-        last: -1
+        tab: 0
     },
     getBlogList: async function () {
         const ret = await app.get('/blog/list', { type: parseInt(this.data.tab) + 1 });
         if (ret && ret.code === 1) {
             const list = ret.data.list;
-            this.setData({
-                data: list
-            });
+            this.audioList.setList(list);
         }
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.audioList = this.selectComponent("#audiolist");
         this.getBlogList();
     },
 
@@ -67,7 +66,6 @@ Page({
     onReachBottom: function () {
 
     },
-
     /**
      * 用户点击右上角分享
      */
@@ -89,86 +87,5 @@ Page({
             tab: event.currentTarget.dataset.tab
         })
         this.getBlogList();
-    },
-    play: function (event) {
-
-        const index = event.currentTarget.dataset.index;
-        const blog = this.data.data[index];
-        console.log(blog);
-        blog.isPlay = !blog.isPlay;
-
-        if (!blog.audio) {
-            blog.audio = wx.createInnerAudioContext();
-            blog.audio.src = blog.url;
-            blog.audio.onEnded(() => {
-                blog.isPlay = false;
-            });
-        }
-
-        if (this.data.last != -1 && blog.isPlay && this.data.last != index) {
-            this.data.data[this.data.last].isPlay = false;
-            blog.audio.pause();
-        }
-
-        this.setData({
-            data: this.data.data,
-            last: index
-        });
-
-        if (blog.isPlay) {
-            blog.audio.play();
-        } else {
-            blog.audio.pause();
-        }
-
-    },
-    goFollow: async function (event) {
-        const index = event.currentTarget.dataset.index;
-        const blog = this.data.data[index];
-        app.loading();
-        const ret =await app.post('/user/follow', { id: blog.userId });
-        app.hide();
-        if (ret && ret.code === 1) {
-            blog.isFollow = !blog.isFollow;
-            this.setData({
-                data: this.data.data,
-            });
-            app.success();
-        }
-    },
-    goForward: function (event) {
-        const index = event.currentTarget.dataset.index;
-        const blog = this.data.data[index];
-        app.success('转发成功');
-    },
-    goCollection: async function (event) {
-        const index = event.currentTarget.dataset.index;
-        const blog = this.data.data[index];
-        app.loading();
-        const ret = await app.post('/user/follow', { id: blog.userId });
-        app.hide();
-        if (ret && ret.code === 1) {
-            blog.isCollection = !blog.isCollection;
-            this.setData({
-                data: this.data.data,
-            });
-            app.success();
-        }     
-    },
-    goThumb: async function (event) {
-        const index = event.currentTarget.dataset.index;
-        const blog = this.data.data[index];
-        app.loading();
-        const ret = await app.post('/user/follow', { id: blog.userId });
-        app.hide();
-        if (ret && ret.code === 1) {
-            blog.isThumb = !blog.isThumb;
-            blog.thumbs = parseInt(blog.thumbs) + (blog.isThumb ? 1 : -1);
-            this.setData({
-                data: this.data.data,
-            });
-            app.success();
-        }   
     }
-
 })

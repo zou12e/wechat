@@ -1,47 +1,5 @@
 <view class='my-page  myaudio'>
-    <view class='my-list'>
-        <block wx:for="{{data}}" wx:key="index">
 
-            <view class='li'>
+    <audio-list id='audiolist' type='mine'  ></audio-list>
 
-                <view class='content'>
-
-                    <view class='left'>
-                        <navigator url='/pages/audio/audio' class='title'>
-                            月亮与六便士
-                        </navigator>
-                        <view class='time'>
-                            2018-05-07 12:00
-                        </view>
-                    </view>
-
-                    <image src='/images/icon-square-3.png'>
-                    </image>
-                </view>
-
-
-                <view class='operation flex-text'>
-
-                    <view class='view flex-text' >
-                        <image src='/images/icon-square-4.png'></image>
-                    </view>
-
-
-
-                    <navigator url='/pages/audio/audio?id=1&comment=1'  class='view flex-text'>
-                        <image src='/images/icon-square-6.png'></image>
-                        0
-                    </navigator>
-
-                    <view class='view flex-text'>
-                        <image src='/images/icon-square-7.png'></image>
-                        0
-                    </view>
-
-                </view>
-
-            </view>
-
-        </block>
-    </view>
 </view>

@@ -1,1 +1,6 @@
-{}
+{
+    "component": true,
+    "usingComponents": {
+        "audio-list": "/components/list/list"
+    }
+}

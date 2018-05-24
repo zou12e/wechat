@@ -98,7 +98,7 @@
         <image src='/images/icon-square-4.png' ></image>
     </view>
 
-    <view class='hide' >
+    <view  >
         <image src='/images/icon-square-5.png' ></image>
     </view>
 

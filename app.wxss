@@ -77,6 +77,9 @@ button::after{
     height: 150rpx;
     padding:  0 35rpx 0 101rpx;
 }
+.my-list .li .content-left {
+    padding:  0 35rpx 0;
+}
 .my-list .li .content .left{
     float: left;
     
