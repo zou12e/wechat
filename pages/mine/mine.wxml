@@ -3,10 +3,13 @@
     <view class='top ' >
 
         <image class='bg' src='/images/icon-mine-1.png' ></image>
-        <image class='head' src='/images/head.jpg' ></image>
+        <!-- <open-data type="userAvatarUrl"></open-data> -->
+
+         <image class='head' src='/images/head.jpg' ></image> 
 
         <view class='bom' >
-            <view class='nick' >萌猴酱</view>
+             <view class='nick'  >萌猴酱</view> 
+            <!-- <open-data  type="userNickName"></open-data> -->
 
             <view class='info' >
                     <navigator url='/pages/mine/follow/follow' class='l new' >

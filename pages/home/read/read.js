@@ -1,4 +1,6 @@
 // pages/read/read.js
+const app = getApp();
+
 Page({
 
     /**
@@ -7,14 +9,26 @@ Page({
     data: {
         type: 0,  // 0：录制  1：停止录制  2：播放  3：暂停
         time: 0,
+        src: "",
         classer: ["begin", "stop", "play", "pause"],
-        src: ""
+        audio: {}
     },
-
+    getAudio: async function(id) {
+         const ret =  await app.get('/audio/getAudioById', { id: id});
+         if (ret && ret.code === 1) {
+            this.setData({
+                audio:ret.data
+            });
+         }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
+        this.getAudio(options.id);
+
+
         this.time = this.selectComponent("#time");
         this.recorderManager = wx.getRecorderManager()
 
@@ -97,7 +111,9 @@ Page({
                 })
                 this.time.stom(this.data.time);
             }, 1000)
-        } else if (this.data.type == 1) {//点击保存
+
+
+        } else if (this.data.type == 1) {//点击停止
             this.setData({
                 type: 2
             })
@@ -149,7 +165,6 @@ Page({
         })
     },
     savego:function(){
-
         wx.navigateTo({
             url: '/pages/audio/audio'
         })

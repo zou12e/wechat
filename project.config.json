@@ -34,14 +34,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "1.9.90",
-					"pathName": "pages/home/home",
-					"query": ""
-				}
-			]
+			"list": []
 		}
 	}
 }

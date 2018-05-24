@@ -20,7 +20,7 @@
             <image bindtap="showContent" src='/images/icon-home-3.png'></image>
         </view>
         <view class='date'>
-            <text>{{data.read.date}}</text>
+            <text>{{data.info.date}}</text>
         </view>
         <view class='slider'>
             <slider min="0" max="{{playInfo.time}}" value='{{playInfo.current}}' bindchange='changeTime' activeColor="#FFB307" backgroundColor="#F5F5F5">
@@ -55,12 +55,12 @@
         </view>
 
         <view class='date-night' >
-            {{data.speak.date}}
+            {{data.info.date}}
         </view>
 
-        <view class='pre-night flex-text' >
+        <view class='pre-night flex-text' hidden='{{!isHidden}}'  >
             <image  src='/images/icon-home-9.png'></image>
-             <text>18:00准时开讲</text>
+             <text>{{data.info.time}}准时开讲</text>
         </view>
 
         <view class='bottom'>
@@ -79,7 +79,7 @@
 
     </view>
 
-    <button bindtap="toUrl"  class='home-button'>
+    <button bindtap="toUrl"  class='home-button' hidden='{{isHidden}}' >
         <image src='/images/icon-home-8.png'></image>
         我要{{isMorning ? '读' : '讲' }}
     </button>

@@ -7,6 +7,7 @@ Page({
      */
     data: {
         isMorning: true,
+        isHidden: true,
         isPlay: false,
         playInfo: {},
         data: {}
@@ -15,13 +16,20 @@ Page({
      * 获取早读晚讲信息
      */
     getReadSpeak: async function () {
-
+        
         const ret = await app.get('/home/getReadSpeak');
+        
         if (ret && ret.code === 1) {
             this.setData({
                 data: ret.data
             });
             this.setPlayInfo();
+            if(this.data.data.info.isRead){
+                this.toMorning();
+            } else {
+                this.toNight();
+            }
+            
         }
 
     },
@@ -46,7 +54,7 @@ Page({
             this.setData({
                 isPlay: false
             })
-            var playInfo = this.data.playInfo;
+            const playInfo = this.data.playInfo;
             playInfo.current = 0;
             this.setData({
                 playInfo: playInfo
@@ -55,7 +63,7 @@ Page({
         });
 
         this.innerAudioContext.onTimeUpdate(() => {
-            var playInfo = this.data.playInfo;
+            const playInfo = this.data.playInfo;
             playInfo.current = this.innerAudioContext.currentTime;
             this.setData({
                 playInfo: playInfo
@@ -73,6 +81,17 @@ Page({
             app.userInfoReadyCallback = () => {
                 this.getReadSpeak();
             };
+        }
+    },
+    setHidden() {
+        if (this.data.isMorning){
+            this.setData({
+                isHidden:this.data.data.info.isRead?false:true
+            });
+        } else {
+            this.setData({
+                isHidden: this.data.data.info.isRead ? true : false
+            });
         }
     },
     /**
@@ -173,7 +192,7 @@ Page({
             backgroundColor: '#fff',
         })
 
-
+        this.setHidden();
 
     },
     toNight(event) {
@@ -190,16 +209,18 @@ Page({
         wx.setTabBarStyle({
             backgroundColor: '#fff',
         })
+
+        this.setHidden();
     },
     toUrl: function () {
 
         if (this.data.isMorning) {
             wx.navigateTo({
-                url: '/pages/home/read/read'
+                url: '/pages/home/read/read?id=' +this.data.data.read.id
             })
         } else {
             wx.navigateTo({
-                url: '/pages/home/speak/speak'
+                url: '/pages/home/speak/speak' + this.data.data.speak.id
             })
         }
     },
@@ -215,8 +236,7 @@ Page({
         });
     },
     changeTime: function (event) {
-
-        var playInfo = this.data.playInfo;
+        const playInfo = this.data.playInfo;
         playInfo.current = (event && event.detail.value) || 0;
         this.setData({
             playInfo: playInfo
@@ -240,18 +260,6 @@ Page({
             });
            
         }
-
-        // const playInfo = {
-        //     title: "【追风筝的人】",
-        //     url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
-        //     time: 401,
-        //     current: 0
-        // };
-        // this.setData({
-        //     playInfo: playInfo
-        // });
-        // this.innerAudioContext.seek(playInfo.current);
-        // this.stop();
     }
 })
 
