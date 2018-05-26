@@ -1,56 +1,41 @@
 <view class='my-page thumb'>
 
     <view class='top'>
-        <navigator url='/pages/audio/audio' class='li'>
-            <image class='node rank' src='/images/icon-ranking-sm-1.png'></image>
-            <image class='node head' src='/images/head.jpg'></image>
-            <view class='node name'>
-                <view class='nick'>jeff</view>
-                <view class='article'>月亮与六便士</view>
-            </view>
-            <view class='node size flex-text'>
-                <image src='/images/icon-square-7-rank.png'></image>
-                13
-            </view>
-        </navigator>
-        <navigator url='/pages/audio/audio' class='li'>
-            <image class='node rank' src='/images/icon-ranking-sm-2.png'></image>
-            <image class='node head' src='/images/head.jpg'></image>
-            <view class='node name'>
-                <view class='nick'>jeff</view>
-                <view class='article'>月亮与六便士</view>
-            </view>
-            <view class='node size flex-text'>
-                <image src='/images/icon-square-7-rank.png'></image>
-                13
-            </view>
-        </navigator>
-        <navigator url='/pages/audio/audio' class='li'>
-            <image class='node rank' src='/images/icon-ranking-sm-3.png'></image>
-            <image class='node head' src='/images/head.jpg'></image>
-            <view class='node name'>
-                <view class='nick'>jeff3</view>
-                <view class='article'>月亮与六便士</view>
-            </view>
-            <view class='node size flex-text'>
-                <image src='/images/icon-square-7-rank.png'></image>
-                13
-            </view>
-        </navigator>
+        <block wx:for="{{ranking}}" wx:for-index="idx" wx:key="item">
+            <navigator wx:if="{{item.ranking < 4}}" url='/pages/audio/audio?id={{item.blogId}}' class='li'>
+                <image class='node rank' src='/images/icon-ranking-sm-{{item.ranking}}.png'></image>
+                <image class='node head' src='{{item.avatarUrl}}'></image>
+                <view class='node name'>
+                    <view class='nick'>
+                        {{item.nickName}}
+                        <block wx:if = "{{mine.ranking==item.ranking}}" > （我） </block>
+                    </view>
+                    <view class='article'>{{item.title}}</view>
+                </view>
+                <view class='node size flex-text'>
+                    <image src='/images/icon-square-7-rank.png'></image>
+                    {{item.thumbs}}
+                </view>
+            </navigator>
+        </block>
+ 
     </view>
 
     <scroll-view class='list' scroll-y='true'>
         <block wx:for="{{ranking}}" wx:key="index">
-            <navigator url='/pages/audio/audio' class='li'>
-                <view class='node num'>{{4 +index }}</view>
-                <image class='node head' src='/images/head.jpg'></image>
+            <navigator wx:if="{{item.ranking > 3}}" url='/pages/audio/audio?id={{item.blogId}}' class='li'>
+                <view class='node num {{mine.ranking==item.ranking?"on":""}}'>{{item.ranking}}</view>
+                <image class='node head' src='{{item.avatarUrl}}'></image>
                 <view class='node name'>
-                    <view class='nick'>jeff</view>
-                    <view class='article'>月亮与六便士</view>
+                    <view class='nick'>
+                        {{item.nickName}}
+                        <block wx:if = "{{mine.ranking==item.ranking}}" > （我） </block>
+                    </view>
+                    <view class='article'>{{item.title}}</view>
                 </view>
                 <view class='node size flex-text'>
                     <image src='/images/icon-square-7-on.png'></image>
-                    13
+                    {{item.thumbs}}
                 </view>
             </navigator>
 

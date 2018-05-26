@@ -1,3 +1,6 @@
+import regeneratorRuntime from '../../../utils/regenerator-runtime';
+const app = getApp();
+
 Page({
 
     /**
@@ -5,13 +8,23 @@ Page({
      */
     data: {
         tab: 0,
-        ranking:new Array(47)
+        ranking: [],
+        mine: {}
     },
-
+    getPunchRanking: async function () {
+        const ret = await app.get('/ranking/punch', { type: this.data.tab });
+        if (ret && ret.code === 1) {
+            this.setData({
+                mine: ret.data.mine,
+                ranking: ret.data.list
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.getPunchRanking();
         wx.setNavigationBarColor({
             frontColor: '#ffffff',
             backgroundColor: "#000000"
@@ -70,6 +83,6 @@ Page({
         this.setData({
             tab: event.currentTarget.dataset.tab
         })
-
+        this.getPunchRanking();
     }
 })

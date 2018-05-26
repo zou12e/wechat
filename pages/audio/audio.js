@@ -1,28 +1,36 @@
-// pages/audio/audio.js
+import regeneratorRuntime from '../../utils/regenerator-runtime';
+const app = getApp();
+
 Page({
 
     /**
      * 页面的初始数据
      */
-     data: {
+    data: {
         isPlay: false,
+        blogId: 0,
         playInfo: {
 
         }
     },
+    getBlogById: function () {
 
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
 
-        console.log(options.id);
+        this.setData({
+            blogId: options.id
+        });
+        this.getBlogById();
 
         this.dialog = this.selectComponent("#dialog");
-        if (options.comment){
+        if (options.comment) {
             this.showComment();
         }
-        
+
 
         const playInfo = {
             title: "【月亮与六便士】",
@@ -114,13 +122,13 @@ Page({
     showReply: function (event) {
         this.dialog.togglerMsg({
             placeholder: "回复" + event.currentTarget.dataset.name,
-            value:""
+            value: ""
         });
     }
     ,
     showComment: function (event) {
         this.dialog.togglerMsg({
-            placeholder: "评论" ,
+            placeholder: "评论",
             value: ""
         });
     },

@@ -1,5 +1,4 @@
 import regeneratorRuntime from '../../utils/regenerator-runtime';
-
 const app = getApp();
 
 Page({

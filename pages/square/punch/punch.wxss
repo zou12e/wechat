@@ -1,26 +1,27 @@
-.punch {}
-.top {
 
-    background: #5298FF;
+
+.top {
+    background: #5298ff;
     height: 422rpx;
     position: relative;
 }
-.my-tab  {
-    background: #5298FF;
-    border-bottom: 1rpx solid rgba(255, 255, 255, .2);
+
+.my-tab {
+    background: #5298ff;
+    border-bottom: 1rpx solid rgba(255, 255, 255, 0.2);
 }
 
 .my-tab view {
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, 0.5);
 }
+
 .my-tab .on {
     color: #fff;
 }
+
 .my-tab  .on::after {
     background: #fff;
 }
-
-
 
 .ranking {
     display: flex;
@@ -32,47 +33,55 @@
     left: 30rpx;
     right: 30rpx;
 }
-.ranking > navigator{
+
+.ranking > navigator {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
+
 .ranking .navigator-hover {
-    background:transparent;
+    background: transparent;
 }
+
 .ranking image {
     width: 144rpx;
     height: 218rpx;
     position: absolute;
     z-index: 2;
 }
+
 .ranking .head {
     z-index: 1;
     width: 144rpx;
     height: 144rpx;
     top: 30rpx;
 }
+
 .ranking .head1 {
     width: 164rpx;
     height: 164rpx;
     top: 10rpx;
 }
+
 .ranking .ranking1 {
     width: 164rpx;
     height: 218rpx;
 }
+
 .ranking .name {
     font-size: 28rpx;
-    color: #FFFFFF;
+    color: #fff;
     letter-spacing: 0.4rpx;
     line-height: 40rpx;
     margin-top: 218rpx;
 }
+
 .ranking .day {
     font-size: 22rpx;
-    color: #FFFFFF;
+    color: #fff;
     letter-spacing: 0.31rpx;
     line-height: 30rpx;
     margin-top: 7rpx;
@@ -96,29 +105,54 @@
     border-top-left-radius: 10rpx;
     border-top-right-radius: 10rpx;
 }
+
 .list  .li {
     height: 90rpx;
     line-height: 90rpx;
-    border-bottom: 1rpx solid #DFDFDF;
+    border-bottom: 1rpx solid #dfdfdf;
     font-size: 28rpx;
     color: #353535;
     letter-spacing: 0.4rpx;
 }
+.list  .last-li {
+    border-bottom: none;
+}
+.list  .li-empty {
+    border: none;
+    background-color: #f1f1ef;
+    font-size: 22rpx;
+    color: #B2B2B2;
+    letter-spacing: 0.31rpx;
+    text-align: center;
+}
+
 .list .node {
     float: left;
 }
+
 .list .num {
-    margin-left: 30rpx;
-    min-width: 45rpx;
+    margin: 20rpx 10rpx 0 25rpx;
+    width: 52rpx;
+    height: 52rpx;
+    text-align: center;
+    line-height: 52rpx;
 }
+
+.list .num.on {
+    background-color: #5298ff;
+    border-radius: 100%;
+    color: #fff;
+}
+
 .list .head {
     width: 50rpx;
     height: 50rpx;
     margin-top: 20rpx;
     border-radius: 100%;
-    border:1rpx solid #979797;
+    border: 1rpx solid #eee;
     margin-right: 20rpx;
 }
+
 .list .day {
     float: right;
     margin-right: 30rpx;

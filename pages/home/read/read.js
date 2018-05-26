@@ -8,13 +8,14 @@ Page({
      */
     data: {
         type: 0,  // 0：录制  1：停止录制  2：播放  3：暂停
+        audioId: 0,
         time: 0,
         src: "",
         classer: ["begin", "stop", "play", "pause"],
         audio: {}
     },
     getAudio: async function(id) {
-         const ret =  await app.get('/audio/getAudioById', { id: id});
+        const ret = await app.get('/audio/getAudioById', { id: this.data.audioId});
          if (ret && ret.code === 1) {
             this.setData({
                 audio:ret.data
@@ -26,7 +27,10 @@ Page({
      */
     onLoad: function (options) {
 
-        this.getAudio(options.id);
+        this.setData({
+            audioId:options.id
+        });
+        this.getAudio();
 
 
         this.time = this.selectComponent("#time");

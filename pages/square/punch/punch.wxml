@@ -10,44 +10,52 @@
         </view>
 
         <view class='ranking'>
-            <navigator hover-class='navigator-hover' url='/pages/others/others?id=1'>
+            <navigator hover-class='navigator-hover' url='/pages/others/others?id={{ranking[1].userId}}'>
                 <image class='ranking2' src='/images/icon-punch-2.png'></image>
-                <image class='head' src='/images/head.jpg'></image>
-                <view class='name' >张小丫</view>
-                <view class='day' >132天</view>
+                <image class='head' src='{{ranking[1].avatarUrl}}'></image>
+                <view class='name'>{{ranking[1].nickName}}</view>
+                <view class='day'>{{ranking[1].days}}天</view>
             </navigator>
-            <navigator hover-class='navigator-hover' url='/pages/others/others?id=1'>
+            <navigator hover-class='navigator-hover' url='/pages/others/others?id={{ranking[0].userId}}'>
                 <image class='ranking1' src='/images/icon-punch-1.png'></image>
-                <image class='head head1' src='/images/head.jpg'></image>
-                <view class='name'  >Jeff</view>
-                <view class='day' >232天</view>
+                <image class='head head1' src='{{ranking[0].avatarUrl}}'></image>
+                <view class='name'>{{ranking[0].nickName}}</view>
+                <view class='day'>{{ranking[0].days}}天</view>
             </navigator>
-            <navigator hover-class='navigator-hover' url='/pages/others/others?id=1'>
+            <navigator hover-class='navigator-hover' url='/pages/others/others?id={{ranking[2].userId}}'>
                 <image class='ranking3' src='/images/icon-punch-3.png'></image>
-                <image class='head' src='/images/head.jpg'></image>
-                <view class='name' >Cathy</view>
-                <view class='day' >32天</view>
+                <image class='head' src='{{ranking[2].avatarUrl}}'></image>
+                <view class='name'>{{ranking[2].nickName}}</view>
+                <view class='day'>{{ranking[2].days}}天</view>
             </navigator>
         </view>
 
         <image class='bottom-bg' src='/images/icon-ranking-4.png'></image>
     </view>
 
-    <scroll-view class='list' scroll-y='true' >
-        <block wx:for="{{ranking}}" wx:key="index" >
-                <navigator url='/pages/others/others?id=1' class='li' >
-                    <view class='node num' >{{4 +index }}</view>
-                    <image class='node head' src='/images/head.jpg'></image>
-                    <view class='node name'>Jeff1</view>
-                    <view class='node day' >13天</view>
-                </navigator>
+    <scroll-view class='list' scroll-y='true'>
+        <block wx:for="{{ranking}}" wx:for-index="idx" wx:key="item">
+
+            <navigator wx:if="{{item.ranking > 3}}" url='/pages/others/others?id={{item.userId}}' class='li li-ranking {{idx==ranking.length-1?"last-li":""}}'>
+                <view class='node num {{mine.ranking==item.ranking?"on":""}}'>{{item.ranking }}</view>
+                <image class='node head' src='{{item.avatarUrl }}'></image>
+                <view class='node name'>
+                    {{item.nickName }}
+                    <block wx:if = "{{mine.ranking==item.ranking}}" > （我） </block>
+                </view>
+                <view class='node day'>{{item.days }}天</view>
+            </navigator>
         </block>
 
-           <view class='li' >
-                <view class='node num' >1412</view>
-                 <image class='node head' src='/images/head.jpg'></image> 
-                <view class='node name'>Jeff1(自己)</view>
-                <view class='node day' >13天</view>
-            </view>
+       
+        <view hidden='{{mine.ranking<51}}' class='li li-empty'>
+                您暂未登上排行榜，请继续加油
+        </view>
+        <view hidden='{{mine.ranking<51}}' class='li li-last'>
+            <view class='node num'>{{mine.ranking}}</view>
+            <image class='node head' src='{{mine.avatarUrl}}'></image>
+            <view class='node name'>{{mine.nickName }}（我）</view>
+            <view class='node day'>{{mine.days}}天</view>
+        </view>
     </scroll-view>
 </view>

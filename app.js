@@ -11,15 +11,16 @@ App({
                 }
             }
         });
-       
+        // this.login('code');
     },
     globalData: {
         userInfo: null,
-        host: 'http://192.168.4.248',
-        host: "http://192.168.1.106",
-        host: "https://www.zourunze.com",
+        // host: 'http://192.168.4.248',
+        host: 'http://127.0.0.1',
+        // host: "http://192.168.1.106",
+        // host: "https://www.zourunze.com",
         port: "4001",
-        port: "443",
+        // port: "443",
         apiversion: '/wechat/api/v1',
     },
     uri: function () {
@@ -33,6 +34,7 @@ App({
         return num.length > 2 ? num.substring(1) : num;
     },
     api: function (fn, data, type) {
+
         const uri = this.uri(); 
         const user = this.globalData.userInfo || {};
         return new Promise( (resolve, reject) =>{
@@ -40,9 +42,9 @@ App({
                 url: uri + fn,
                 method: type || 'GET',
                 header: {
-                    "user-sessionkey": user.session_key,
-                    "user-opeind": user.openid,
-                    "user-id": user.id
+                    "user-sessionkey": user.session_key || "",
+                    "user-opeind": user.openid || "",
+                    "user-id": user.id || 0
                 },
                 data: data,
                 success:  (res) => {
@@ -92,10 +94,10 @@ App({
             this.fail('登录失败');
         });
 
-        if(ret && ret.code){
+        if (ret && ret.code) {
             this.globalData.userInfo = ret.data;
             if (this.userInfoReadyCallback) {
-                 this.userInfoReadyCallback()
+                this.userInfoReadyCallback()
             }
         }
     }

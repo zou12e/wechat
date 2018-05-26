@@ -1,24 +1,36 @@
+import regeneratorRuntime from '../../../utils/regenerator-runtime';
+const app = getApp();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-      ranking: new Array(47)
+        ranking: [],
+        mine: {}
+    },
+    getThumbRanking: async function () {
+        const ret = await app.get('/ranking/thumb');
+        if (ret && ret.code === 1) {
+            this.setData({
+                mine: ret.data.mine,
+                ranking: ret.data.list
+            })
+        }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+         this.getThumbRanking();
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+       
     },
 
     /**

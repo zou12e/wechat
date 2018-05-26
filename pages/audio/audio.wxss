@@ -192,7 +192,7 @@
     line-height: 60rpx;
     height: 60rpx;
     text-align: right;
-    border-bottom: 1px solid #CFCFCF;
+    border-bottom: 1rpx solid #CFCFCF;
 }
 .comment .data .bottom image{
     width: 30rpx;
