@@ -1,6 +1,5 @@
 
 import regeneratorRuntime from '../../utils/regenerator-runtime';
-
 const app = getApp();
 Page({
 
@@ -17,7 +16,7 @@ Page({
     /**
      * 获取早读晚讲信息
      */
-    getReadSpeak: async function () {
+    async getReadSpeak () {
         
         const ret = await app.get('/home/getReadSpeak');
         
@@ -76,7 +75,7 @@ Page({
     /**
      * 获取用户信息
      */
-    getUserInfo: function () {
+    getUserInfo () {
         if (app.globalData.userInfo) {
             this.getReadSpeak();
         } else {
@@ -99,14 +98,14 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: async function (options) {
+    async onLoad (options) {
 
 
         this.dialog = this.selectComponent("#dialog");
         this.start = this.selectComponent("#startime");
         this.end = this.selectComponent("#endtime");
 
-        this.getUserInfo();
+       
 
         // wx.setTabBarBadge({
         //     index: 2,
@@ -117,49 +116,49 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
+    onReady () {
 
     },
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: async function () {
-
+    async onShow () {
+        this.getUserInfo();
     },
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide () {
         this.stop();
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload () {
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage () {
 
     },
-    play: function () {
+    play () {
 
         this.setData({
             isPlay: !this.data.isPlay
@@ -172,7 +171,7 @@ Page({
         }
 
     },
-    stop: function () {
+    stop () {
         this.setData({
             isPlay: false
         })
@@ -214,7 +213,7 @@ Page({
 
         this.setHidden();
     },
-    toUrl: function () {
+    toUrl () {
 
         if (this.data.isMorning) {
             wx.navigateTo({
@@ -229,7 +228,7 @@ Page({
     /**
      * 查看文章内容
      */
-    showContent: function () {
+    showContent () {
 
         this.dialog.togglerShow({
             title: this.data.data.read.title,
@@ -237,7 +236,7 @@ Page({
             content: this.data.data.read.content
         });
     },
-    changeTime: function (event) {
+    changeTime (event) {
         const playInfo = this.data.playInfo;
         playInfo.current = (event && event.detail.value) || 0;
         this.setData({
@@ -246,7 +245,7 @@ Page({
         this.start.stom(playInfo.current);
         this.innerAudioContext.seek(playInfo.current);
     },
-    changeAudio: async function () {
+    async changeAudio () {
         const ret = await app.get('/home/changeInfo', { type: this.data.isMorning ? 1 : 2 });
         if (ret && ret.code === 1) {
             const data = this.data.data;

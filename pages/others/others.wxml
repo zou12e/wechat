@@ -7,12 +7,11 @@
             <image class='bg' src='/images/icon-others-1.png' ></image>
 
             <view class='flex-text' >
-                <image src='/images/head.jpg' ></image>
-                萌猴酱
+                <image src='{{user.avatarUrl}}' ></image>
+                {{user.nickName}}
             </view>
-
-            <button class='button' >
-                关注
+            <button bindtap="goFollow"  class='button' >
+                {{user.isFollow ? "取关" : "关注"}}
             </button>
         </view>
     </view>

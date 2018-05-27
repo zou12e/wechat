@@ -72,7 +72,12 @@
                         </view>
                     </navigator>
                     <view class='bottom'>
-                        <image data-name='{{item.nickName}}' bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+                        <image 
+                        data-name='{{item.nickName}}'
+                        data-userid='{{item.userId}}'
+                        data-id='{{item.id}}'
+                        data-url='/pages/audio/detail/detail?id= {{item.id}}' 
+                        bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
                     </view>
                 </view>
 

@@ -1,0 +1,108 @@
+
+ .box .head {
+    height: 90rpx;
+    line-height: 90rpx;
+    position: relative
+}
+ .box .head .l {
+    float: left;
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    padding-left: 54rpx;
+}
+ .box .head .r {
+    float: right;
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    padding-right: 54rpx;
+}
+ .box .head .c {
+    position: absolute;
+    left: 200rpx;
+    right: 200rpx;
+    bottom: 0;
+    top: 0;
+    text-align: center;
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0.4rpx;
+}
+
+ .box .week  {
+    background: #F6F6F6;
+    height: 70rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30rpx;
+}
+ .box .week >view {
+    flex: 1;
+    font-size: 24rpx;
+    color: #B2B2B2;
+    letter-spacing: 0.34rpx;
+    text-align: center;
+}
+ .box .line  {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+    font-size: 28rpx;
+    color: #353535;
+    padding: 0 30rpx;
+}
+
+ .box .line >view {
+    width: 14.28%;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+}
+ .box .today {
+    color: #0DB4B2;
+}
+
+ .box .line .no {
+    color: #bbb;
+}
+
+ .box .line .no {
+    color: #bbb;
+}
+
+ .box .line .punch {
+     position: relative;
+}
+ .box .line .punch::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #07B2B0;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 100%;
+    top: 12rpx;
+    left: 50%;
+    margin-left: 18rpx;    
+}
+
+ .box .line .continu {
+  background: #D5FAF1;
+
+}
+ .box .line .continu-f {
+    border-top-left-radius: 100rpx;
+    border-bottom-left-radius: 100rpx;
+}
+ .box .line .continu-l {
+    border-top-right-radius: 100rpx;
+    border-bottom-right-radius: 100rpx;
+}
+
+ 

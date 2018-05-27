@@ -9,7 +9,7 @@ Page({
     data: {
         tab: 0
     },
-    getBlogList: async function () {
+    async getBlogList () {
         const ret = await app.get('/blog/list', { type: parseInt(this.data.tab) + 1 });
         if (ret && ret.code === 1) {
             const list = ret.data.list;
@@ -19,69 +19,72 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad (options) {
+        
         this.audioList = this.selectComponent("#audiolist");
-        this.getBlogList();
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
-
+    onReady () {
+        
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-
+    onShow () {
+        
+        this.getBlogList();
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
-
+    onHide () {
+        
+        this.audioList.stop();
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
-
+    onUnload () {
+        
+        this.audioList.stop();
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom () {
 
     },
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage () {
 
     },
-    toPunch: function () {
+    toPunch () {
         wx.navigateTo({
             url: '/pages/punch/punch'
         })
     },
-    toThumb: function () {
+    toThumb () {
         wx.navigateTo({
             url: '/pages/thumb/thumb'
         })
     },
-    toTab: function (event) {
+    toTab (event) {
         this.setData({
             tab: event.currentTarget.dataset.tab
         })

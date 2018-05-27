@@ -12,7 +12,11 @@
             </view>
         </view>
         <view class='bottom'>
-            <image data-name='{{comment.nickName}}' bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+            <image 
+            data-name='{{comment.nickName}}'
+            data-userid='{{comment.userId}}'
+            data-id='{{comment.id}}'
+             bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
         </view>
         
         <view class='reply'>
@@ -25,7 +29,11 @@
                     ：{{item.content}}
                     <view class='time flex-text'>
                        {{item.createTime}}
-                        <image data-name='{{item.nickName}}' bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+                        <image 
+                        data-name='{{item.nickName}}'
+                        data-userid='{{item.userId}}'
+                        data-id='{{item.id}}'
+                        bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
                     </view>
                 </view>
             </block>

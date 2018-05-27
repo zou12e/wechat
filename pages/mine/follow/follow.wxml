@@ -8,14 +8,20 @@
         </view>
     </view>
 
-    <scroll-view class='list' scroll-y='true'>
+    <scroll-view  wx:if="{{data && data.length > 0}}" class='list' scroll-y='true'>
+
         <block wx:for="{{data}}" wx:key="index">
-            <navigator url='/pages/others/others?id={{index}}'  class='li'>
+            <navigator url='/pages/others/others?id={{item.userId}}'  class='li'>
                 <view class='flex-text'>
-                    <image src='/images/head.jpg'></image>
-                    萌猴酱
+                    <image src='{{item.avatarUrl}}'></image>
+                    {{item.nickName}}
                 </view>
             </navigator>
         </block>
     </scroll-view>
+    <view wx:else class='list'>
+            <view class='my-nodata' >
+                暂无数据
+            </view>
+    </view>
 </view>

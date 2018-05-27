@@ -13,15 +13,15 @@
 
             <view class='info' >
                     <navigator url='/pages/mine/follow/follow' class='l new' >
-                        <view class='num' >2</view>
+                        <view class='num' >{{info.follows}}</view>
                         <view class='explain' >关注</view>
                     </navigator>
                     <navigator  url='/pages/mine/collection/collection'  class='c' >
-                        <view class='num' >111</view>
+                        <view class='num' >{{info.collections}}</view>
                         <view class='explain' >收藏</view>
                     </navigator>
-                    <navigator  url='/pages/audio/detail/detail'  class='r' >
-                        <view class='num' >2</view>
+                    <navigator  url='/pages/audio/detail/detail?id=1'  class='r' >
+                        <view class='num' >{{info.comments}}</view>
                         <view class='explain' >评论</view>
                     </navigator>
             </view>
@@ -40,84 +40,12 @@
     <view class='calendar' >
         <view class='top flex-text'>
             <image class='icon' src='/images/icon-mine-3.png' ></image>
-            连续打卡 <text class='day'>4</text> 天，累计打卡  <text class='day'>14</text> 天
+            连续打卡 <text class='day'>{{continuDays}}</text> 天，累计打卡  <text class='day'>{{punchDays}}</text> 天
         </view>
          <view class='msg' >
-            早读晚讲已陪伴你第 23 天
+            早读晚讲已陪伴你第 {{allDays}} 天
         </view>
-
-        <view class='box' >
-            <view class='head' >
-                <view class='l' >上一月</view>
-                <view class='c' >2018年5月</view>
-                <view class='r' >下个月</view>
-            </view>
-            <view class='week' >
-                <view>日</view>
-                <view>一</view>
-                <view>二</view>
-                <view>三</view>
-                <view>四</view>
-                <view>五</view>
-                <view>六</view>
-            </view>
-            <view class='days'>
-                <view class='line line1' >
-                    <view class='no' >29</view>
-                    <view class='no' >30</view>
-                    <view class='punch' >1</view>
-                    <view>2</view>
-                    <view>3</view>
-                    <view>4</view>
-                    <view>5</view>
-                </view>
-                <view class='line line2' >
-                    <view class='punch'>6</view>
-                    <view class='punch'>7</view>
-                    <view class='punch'>8</view>
-                    <view>9</view>
-                    <view >10</view>
-                    <view class='continu continu-f'>11</view>
-                    <view class='continu' >12</view>
-                </view>
-                <view class='line line3' >
-                    <view class='continu'  >13</view>
-                    <view class='continu'  >14</view>
-                    <view class='continu continu-l today'  >今</view>
-                    <view>16</view>
-                    <view>17</view>
-                    <view>18</view>
-                    <view>19</view>
-                </view>
-                <view class='line line4' >
-                    <view>20</view>
-                    <view>21</view>
-                    <view >22</view>
-                    <view>23</view>
-                    <view>24</view>
-                    <view>25</view>
-                    <view>26</view>
-                </view>
-                <view class='line line5' >
-                    <view>27</view>
-                    <view>28</view>
-                    <view >29</view>
-                    <view>30</view>
-                    <view>31</view>
-                    <view class='no'>1</view>
-                    <view class='no'>2</view>
-                </view>
-                <view class='line line6' >
-                    <view class='no'>3</view>
-                    <view class='no'>4</view>
-                    <view class='no' >5</view>
-                    <view class='no'>6</view>
-                    <view class='no'>7</view>
-                    <view class='no'>8</view>
-                    <view class='no'>9</view>
-                </view>
-            </view>
-        </view>
+        <calendar  id='calendar'  ></calendar>
     </view>
 
 </view>

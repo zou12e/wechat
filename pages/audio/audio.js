@@ -14,7 +14,10 @@ Page({
         comment: {},
         playInfo: {}
     },
-    getBlogById: async function () {
+    /**
+     * 获取blog详情
+     */
+    async getBlogById () {
         const ret = await app.get('/blog/getBlogById', { id: this.data.blogId });
         if (ret && ret.code == 1) {
             this.setData({
@@ -22,14 +25,23 @@ Page({
             });
             this.setPlayInfo();
         }
-        const mret = await app.get('/comment/getCommentByBlogId', { id: this.data.blogId });
-        if (mret && mret.code == 1) {
-            this.setData({
-                comment: mret.data
-            });
-        }
+        await this.getComment();
 
     },
+    /**
+     * 获取评论
+     */
+    async getComment () {
+        const ret = await app.get('/comment/getCommentByBlogId', { id: this.data.blogId });
+        if (ret && ret.code == 1) {
+            this.setData({
+                comment: ret.data
+            });
+        }
+    },
+    /**
+     * 设置播放器
+     */
     setPlayInfo() {
         this.innerAudioContext = wx.createInnerAudioContext();
         const playInfo = {
@@ -45,11 +57,22 @@ Page({
         this.start.stom(0);
         this.end.stom(playInfo.time);
 
-
         this.innerAudioContext.src = playInfo.src;
         this.innerAudioContext.onPlay(() => {
             console.log('开始播放')
         })
+        this.innerAudioContext.onEnded(() => {
+            console.log('音频结束');
+            this.setData({
+                isPlay: false
+            })
+            const playInfo = this.data.playInfo;
+            playInfo.current = 0;
+            this.setData({
+                playInfo: playInfo
+            });
+            this.start.stom(0);
+        });
         this.innerAudioContext.onTimeUpdate(() => {
             const playInfo = this.data.playInfo;
             playInfo.current = this.innerAudioContext.currentTime
@@ -62,7 +85,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    async onLoad (options) {
 
         this.dialog = this.selectComponent("#dialog");
         this.start = this.selectComponent("#startime");
@@ -73,85 +96,16 @@ Page({
             blogId: options.id,
             userId: app.globalData.userInfo.id
         });
-        this.getBlogById();
+        await this.getBlogById();
 
         if (options.comment) {
             this.showComment();
         }
     },
-
     /**
-     * 生命周期函数--监听页面初次渲染完成
+     * 播放音频
      */
-    onReady: function () {
-
-    },
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-        this.stop();
-    },
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    },
-    showContent: function () {
-
-        this.dialog.togglerShow({
-            title: this.data.blog.title,
-            author: this.data.blog.author,
-            content: this.data.blog.content
-        });
-    },
-    showReply: function (event) {
-        this.dialog.togglerMsg({
-            placeholder: "回复" + event.currentTarget.dataset.name,
-            value: ""
-        });
-    }
-    ,
-    showComment: function (event) {
-        this.dialog.togglerMsg({
-            placeholder: "评论",
-            value: ""
-        });
-    },
-    _confirmMsgEvent: function () {
-        // TODO 评论
-        console.log(this.dialog.data);
-        this.dialog.togglerMsg();
-    },
-    play: function () {
+    play() {
         this.setData({
             isPlay: !this.data.isPlay
         })
@@ -161,13 +115,19 @@ Page({
             this.innerAudioContext.pause();
         }
     },
-    stop: function () {
+    /**
+     * 停止音频
+     */
+    stop() {
         this.setData({
             isPlay: false
         })
         this.innerAudioContext.pause();
     },
-    changeTime: function (event) {
+    /**
+     * 改变进度
+     */
+    changeTime(event) {
         const playInfo = this.data.playInfo;
         playInfo.current = (event && event.detail.value) || 0;
         this.setData({
@@ -176,7 +136,108 @@ Page({
         this.start.stom(playInfo.current);
         this.innerAudioContext.seek(playInfo.current);
     },
-    goFollow: async function () {
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady () {
+
+    },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow () {
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide () {
+        this.stop();
+    },
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage () {
+
+    },
+    /**
+     * 查看文章内容
+     */
+    showContent () {
+
+        this.dialog.togglerShow({
+            title: this.data.blog.title,
+            author: this.data.blog.author,
+            content: this.data.blog.content
+        });
+    },
+    /**
+     * 点击回复
+     */
+    showReply (event) {
+        const dataset = event.currentTarget.dataset;
+        wx.navigateTo({
+            url: dataset.url
+        })
+        // this.dialog.togglerMsg({
+        //     id: dataset.id,
+        //     toUserId: dataset.userid,
+        //     toNickName: dataset.name,
+        //     placeholder: "回复" + dataset.name,
+        //     value: ""
+        // });
+    },
+    /**
+     * 点击评论
+     */
+    showComment (event) {
+        this.dialog.togglerMsg({
+            id: 0,
+            toUserId: this.data.userId,
+            toNickName: this.data.blog.nickName,
+            placeholder: "评论",
+            value: ""
+        });
+    },
+    /**
+     * 回调评论确定
+     */
+    async _confirmMsgEvent () {
+        app.loading();
+        const ret = await this.comment(this.dialog.data.msgData);
+        if (ret && ret.code === 1) {
+
+            this.dialog.togglerMsg();
+            this.getComment();
+            app.success('评论成功');
+
+        }
+    },
+    /**
+     * 关注
+     */
+    async goFollow () {
         const blog = this.data.blog;
         app.loading();
         const ret = await app.post('/user/follow', { id: blog.userId });
@@ -191,11 +252,17 @@ Page({
             app.fail();
         }
     },
-    goForward: function (event) {
+    /**
+     * 转发
+     */
+    goForward (event) {
         const blog = this.data.blog;
         app.success('转发成功');
     },
-    goCollection: async function (event) {
+    /**
+     * 收藏
+     */
+    async goCollection (event) {
         const blog = this.data.blog;
         app.loading();
         const ret = await app.post('/blog/collection', { id: blog.id });
@@ -210,7 +277,10 @@ Page({
             app.fail();
         }
     },
-    goThumb: async function (event) {
+    /**
+     * 点赞
+     */
+    async goThumb (event) {
         const blog = this.data.blog;
         app.loading();
         const ret = await app.post('/blog/thumb', { id: blog.id });
@@ -225,6 +295,20 @@ Page({
         } else {
             app.fail();
         }
+    },
+    /**
+     * 评论
+     */
+    async comment (info) {
+
+        const ret = app.post('/comment/add', {
+            blogId: this.data.blogId,
+            id: info.id,
+            toUserId: info.toUserId,
+            toUserNickName: info.toNickName,
+            content: info.value
+        });
+        return ret;
     }
 
 })

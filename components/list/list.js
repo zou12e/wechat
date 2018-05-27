@@ -32,20 +32,32 @@ Component({
 
             const index = event.currentTarget.dataset.index;
             const blog = this.data.data[index];
-            console.log(blog);
+
             blog.isPlay = !blog.isPlay;
 
             if (!blog.audio) {
                 blog.audio = wx.createInnerAudioContext();
                 blog.audio.src = blog.url;
+                blog.audio.onPlay(() => {
+                    console.log('开始播放')
+                })
                 blog.audio.onEnded(() => {
-                    blog.isPlay = false;
+                    console.log('音频结束');
+                    this.data.data[this.data.last].isPlay = false;
+                    this.setData({
+                        data: this.data.data
+                    });
                 });
             }
 
-            if (this.data.last != -1 && blog.isPlay && this.data.last != index) {
-                this.data.data[this.data.last].isPlay = false;
-                blog.audio.pause();
+            
+
+            if (this.data.last != -1  && this.data.last != index) {
+                const lastBlog = this.data.data[this.data.last];
+                if (lastBlog.isPlay){
+                    lastBlog.isPlay = false;
+                    lastBlog.audio.pause();
+                }
             }
 
             this.setData({
@@ -58,7 +70,16 @@ Component({
             } else {
                 blog.audio.pause();
             }
-
+        },
+        stop() {
+            if (this.data.last != -1) {
+                const lastBlog = this.data.data[this.data.last];
+                if (lastBlog.isPlay) {
+                    lastBlog.isPlay = false;
+                    lastBlog.audio.pause();
+                    this.setData({data: this.data.data});
+                }
+            }
         },
         goFollow: async function (event) {
             const index = event.currentTarget.dataset.index;
