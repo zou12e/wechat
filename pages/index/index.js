@@ -40,8 +40,8 @@ Page({
         console.log('--goHome--');
         console.log(app.globalData.userInfo);
         wx.reLaunch({
-            // url: '/pages/home/home'
-            url: '/pages/audio/audio?id=1'
+            url: '/pages/home/home' 
+            // url: '/pages/audio/detail/detail?id=1'
         })
     }
 })

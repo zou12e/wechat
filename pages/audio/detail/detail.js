@@ -1,18 +1,35 @@
-// pages/audio/detail/detail.js
+import regeneratorRuntime from '../../../utils/regenerator-runtime';
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
-  },
+      blogId: 0,
+      commnetId: 0,
+      comment: {},
+    },
+    getCommentById: async function () {
+        const ret = await app.get('/comment/getCommentById', { id: this.data.commnetId });
+        if (ret && ret.code == 1) {
+            this.setData({
+                blogId: ret.data.blogId,
+                comment: ret.data.comment
+            });
+        }
 
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       this.dialog = this.selectComponent("#dialog");
+      this.setData({
+          commnetId: options.id
+      })
+      this.getCommentById();
   },
 
   /**
@@ -71,7 +88,7 @@ Page({
       });
   },
   _confirmMsgEvent: function () {
-
+     // TODO 评论
       console.log(this.dialog.data);
       this.dialog.togglerMsg();
   }

@@ -1,46 +1,41 @@
-<view class='detali' >
-    
+<view class='detali'>
+
     <view class='data'>
-                <image class='head' src='/images/head.jpg'></image>
-                <view class='content'>
-                    <view class='top'>
-                        <view class='l'>萌猴奖</view>
-                        <view class='r'>2018-05-18 12:00</view>
-                    </view>
-                    <view class='msg'>
-                        很好，说的很好，受益匪浅，希望自己也能像你一样能一
-                    </view>
-                </view>
-                <view class='bottom'>
-                    <image data-name='萌猴奖'  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
-                </view>
-                <view   class='reply'>
-                    <view class='t'>
-                        <image class='head' src='/images/head.jpg' ></image>
-                        天天爱读书：加油，你也可以的，你是最棒的，我们很看好你的
-
-                        <view class='time flex-text'>
-                            2018-05-18 12:00
-                            <image  data-name='天天爱读书'   bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
-                        </view>
-                    </view>
-
-                    <view class='t'>
-                        <image class='head' src='/images/head.jpg' ></image>
-                        jimmy 回复 天天爱读书：加油，你也可以的
-
-                        <view class='time flex-text'>
-                            2018-05-18 12:00
-                            <image data-name='jimmy'  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
-                        </view>
-                    </view>
-                </view>
-                
-       
+        <image class='head' src='{{comment.avatarUrl}}'></image>
+        <view class='content'>
+            <view class='top'>
+                <view class='l'>{{comment.nickName}}</view>
+                <view class='r'>{{comment.createTime}}</view>
+            </view>
+            <view class='msg'>
+                {{comment.content}}
+            </view>
         </view>
+        <view class='bottom'>
+            <image data-name='{{comment.nickName}}' bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+        </view>
+        
+        <view class='reply'>
+
+            <block wx:for="{{comment.replyList}}" wx:for-index="idx" wx:key="item">
+                <view class='t'>
+                    <image class='head' src='{{item.avatarUrl}}'></image>
+                    {{item.nickName}}
+                    <block wx:if="{{comment.userId != item.toUserId }}"> 回复 {{item.toNickName}}</block>
+                    ：{{item.content}}
+                    <view class='time flex-text'>
+                       {{item.createTime}}
+                        <image data-name='{{item.nickName}}' bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+                    </view>
+                </view>
+            </block>
+
+        </view>
+
+
+    </view>
 
 </view>
 
-<dialog id='dialog' 
-    bind:confirmMsgEvent="_confirmMsgEvent">
+<dialog id='dialog' bind:confirmMsgEvent="_confirmMsgEvent">
 </dialog>

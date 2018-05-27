@@ -9,46 +9,43 @@ Page({
     data: {
         isPlay: false,
         blogId: 0,
-        playInfo: {
-
+        userId: 0,
+        blog: {},
+        comment: {},
+        playInfo: {}
+    },
+    getBlogById: async function () {
+        const ret = await app.get('/blog/getBlogById', { id: this.data.blogId });
+        if (ret && ret.code == 1) {
+            this.setData({
+                blog: ret.data
+            });
+            this.setPlayInfo();
         }
-    },
-    getBlogById: function () {
-
-    },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
-        this.setData({
-            blogId: options.id
-        });
-        this.getBlogById();
-
-        this.dialog = this.selectComponent("#dialog");
-        if (options.comment) {
-            this.showComment();
+        const mret = await app.get('/comment/getCommentByBlogId', { id: this.data.blogId });
+        if (mret && mret.code == 1) {
+            this.setData({
+                comment: mret.data
+            });
         }
 
-
+    },
+    setPlayInfo() {
+        this.innerAudioContext = wx.createInnerAudioContext();
         const playInfo = {
-            title: "【月亮与六便士】",
-            src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
-            time: 401,
+            title: this.data.blog.title,
+            src: this.data.blog.url,
+            time: this.data.blog.time,
             current: 0
         };
         this.setData({
             playInfo: playInfo
         });
-        this.dialog = this.selectComponent("#dialog");
-        this.start = this.selectComponent("#startime");
-        this.end = this.selectComponent("#endtime");
 
         this.start.stom(0);
         this.end.stom(playInfo.time);
 
-        this.innerAudioContext = wx.createInnerAudioContext();
+
         this.innerAudioContext.src = playInfo.src;
         this.innerAudioContext.onPlay(() => {
             console.log('开始播放')
@@ -62,6 +59,26 @@ Page({
             this.start.stom(playInfo.current);
         })
     },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+
+        this.dialog = this.selectComponent("#dialog");
+        this.start = this.selectComponent("#startime");
+        this.end = this.selectComponent("#endtime");
+        this.dialog = this.selectComponent("#dialog");
+
+        this.setData({
+            blogId: options.id,
+            userId: app.globalData.userInfo.id
+        });
+        this.getBlogById();
+
+        if (options.comment) {
+            this.showComment();
+        }
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -69,12 +86,10 @@ Page({
     onReady: function () {
 
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**
@@ -83,7 +98,6 @@ Page({
     onHide: function () {
         this.stop();
     },
-
     /**
      * 生命周期函数--监听页面卸载
      */
@@ -114,9 +128,9 @@ Page({
     showContent: function () {
 
         this.dialog.togglerShow({
-            title: "【月亮与六便士】",
-            author: "[英]威廉·萨默塞特·毛姆",
-            content: "世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。世界上只有少数人能够最终达到自己的理想。我们的生活很单纯、很简朴。我们并不野心勃勃，如果说我们也有骄傲的话，那是因为在想到通过双手获得的劳动成果时的骄傲。我们对别人既不嫉妒，更不怀恨。唉，我亲爱的先生，有人认为劳动的幸福是句空话，对我说来可不是这样。我深深感到这句话的重要意义。我是个很幸福的人。"
+            title: this.data.blog.title,
+            author: this.data.blog.author,
+            content: this.data.blog.content
         });
     },
     showReply: function (event) {
@@ -133,33 +147,27 @@ Page({
         });
     },
     _confirmMsgEvent: function () {
+        // TODO 评论
         console.log(this.dialog.data);
         this.dialog.togglerMsg();
     },
     play: function () {
-
         this.setData({
             isPlay: !this.data.isPlay
         })
-
         if (this.data.isPlay) {
             this.innerAudioContext.play();
         } else {
             this.innerAudioContext.pause();
         }
-
     },
     stop: function () {
         this.setData({
             isPlay: false
         })
-
         this.innerAudioContext.pause();
-
-    }
-    ,
+    },
     changeTime: function (event) {
-
         const playInfo = this.data.playInfo;
         playInfo.current = (event && event.detail.value) || 0;
         this.setData({
@@ -168,6 +176,55 @@ Page({
         this.start.stom(playInfo.current);
         this.innerAudioContext.seek(playInfo.current);
     },
-
+    goFollow: async function () {
+        const blog = this.data.blog;
+        app.loading();
+        const ret = await app.post('/user/follow', { id: blog.userId });
+        app.hide();
+        if (ret && ret.code === 1) {
+            blog.isFollow = !blog.isFollow;
+            this.setData({
+                blog: blog,
+            });
+            app.success();
+        } else {
+            app.fail();
+        }
+    },
+    goForward: function (event) {
+        const blog = this.data.blog;
+        app.success('转发成功');
+    },
+    goCollection: async function (event) {
+        const blog = this.data.blog;
+        app.loading();
+        const ret = await app.post('/blog/collection', { id: blog.id });
+        app.hide();
+        if (ret && ret.code === 1) {
+            blog.isCollection = !blog.isCollection;
+            this.setData({
+                blog: blog,
+            });
+            app.success();
+        } else {
+            app.fail();
+        }
+    },
+    goThumb: async function (event) {
+        const blog = this.data.blog;
+        app.loading();
+        const ret = await app.post('/blog/thumb', { id: blog.id });
+        app.hide();
+        if (ret && ret.code === 1) {
+            blog.isThumb = !blog.isThumb;
+            blog.thumbs = parseInt(blog.thumbs) + (blog.isThumb ? 1 : -1);
+            this.setData({
+                blog: blog,
+            });
+            app.success();
+        } else {
+            app.fail();
+        }
+    }
 
 })

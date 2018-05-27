@@ -1,13 +1,13 @@
 <view class='audio'>
-    <view class='top' >
-        <image class='bg'  src="/images/banner.png" ></image>
+    <view class='top'>
+        <image class='bg' src="/images/banner.png"></image>
         <view class='author'>
             <view class='left flex-text'>
-                <image src='/images/head.jpg'></image>
-                天天爱读书
+                <image src='{{blog.avatarUrl}}'></image>
+                {{blog.nickName}}
             </view>
-            <button class='follow-button'>
-                关注
+            <button hidden='{{userId == blog.userId}}' bindtap="goFollow" class='follow-button'>
+                {{blog.isFollow ? "取关" : "关注"}}
             </button>
         </view>
     </view>
@@ -19,7 +19,7 @@
             <image bindtap="showContent" src='/images/icon-home-3.png'></image>
         </view>
         <view class='time'>
-            2018-05-10
+            {{blog.createTime}}
         </view>
 
         <view class='player'>
@@ -39,79 +39,68 @@
     <view class='comment'>
         <view class='title'>
             <view class='my-left'>
-                评论（0）
+                评论（{{comment.comments}}）
             </view>
             <view class='my-right'>
-                赞 2
+                赞 （{{blog.thumbs}}）
             </view>
         </view>
-        <view class='no-data hide'>
+        <view wx:if="{{comment.comments==0}}" class='no-data'>
             暂无评论
         </view>
-        <view class='data'>
-            <view class='li'>
-                <image class='head' src='/images/head.jpg'></image>
-                <view class='content'>
-                    <view class='top'>
-                        <view class='l'>萌猴奖</view>
-                        <view class='r'>2018-05-18 12:00</view>
+        <view wx:else="{{comment.comments!=0}}" class='data'>
+            <block wx:for="{{comment.list}}" wx:for-index="idx" wx:key="item">
+                <view class='li'>
+                    <image class='head' src='{{item.avatarUrl}}'></image>
+                    <view class='content'>
+                        <view class='top'>
+                            <view class='l'>{{item.nickName}}</view>
+                            <view class='r'>{{item.createTime}}</view>
+                        </view>
+                        <view class='msg'>
+                            {{item.content}}
+                        </view>
                     </view>
-                    <view class='msg'>
-                        很好，说的很好，受益匪浅，希望自己也能像你一样能一
-                    </view>
-                </view>
-                <navigator  url='/pages/audio/detail/detail' class='reply'>
-                    <view class='t1'>
-                        天天爱读书：加油，你也可以的，你是最棒的，我们很看好你的
-                    </view>
-                    <view class='t2'>
-                        共2条回复 >
-                    </view>
-                </navigator>
-                <view class='bottom'>
-                    <image data-name='萌猴奖'  bindtap="showReply"  src='/images/icon-square-6-reply.png' ></image>
-                </view>
-            </view>
-            <view class='li'>
-                <image class='head' src='/images/head.jpg'></image>
-                <view class='content'>
-                    <view class='top'>
-                        <view class='l'>mayi1298</view>
-                        <view class='r'>2018-05-18 12:00</view>
-                    </view>
-                    <view class='msg'>
-                        很棒，赞一个。
+                    <navigator wx:if="{{item.replys>0}}"  url='/pages/audio/detail/detail?id= {{item.id}}' class='reply'>
+                        <view class='t1'>
+                            {{item.replyList[0].nickName}}
+                            <block wx:if="{{item.userId != item.replyList[0].toUserId }}" > 回复 {{item.replyList[0].toNickName}}</block>
+                            ：{{item.replyList[0].content}}
+                        </view>
+                        <view class='t2'>
+                            共{{item.replys}}条回复 >
+                        </view>
+                    </navigator>
+                    <view class='bottom'>
+                        <image data-name='{{item.nickName}}' bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
                     </view>
                 </view>
-               
-                <view class='bottom'>
-                    <image data-name='mayi1298' bindtap="showReply" src='/images/icon-square-6-reply.png' ></image>
-                </view>
-            </view>
+
+            </block>
+            
         </view>
     </view>
 </view>
 
-<view class='audio-operation' >
+<view class='audio-operation'>
 
-    <view>
-        <image src='/images/icon-square-4.png' ></image>
+    <view bindtap="goForward">
+        <image src='/images/icon-square-4.png'></image>
     </view>
 
-    <view  >
-        <image src='/images/icon-square-5.png' ></image>
+    <view class='{{userId == blog.userId ? "hide" : "" }}' bindtap="goCollection">
+        <image src='/images/icon-square-5{{blog.isCollection ? "-on":""}}.png'></image>
     </view>
 
-    <view >
-        <image  bindtap="showComment" src='/images/icon-square-6.png' ></image>
+    <view bindtap="showComment">
+        <image src='/images/icon-square-6.png'></image>
     </view>
 
-    <view class='hide' >
-        <image src='/images/icon-square-7.png' ></image>
+    <view bindtap="goThumb">
+        <image src='/images/icon-square-7{{blog.isThumb ? "-on":""}}.png'></image>
     </view>
 
 </view>
 
-<dialog id='dialog' 
-    bind:confirmMsgEvent="_confirmMsgEvent">
+<dialog id='dialog' bind:confirmMsgEvent="_confirmMsgEvent">
 </dialog>
