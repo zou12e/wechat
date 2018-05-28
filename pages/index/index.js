@@ -40,7 +40,7 @@ Page({
         console.log(app.globalData.userInfo);
         wx.reLaunch({
             // url: '/pages/home/home' 
-            url: '/pages/mine/mine' 
+            url: '/pages/home/read/read?id=1' 
         })
     },
     async updateUser () {

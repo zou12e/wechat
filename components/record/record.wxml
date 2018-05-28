@@ -1,0 +1,24 @@
+<view class='my-record'>
+        <view class='tip'>
+            注：最长录制时间2分钟
+        </view>
+        <view class='time'>
+            <stom id='time' class='ing {{type==0?"hide":""}}'></stom>
+            <view class='begin {{type!=0?"hide":""}}'>
+                点击开始录音
+            </view>
+        </view>
+        <view class='operation'>
+            <view bindtap="rego" class='left flex-text  {{type<2?"hide":""}}'>
+                <image src='/images/icon-record-2.png'></image>
+                重录
+            </view>
+            <view class='center'>
+                <image bindtap="go" src='/images/icon-record-3-{{classer[type]}}.png'></image>
+            </view>
+            <view bindtap="_savego" class='right flex-text  {{type<2?"hide":""}}'>
+                <image src='/images/icon-record-1.png'></image>
+                保存
+            </view>
+        </view>
+    </view>

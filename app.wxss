@@ -181,6 +181,7 @@ button::after{
     margin-top: 20rpx;
     height: 450rpx;
     background: #fff;
+    overflow: hidden;
 }
 .my-record .tip{
     font-size: 24rpx;

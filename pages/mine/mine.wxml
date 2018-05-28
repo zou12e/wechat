@@ -45,7 +45,12 @@
          <view class='msg' >
             早读晚讲已陪伴你第 {{allDays}} 天
         </view>
-        <calendar  id='calendar'  ></calendar>
+        <calendar  id='calendar'  
+            bind:preMonth="_preMonth"
+            bind:nextMonth="_nextMonth"
+        ></calendar>
+
+
     </view>
 
 </view>

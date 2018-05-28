@@ -7,14 +7,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        type: 0,  // 0：录制  1：停止录制  2：播放  3：暂停
         audioId: 0,
-        time: 0,
-        src: "",
-        classer: ["begin", "stop", "play", "pause"],
         audio: {}
     },
-    async getAudio(id) {
+    async getAudio() {
         const ret = await app.get('/audio/getAudioById', { id: this.data.audioId});
          if (ret && ret.code === 1) {
             this.setData({
@@ -32,15 +28,9 @@ Page({
         });
         this.getAudio();
 
-
-        this.time = this.selectComponent("#time");
-        this.recorderManager = wx.getRecorderManager()
-
-        this.recorderManager.onStop((cfg) => {
-            this.setData({
-                src: cfg.tempFilePath
-            })
-        })
+        this.record = this.selectComponent("#record");
+        this.record.init();
+        
     },
 
     /**
@@ -91,86 +81,12 @@ Page({
     onShareAppMessage () {
 
     },
-    go () {
-
-        if (this.data.type == 0) { //点击录音
-
-            const options = {
-                duration: 120000,
-                sampleRate: 44100,
-                numberOfChannels: 1,
-                encodeBitRate: 192000,
-                format: 'mp3',
-                frameSize: 50
-            }
-            this.recorderManager.start(options);
-
-            this.setData({
-                type: 1
-            })
-            this.time.stom(this.data.time);
-            this.cleartime = setInterval(() => {
-                this.setData({
-                    time: ++this.data.time
-                })
-                this.time.stom(this.data.time);
-            }, 1000)
+    /** 
+     * 保存语音
+     */
+    _savego() {
+        // console.log(this.record.data.src);
 
 
-        } else if (this.data.type == 1) {//点击停止
-            this.setData({
-                type: 2
-            })
-            clearInterval(this.cleartime);
-
-            this.recorderManager.stop();
-
-        } else if (this.data.type == 2 && this.data.src) {//点击播放
-            this.setData({
-                type: 3
-            });
-            if (this.innerAudioContext) {
-                this.innerAudioContext.play();
-                return;
-            }
-            this.innerAudioContext = wx.createInnerAudioContext();
-            this.innerAudioContext.src = this.data.src;
-            this.innerAudioContext.onPlay(() => {
-                console.log('开始播放')
-            });
-            this.innerAudioContext.onEnded(() => {
-                console.log('音频结束')
-                this.setData({
-                    type: 2,
-                    time: 0
-                });
-                this.time.stom(this.data.time);
-            });
-            this.innerAudioContext.onTimeUpdate(() => {
-                this.setData({
-                    time: this.innerAudioContext.currentTime
-                });
-                this.time.stom(this.data.time);
-            })
-            this.innerAudioContext.play();
-        } else if (this.data.type == 3) {//点击暂停
-            this.innerAudioContext.pause();
-            this.setData({
-                type: 2
-            })
-        }
-
-
-    },
-    rego () {
-        this.innerAudioContext = null;
-        this.setData({
-            type: 0
-        })
-    },
-    savego (){
-        wx.navigateTo({
-            url: '/pages/audio/audio'
-        })
     }
 })

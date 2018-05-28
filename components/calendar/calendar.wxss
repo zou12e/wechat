@@ -58,7 +58,7 @@
     padding: 0 30rpx;
 }
 
- .box .line >view {
+ .box .line >view, .box .line >text {
     width: 14.28%;
     height: 70rpx;
     line-height: 70rpx;
@@ -96,11 +96,12 @@
   background: #D5FAF1;
 
 }
- .box .line .continu-f {
+
+ .box .line .continu:first-of-type {
     border-top-left-radius: 100rpx;
     border-bottom-left-radius: 100rpx;
 }
- .box .line .continu-l {
+ .box .line .continu:last-of-type {
     border-top-right-radius: 100rpx;
     border-bottom-right-radius: 100rpx;
 }

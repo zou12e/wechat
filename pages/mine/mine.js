@@ -21,13 +21,13 @@ Page({
             })
         }
     },
-    async getPunchInfo(){
+    async getPunchInfo(year, month){
         const ret = await app.get('/user/getPunchInfo',{
-            year: 2018,
-            month: 5
+            year: year,
+            month: month
         });
         if(ret && ret.code ==1){
-            const continuDays = this.calendar.setDays(ret.data.list);
+            const continuDays = this.calendar.setDays(ret.data.list, year, month);
             this.setData({
                 allDays: ret.data.allDays,
                 punchDays: ret.data.punchDays,
@@ -40,8 +40,8 @@ Page({
      */
     onLoad (options) {
         this.calendar = this.selectComponent("#calendar");
-        // this.calendar.init();
-        this.getPunchInfo();
+        const current = this.calendar.getCurrentMonth();
+        this.getPunchInfo(current.year(), current.month() + 1);
     },
 
     /**
@@ -91,5 +91,13 @@ Page({
      */
     onShareAppMessage () {
 
-    }
+    },
+    _preMonth() {
+        const last = this.calendar.getCurrentMonth().subtract(1, 'month');
+        this.getPunchInfo(last.year(), last.month() + 1)
+    },
+    _nextMonth() {
+        const next = this.calendar.getCurrentMonth().add(1, 'month');
+        this.getPunchInfo(next.year(), next.month() + 1)
+    },
 })

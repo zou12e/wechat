@@ -51,7 +51,13 @@ Component({
           
             const current = this.getCurrentMonth();
             const week = current.weekday();
+            const year = current.year();
+            const month = current.month();
+
+            const todayYear = moment().year();
+            const todayMonth = moment().month();
             const today = moment().date();
+
             const currentLastDay = current.daysInMonth();
             const lastMonth = current.subtract(1, 'month');
             const lastMonthLastDay = lastMonth.daysInMonth();
@@ -77,15 +83,14 @@ Component({
                             });
                         }else {
                             day.push({
+                                classer: days.indexOf(cday)!=-1 ? "punch" : '',
                                 day: cday,
-                                classer: days.indexOf(cday)!=-1 ? "punch" : ''
+                                today: (year == todayYear && month == todayMonth && cday == today)  ? "today" : ""
                             });
                         }
                     }
                     
                 }
-                // data.push(day);
-                // day = [];
             }
             let currentDay = {};
             let preDay = today - 1;
@@ -94,7 +99,7 @@ Component({
                 currentDay = day[i];
                 if (currentDay.classer =='punch' ){
                     if (currentDay.day == today) {
-                        currentDay.classer ='continu continu-l'
+                        currentDay.classer ='continu'
                         preDay = currentDay.day - 1;
                         continuDays ++;
                     } else if (currentDay.day == preDay) {
@@ -120,6 +125,12 @@ Component({
         nextMonth() {
             const next = this.getCurrentMonth().add(1, 'month');
             this.setDate(next.year(), next.month() + 1)
+        },
+        _preMonth() {
+            this.triggerEvent("preMonth");
+        },
+        _nextMonth() {
+            this.triggerEvent("nextMonth");
         }
     }
 })
