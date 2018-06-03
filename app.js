@@ -15,8 +15,8 @@ App({
     },
     globalData: {
         userInfo: null,
-        host: 'http://192.168.4.94',
-        // host: 'http://127.0.0.1',
+        // host: 'http://192.168.4.94',
+        host: 'http://127.0.0.1',
         // host: "http://192.168.1.106",
         // host: "https://www.zourunze.com",
         port: "4001",
@@ -43,7 +43,7 @@ App({
                 method: type || 'GET',
                 header: {
                     "user-sessionkey": user.session_key || "",
-                    "user-opeind": user.openid || "",
+                    "user-openid": user.openid || "",
                     "user-id": user.id || 0
                 },
                 data: data,
@@ -71,14 +71,18 @@ App({
                 header: {
                     "Content-Type": "multipart/form-data",
                     "user-sessionkey": user.session_key || "",
-                    "user-opeind": user.openid || "",
+                    "user-openid": user.openid || "",
                     "user-id": user.id || 0
                 },
                 filePath: filePath,
                 name: 'file',
                 formData: data ,
                 success: (res) => {
-                    resolve(res.data)
+                    try {
+                        resolve(JSON.parse(res.data))
+                    } catch (e){
+                        reject(res);
+                    }
                 },
                 fail: (res) => {
                     reject(res);

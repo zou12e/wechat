@@ -14,6 +14,7 @@ Component({
      */
     data: {
         type: 0,  // 0：录制  1：停止录制  2：播放  3：暂停
+        isCommit:false,
         time: 0,
         src: "",
         classer: ["begin", "stop", "play", "pause"],
@@ -29,6 +30,7 @@ Component({
             this.recorderManager = wx.getRecorderManager()
 
             this.recorderManager.onStop((cfg) => {
+              
                 this.setData({
                     src: cfg.tempFilePath
                 })
@@ -106,36 +108,32 @@ Component({
         rego() {
             this.innerAudioContext = null;
             this.setData({
-                type: 0
+                type: 0,
+                time: 0,
+                src: ''
             })
         },
         async _savego() {
-            const ret =await app.uploadFile('/blog/uploadFile', this.data.src).catch((err) => {
-                console.log(err);
-                app.fail('上传文件失败');
-            });
 
-            console.log(ret);
-
-            // wx.uploadFile({
-            //     url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
-            //     filePath: this.data.src,
-            //     name: 'file',
-            //     formData: {
-            //         'user': 'test'
-            //     },
-            //     success: function (res) {
-            //         var data = res.data
-            //         this.triggerEvent("savego")
-            //     },fail
-            // })
-
-            
-
-            // wx.navigateTo({
-            //     url: '/pages/audio/audio?id=1'
-            // })
-
+            if (!this.data.isCommit && this.data.src) {
+                this.setData({
+                    isCommit: true,
+                })
+                const ret =await app.uploadFile('/blog/uploadFile', this.data.src).catch((err) => {
+                    app.fail('上传文件失败');
+                });
+                this.setData({
+                    isCommit: false
+                })
+                if( ret && ret.code==1 ){
+                    this.setData({
+                        src: ret.data.path
+                    })
+                    this.triggerEvent("savego");
+                } else {
+                    app.fail('上传文件失败');
+                }
+            }
         }
     }
 })

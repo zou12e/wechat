@@ -159,12 +159,13 @@ Page({
 
     },
     play () {
-
+        
         this.setData({
             isPlay: !this.data.isPlay
         })
 
         if (this.data.isPlay) {
+            this.showContent();
             this.innerAudioContext.play();
         } else {
             this.innerAudioContext.pause();

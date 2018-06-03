@@ -5,10 +5,10 @@
         <image class='bg' src='/images/icon-mine-1.png' ></image>
         <!-- <open-data type="userAvatarUrl"></open-data> -->
 
-         <image class='head' src='/images/head.jpg' ></image> 
+         <image class='head' src='{{userInfo.avatarUrl}}' ></image> 
 
         <view class='bom' >
-             <view class='nick'  >萌猴酱</view> 
+             <view class='nick'  >{{userInfo.nickName}}</view> 
             <!-- <open-data  type="userNickName"></open-data> -->
 
             <view class='info' >

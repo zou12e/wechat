@@ -84,9 +84,27 @@ Page({
     /** 
      * 保存语音
      */
-    _savego() {
-        // console.log(this.record.data.src);
-
+    async _savego() {
+  
+        const path = this.record.data.src;
+        const time = this.record.data.time;
+        const ret =await app.post('/blog/save', {
+            audioId: this.data.audioId,
+            type: 1,
+            path: path,
+            time: time
+        });
+        if (ret && ret.code == 1) {
+            app.success('保存成功');
+            setTimeout(() => {
+                wx.redirectTo({
+                    url: '/pages/audio/audio?id=' + ret.data.id + '&path=' + path
+                })
+            }, 1000)
+        } else {
+            app.fail();
+        }
+        
 
     }
 })

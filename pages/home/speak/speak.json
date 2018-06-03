@@ -1,6 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-        "stom": "/components/stom/stom"
+        "record": "/components/record/record"
     }
 }

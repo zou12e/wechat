@@ -8,6 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        userInfo: {},
         allDays: 0,
         punchDays: 0,
         continuDays:0,
@@ -42,6 +43,9 @@ Page({
         this.calendar = this.selectComponent("#calendar");
         const current = this.calendar.getCurrentMonth();
         this.getPunchInfo(current.year(), current.month() + 1);
+        this.setData({
+            userInfo: app.globalData.userInfo
+        });
     },
 
     /**

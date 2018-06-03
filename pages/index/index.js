@@ -1,4 +1,5 @@
 import regeneratorRuntime from '../../utils/regenerator-runtime';
+import _ from '../../utils/underscore-min';
 
 //获取应用实例
 const app = getApp()
@@ -27,10 +28,11 @@ Page({
     async getUserInfo (e) {
         if (e.detail.errMsg == 'getUserInfo:ok') {
             const userInfo = e.detail.userInfo;
-            app.globalData.userInfo.nickName = userInfo.nickName;
-            app.globalData.userInfo.avatarUrl = userInfo.avatarUrl;
+
+            _.extend(app.globalData.userInfo, userInfo);
+           
             await this.updateUser();
-            this.goHome();
+            
         } else {
             wx.faile('用户授权失败');
         }
@@ -39,13 +41,18 @@ Page({
         console.log('--goHome--');
         console.log(app.globalData.userInfo);
         wx.reLaunch({
-            // url: '/pages/home/home' 
-            url: '/pages/home/read/read?id=1' 
+            url: '/pages/home/home' 
+            // url: '/pages/home/speak/speak?id=1' 
         })
     },
     async updateUser () {
         const ret = app.post('/user/update',{
             user: app.globalData.userInfo
         });
+        if(ret && ret.code ==1){
+            //this.goHome();
+        } else {
+
+        }
     }
 })

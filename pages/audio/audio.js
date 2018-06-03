@@ -10,6 +10,7 @@ Page({
         isPlay: false,
         blogId: 0,
         userId: 0,
+        path: "",
         blog: {},
         comment: {},
         playInfo: {}
@@ -18,6 +19,7 @@ Page({
      * 获取blog详情
      */
     async getBlogById () {
+     
         const ret = await app.get('/blog/getBlogById', { id: this.data.blogId });
         if (ret && ret.code == 1) {
             this.setData({
@@ -46,7 +48,7 @@ Page({
         this.innerAudioContext = wx.createInnerAudioContext();
         const playInfo = {
             title: this.data.blog.title,
-            src: this.data.blog.url,
+            src: this.data.path ||  this.data.blog.url,
             time: this.data.blog.time,
             current: 0
         };
@@ -86,7 +88,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     async onLoad (options) {
-
+         
         this.dialog = this.selectComponent("#dialog");
         this.start = this.selectComponent("#startime");
         this.end = this.selectComponent("#endtime");
@@ -94,6 +96,7 @@ Page({
 
         this.setData({
             blogId: options.id,
+            path: options.path,
             userId: app.globalData.userInfo.id
         });
         await this.getBlogById();
