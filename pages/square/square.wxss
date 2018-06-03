@@ -1,7 +1,7 @@
 .square {}
 
 .raking {
-    margin-top: 30rpx;
+    margin: 30rpx 0;
     height: 160rpx;
     display: flex;
 }
@@ -31,6 +31,5 @@
 .my-tab  {
     margin-top: 30rpx;
 }
-.my-list {
-    margin-top: 30rpx;
-}
+
+

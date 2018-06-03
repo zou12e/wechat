@@ -13,13 +13,13 @@
         </navigator>
     </view>
 
-    <view class='my-tab'>
-        <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">
+    <view class='my-tab' hidden='true'>
+         <view bindtap="toTab" data-tab='0' class="{{tab==0?'on':''}}">
             早读
         </view>
         <view bindtap="toTab" data-tab='1' class="{{tab==1?'on':''}}">
             晚讲
-        </view>
+        </view> 
     </view>
 
     <audio-list id='audiolist' type='all'  ></audio-list>

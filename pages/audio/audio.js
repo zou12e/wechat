@@ -10,7 +10,6 @@ Page({
         isPlay: false,
         blogId: 0,
         userId: 0,
-        path: "",
         blog: {},
         comment: {},
         playInfo: {}
@@ -48,7 +47,7 @@ Page({
         this.innerAudioContext = wx.createInnerAudioContext();
         const playInfo = {
             title: this.data.blog.title,
-            src: this.data.path ||  this.data.blog.url,
+            src:  this.data.blog.url,
             time: this.data.blog.time,
             current: 0
         };
@@ -62,6 +61,7 @@ Page({
         this.innerAudioContext.src = playInfo.src;
         this.innerAudioContext.onPlay(() => {
             console.log('开始播放')
+            app.hide();
         })
         this.innerAudioContext.onEnded(() => {
             console.log('音频结束');
@@ -96,7 +96,6 @@ Page({
 
         this.setData({
             blogId: options.id,
-            path: options.path,
             userId: app.globalData.userInfo.id
         });
         await this.getBlogById();
@@ -113,6 +112,7 @@ Page({
             isPlay: !this.data.isPlay
         })
         if (this.data.isPlay) {
+            app.loading('加载中...');
             this.innerAudioContext.play();
         } else {
             this.innerAudioContext.pause();
@@ -161,7 +161,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload () {
-
+        this.stop();
     },
 
     /**

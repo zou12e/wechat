@@ -87,11 +87,11 @@ Page({
     async _savego() {
   
         const path = this.record.data.src;
-        const time = this.record.data.time;
+        const time = this.record.data.audioTime;
         const ret =await app.post('/blog/save', {
             audioId: this.data.audioId,
             type: 1,
-            path: path,
+            url: path,
             time: time
         });
         if (ret && ret.code == 1) {

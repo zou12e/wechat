@@ -14,6 +14,7 @@ Component({
      * 组件的初始数据
      */
     data: {
+        isLoad: true,
         data: [],
         last: -1
     },
@@ -24,7 +25,8 @@ Component({
     methods: {
         setList:function(data){
             this.setData({
-                data:data
+                data:data,
+                isLoad:false,
             })
         },
         play: function (event) {
@@ -39,6 +41,7 @@ Component({
                 blog.audio.src = blog.url;
                 blog.audio.onPlay(() => {
                     console.log('开始播放')
+                    app.hide();
                 })
                 blog.audio.onEnded(() => {
                     console.log('音频结束');
@@ -65,6 +68,7 @@ Component({
             });
 
             if (blog.isPlay) {
+                app.loading('加载中...');
                 blog.audio.play();
             } else {
                 blog.audio.pause();

@@ -34,7 +34,7 @@ Page({
             await this.updateUser();
             
         } else {
-            wx.faile('用户授权失败');
+            app.fail('用户授权失败');
         }
     },
     goHome () {
@@ -50,9 +50,9 @@ Page({
             user: app.globalData.userInfo
         });
         if(ret && ret.code ==1){
-            //this.goHome();
+            this.goHome();
         } else {
-
+            app.fail('用户授权失败');
         }
     }
 })

@@ -16,11 +16,11 @@ App({
     globalData: {
         userInfo: null,
         // host: 'http://192.168.4.94',
-        host: 'http://127.0.0.1',
-        // host: "http://192.168.1.106",
-        // host: "https://www.zourunze.com",
-        port: "4001",
-        // port: "443",
+        // host: 'http://127.0.0.1',
+        // host: "http://192.168.0.101",
+        host: "https://www.zourunze.com",
+        // port: "4001",
+        port: "443",
         apiversion: '/wechat/api/v1',
     },
     uri () {
@@ -78,10 +78,11 @@ App({
                 name: 'file',
                 formData: data ,
                 success: (res) => {
+                    console.log(res);
                     try {
                         resolve(JSON.parse(res.data))
                     } catch (e){
-                        reject(res);
+                        reject(e);
                     }
                 },
                 fail: (res) => {

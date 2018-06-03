@@ -16,6 +16,7 @@ Component({
         type: 0,  // 0：录制  1：停止录制  2：播放  3：暂停
         isCommit:false,
         time: 0,
+        audioTime: 0,
         src: "",
         classer: ["begin", "stop", "play", "pause"],
     },
@@ -32,7 +33,8 @@ Component({
             this.recorderManager.onStop((cfg) => {
               
                 this.setData({
-                    src: cfg.tempFilePath
+                    src: cfg.tempFilePath,
+                    audioTime: this.data.time
                 })
             })
         },
@@ -59,6 +61,14 @@ Component({
                         time: ++this.data.time
                     })
                     this.time.stom(this.data.time);
+
+                    if (this.data.time >= 120){
+                        this.setData({
+                            type: 2
+                        })
+                        clearInterval(this.cleartime);
+                        this.recorderManager.stop();
+                    }
                 }, 1000)
 
 
@@ -110,6 +120,7 @@ Component({
             this.setData({
                 type: 0,
                 time: 0,
+                audioTime: 0,
                 src: ''
             })
         },
@@ -131,7 +142,7 @@ Component({
                     })
                     this.triggerEvent("savego");
                 } else {
-                    app.fail('上传文件失败');
+                    app.fail('上传文件保存失败');
                 }
             }
         }

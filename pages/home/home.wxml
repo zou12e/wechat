@@ -4,11 +4,11 @@
         <text> 22/28℃
         </text>
     </view>
-    <view class="home-tab">
+    <view class="home-tab" hidden='true' >
         <image bindtap="toMorning" class="left" src="/images/icon-home-1{{isMorning ? '-on' : '' }}.png"></image>
         <image bindtap="toNight" src="/images/icon-home-2{{!isMorning ? '-on' : '' }}.png"></image>
     </view>
-    <view class="home-dot">
+    <view class="home-dot" hidden='true' >
         <view class="left {{isMorning ? 'on' : '' }}">
         </view>
         <view class="{{!isMorning ? 'on' : '' }}">

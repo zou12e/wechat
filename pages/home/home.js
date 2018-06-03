@@ -104,9 +104,8 @@ Page({
         this.dialog = this.selectComponent("#dialog");
         this.start = this.selectComponent("#startime");
         this.end = this.selectComponent("#endtime");
-
        
-
+        this.getUserInfo();
         // wx.setTabBarBadge({
         //     index: 2,
         //     text: '1'
@@ -123,7 +122,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     async onShow () {
-        this.getUserInfo();
+        
     },
     /**
      * 生命周期函数--监听页面隐藏

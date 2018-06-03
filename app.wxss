@@ -258,18 +258,18 @@ button::after{
 /*----article----*/
 
 .my-article .title{
-    font-size: 34rpx;
+    font-size: 36rpx;
     color: #000000;
-    letter-spacing: 0.49rpx;
+    letter-spacing: 0.52rpx;
     text-align: center;
     line-height: 48rpx;
     margin-top: 38rpx;
     z-index: 1;
 }
 .my-article .author {
-    font-size: 26rpx;
+    font-size: 28rpx;
     color: #888;
-    letter-spacing: 0.37rpx;
+    letter-spacing: 0.42rpx;
     text-align: center;
     line-height:38rpx;
     margin-top: 18rpx;
@@ -283,9 +283,9 @@ button::after{
     right: 0rpx;
     padding: 0 50rpx;
     bottom: 60rpx;
-    font-size: 26rpx;
+    font-size: 28rpx;
     color: #353535;
-    letter-spacing: 0.37rpx;
+    letter-spacing: 0.42rpx;
     box-sizing: border-box;
     text-indent: 55rpx;
     z-index: 2
