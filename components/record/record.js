@@ -130,6 +130,7 @@ Component({
                 this.setData({
                     isCommit: true,
                 })
+                app.loading();
                 const ret =await app.uploadFile('/blog/uploadFile', this.data.src).catch((err) => {
                     app.fail('上传文件失败');
                 });
