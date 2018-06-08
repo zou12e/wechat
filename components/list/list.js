@@ -14,6 +14,7 @@ Component({
      * 组件的初始数据
      */
     data: {
+        userInfo: {},
         isLoad: true,
         data: [],
         last: -1
@@ -25,6 +26,7 @@ Component({
     methods: {
         setList:function(data){
             this.setData({
+                userInfo: app.globalData.userInfo,
                 data:data,
                 isLoad:false,
             })
@@ -91,7 +93,12 @@ Component({
             const ret = await app.post('/user/follow', { id: blog.userId });
             app.hide();
             if (ret && ret.code === 1) {
-                blog.isFollow = !blog.isFollow;
+
+                this.data.data.forEach(function(item){
+                    if (item.userId === blog.userId){
+                        item.isFollow = !item.isFollow;
+                    }
+                })
                 this.setData({
                     data: this.data.data,
                 });

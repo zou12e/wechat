@@ -10,7 +10,7 @@
                             <image class='head' src='{{item.avatarUrl}}'></image>
                             {{item.nickName}}
                         </view>
-                        <button bindtap="goFollow" data-index='{{idx}}' class='follow-button' >
+                        <button hidden='{{userInfo.id==item.userId}}' bindtap="goFollow" data-index='{{idx}}' class='follow-button' >
                             {{item.isFollow ? "取关" : "关注"}}
                         </button>
                     </view>
@@ -30,14 +30,14 @@
                         </image>
                     </view>
 
-
+ 
                     <view class='operation flex-text' >
 
                         <view bindtap="goForward" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-4.png' ></image>
                         </view>
 
-                        <view hidden='{{type=="collection" || type=="mine"}}' bindtap="goCollection" data-index='{{idx}}' class='view flex-text' >
+                        <view hidden='{{type=="collection" || type=="mine" }}' bindtap="goCollection" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-5{{item.isCollection ? "-on":""}}.png' ></image>
                         </view>
 
