@@ -30,21 +30,21 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        togglerShow: function (cfg){
+        togglerShow (cfg){
             cfg = cfg || this.data.showData,
             this.setData({
                 isShow: !this.data.isShow,
                 showData: cfg
             });
         },
-        togglerMsg: function (cfg) {
+        togglerMsg (cfg) {
             cfg = cfg || this.data.msgData,
                 this.setData({
                     isMsg: !this.data.isMsg,
                     msgData: cfg
                 });
         },
-        bindMsg:function(e){
+        bindMsg (e){
             var msgData = this.data.msgData;
             msgData.value = e.detail.value;
             this.setData({

@@ -12,7 +12,8 @@
             <!-- <open-data  type="userNickName"></open-data> -->
 
             <view class='info' >
-                    <navigator url='/pages/mine/follow/follow' class='l new' >
+                    <!-- 新的 new -->
+                    <navigator url='/pages/mine/follow/follow' class='l ' >
                         <view class='num' >{{info.follows}}</view>
                         <view class='explain' >关注</view>
                     </navigator>

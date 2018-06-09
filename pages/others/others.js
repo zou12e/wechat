@@ -10,12 +10,11 @@ Page({
         userId: 0,
         user: {},
     },
-    async getOhtersBlogList () {
-        const ret = await app.get('/blog/getBlogListByUserId', { id: this.data.userId});
-        if (ret && ret.code === 1) {
-            const list = ret.data.list;
-            this.audioList.setList(list);
-        }
+    async getOhtersBlogList(reload) {
+
+        const url = '/blog/getBlogListByUserId';
+        const param = { id: this.data.userId };
+        this.audioList.setList(url, param, reload);
     },
     async getUserById () {
         const ret = await app.get('/user/getUserById',{id:this.data.userId});
@@ -33,7 +32,7 @@ Page({
         this.setData({
             userId: options.id
         })
-        this.getOhtersBlogList();
+        
         this.getUserById();
     },
 
@@ -48,7 +47,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-
+        this.getOhtersBlogList(true);
     },
 
     /**
@@ -76,7 +75,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom () {
-
+        this.getOhtersBlogList();
     },
 
     /**

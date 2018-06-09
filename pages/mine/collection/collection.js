@@ -8,19 +8,16 @@ Page({
      */
     data: {
     },
-    async getCollectionList () {
-        const ret = await app.get('/blog/getCollectionBlogList');
-        if (ret && ret.code === 1) {
-            const list = ret.data.list;
-            this.audioList.setList(list);
-        }
+    async getCollectionList(reload) {
+        const url = '/blog/getCollectionBlogList';
+        this.audioList.setList(url, {}, reload);
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad (options) {
         this.audioList = this.selectComponent("#audiolist");
-        this.getCollectionList();
+     
     },
 
     /**
@@ -34,7 +31,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-
+        this.getCollectionList(true);
     },
 
     /**
@@ -62,7 +59,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom () {
-
+        this.getCollectionList();
     },
 
     /**

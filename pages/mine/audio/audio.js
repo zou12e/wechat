@@ -8,12 +8,10 @@ Page({
      */
     data: {
     },
-    async getMyBlogList() {
-        const ret = await app.get('/blog/getBlogListByUserId', { id: app.globalData.userInfo.id});
-        if (ret && ret.code === 1) {
-            const list = ret.data.list;
-            this.audioList.setList(list);
-        }
+    async getMyBlogList(reload) {
+        const url = '/blog/getBlogListByUserId';
+        const param = { id: app.globalData.userInfo.id };
+        this.audioList.setList(url, param, reload);
     },
 
     /**
@@ -21,7 +19,7 @@ Page({
      */
     onLoad (options) {
         this.audioList = this.selectComponent("#audiolist");
-        this.getMyBlogList();
+        
     },
 
     /**
@@ -35,7 +33,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-
+        this.getMyBlogList(true);
     },
 
     /**
@@ -63,7 +61,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom () {
-
+        this.getMyBlogList();
     },
 
     /**

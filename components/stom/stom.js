@@ -18,9 +18,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        stom: function (second) {
-
-            
+        stom (second) {
             this.setData({
                 data: getApp().retain(second > 59 ? second / 60 : "00") + ":" + getApp().retain(second > 59 ? second % 60 : second)
             });

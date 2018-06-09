@@ -42,7 +42,7 @@ Page({
         console.log(app.globalData.userInfo);
         wx.reLaunch({
             url: '/pages/home/home' 
-            // url: '/pages/home/speak/speak?id=1' 
+            // url: '/pages/square/square' 
         })
     },
     async updateUser () {
