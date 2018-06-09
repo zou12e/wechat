@@ -9,6 +9,7 @@ Page({
     data: {
         userId: 0,
         user: {},
+        userInfo: {},
     },
     async getOhtersBlogList(reload) {
 
@@ -30,7 +31,8 @@ Page({
     onLoad (options) {
         this.audioList = this.selectComponent("#audiolist");
         this.setData({
-            userId: options.id
+            userId: options.id,
+            userInfo: app.globalData.userInfo
         })
         
         this.getUserById();

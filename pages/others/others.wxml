@@ -10,7 +10,7 @@
                 <image src='{{user.avatarUrl}}' ></image>
                 {{user.nickName}}
             </view>
-            <button bindtap="goFollow"  class='button' >
+            <button bindtap="goFollow"  class='button' hidden='{{user.id == userInfo.id}}' >
                 {{user.isFollow ? "取关" : "关注"}}
             </button>
         </view>

@@ -7,13 +7,13 @@ Page({
      */
     data: {
         ranking: [],
-        mine: {}
+        userInfo: {}
     },
     async getThumbRanking   () {
         const ret = await app.get('/ranking/thumb');
         if (ret && ret.code === 1) {
             this.setData({
-                mine: ret.data.mine,
+                userInfo: app.globalData.userInfo,
                 ranking: ret.data.list
             })
         }
@@ -22,8 +22,8 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad (options) {
-         this.getThumbRanking();
+    onLoad () {
+         
     },
 
     /**
@@ -37,7 +37,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-
+        this.getThumbRanking();
     },
 
     /**

@@ -8,7 +8,7 @@
                 <view class='node name'>
                     <view class='nick'>
                         {{item.nickName}}
-                        <block wx:if = "{{mine.ranking==item.ranking}}" > （我） </block>
+                        <block wx:if = "{{userInfo.id==item.userId}}" > （我） </block>
                     </view>
                     <view class='article'>{{item.title}}</view>
                 </view>
@@ -24,12 +24,12 @@
     <scroll-view class='list' scroll-y='true'>
         <block wx:for="{{ranking}}" wx:key="index">
             <navigator wx:if="{{item.ranking > 3}}" url='/pages/audio/audio?id={{item.blogId}}' class='li'>
-                <view class='node num {{mine.ranking==item.ranking?"on":""}}'>{{item.ranking}}</view>
+                <view class='node num {{userInfo.id==item.userId?"on":""}}'>{{item.ranking}}</view>
                 <image class='node head' src='{{item.avatarUrl}}'></image>
                 <view class='node name'>
                     <view class='nick'>
                         {{item.nickName}}
-                        <block wx:if = "{{mine.ranking==item.ranking}}" > （我） </block>
+                        <block wx:if = "{{userInfo.id==item.userId}}" > （我） </block>
                     </view>
                     <view class='article'>{{item.title}}</view>
                 </view>

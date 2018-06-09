@@ -13,19 +13,25 @@
             <navigator hover-class='navigator-hover' url='/pages/others/others?id={{ranking[1].userId}}'>
                 <image class='ranking2' src='/images/icon-punch-2.png'></image>
                 <image class='head' src='{{ranking[1].avatarUrl}}'></image>
-                <view class='name'>{{ranking[1].nickName}}</view>
+                <view class='name'>{{ranking[1].nickName}}
+                    <block wx:if = "{{mine.userId==ranking[1].userId}}" > （我） </block>
+                </view>
                 <view class='day'>{{ranking[1].days}}天</view>
             </navigator>
             <navigator hover-class='navigator-hover' url='/pages/others/others?id={{ranking[0].userId}}'>
                 <image class='ranking1' src='/images/icon-punch-1.png'></image>
                 <image class='head head1' src='{{ranking[0].avatarUrl}}'></image>
-                <view class='name'>{{ranking[0].nickName}}</view>
+                <view class='name'>{{ranking[0].nickName}}
+                    <block wx:if = "{{mine.userId==ranking[0].userId}}" > （我） </block>
+                </view>
                 <view class='day'>{{ranking[0].days}}天</view>
             </navigator>
             <navigator hover-class='navigator-hover' url='/pages/others/others?id={{ranking[2].userId}}'>
                 <image class='ranking3' src='/images/icon-punch-3.png'></image>
                 <image class='head' src='{{ranking[2].avatarUrl}}'></image>
-                <view class='name'>{{ranking[2].nickName}}</view>
+                <view class='name'>{{ranking[2].nickName}}
+                    <block wx:if = "{{mine.userId==ranking[2].userId}}" > （我） </block>
+                </view>
                 <view class='day'>{{ranking[2].days}}天</view>
             </navigator>
         </view>

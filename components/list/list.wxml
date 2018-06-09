@@ -6,10 +6,10 @@
                         推荐 
                     </view>
                     <view hidden='{{type=="mine" || type=="others"}}' class='top'>
-                        <view class='left flex-text' >
+                        <navigator url='/pages/others/others?id={{item.userId}}' class='left flex-text' >
                             <image class='head' src='{{item.avatarUrl}}'></image>
                             {{item.nickName}}
-                        </view>
+                        </navigator>
                         <button hidden='{{userInfo.id==item.userId}}' bindtap="goFollow" data-index='{{idx}}' class='follow-button' >
                             {{item.isFollow ? "取关" : "关注"}}
                         </button>
