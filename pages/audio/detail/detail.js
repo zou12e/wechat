@@ -90,26 +90,27 @@ Page({
             value: ""
         });
     },
-    async _confirmMsgEvent () {
+    _confirmMsgEvent () {
         app.loading();
-        const ret = await this.comment(this.dialog.data.msgData);
-        if (ret && ret.code === 1) {
-
-            this.dialog.togglerMsg();
-            this.getCommentById();
-            app.success('评论成功');
-
-        }
+        this.comment(this.dialog.data.msgData);
+        
     },
     async comment (info) {
  
-        const ret = app.post('/comment/add', {
+        const ret =  await app.post('/comment/add', {
             blogId: this.data.blogId,
-            id: info.id,
+            parentId: info.id,
             toUserId: info.toUserId,
             toUserNickName: info.toNickName,
             content: info.value
         });
-        return ret;
+
+        if (ret && ret.code === 1) {
+            this.dialog.togglerMsg();
+            this.getCommentById();
+            app.success('评论成功');
+        } else {
+            app.fail('评论失败');
+        }
     }
 })

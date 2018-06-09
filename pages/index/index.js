@@ -46,7 +46,7 @@ Page({
         })
     },
     async updateUser () {
-        const ret = app.post('/user/update',{
+        const ret = await app.post('/user/update',{
             user: app.globalData.userInfo
         });
         if(ret && ret.code ==1){

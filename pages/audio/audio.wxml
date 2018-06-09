@@ -1,6 +1,6 @@
 <view class='audio'>
     <view class='top'>
-        <image class='bg' src="/images/banner.png"></image>
+        <image class='bg' src="{{blog.banner ? blog.banner : '/images/banner.png'}}"></image>
         <view class='author'>
             <view class='left flex-text'>
                 <image src='{{blog.avatarUrl}}'></image>
@@ -61,7 +61,7 @@
                             {{item.content}}
                         </view>
                     </view>
-                    <navigator wx:if="{{item.replys>0}}"  url='/pages/audio/detail/detail?id= {{item.id}}' class='reply'>
+                    <navigator wx:if="{{item.replys>0}}"  url='/pages/audio/detail/detail?id={{item.id}}' class='reply'>
                         <view class='t1'>
                             {{item.replyList[0].nickName}}
                             <block wx:if="{{item.userId != item.replyList[0].toUserId }}" > 回复 {{item.replyList[0].toNickName}}</block>
@@ -76,7 +76,7 @@
                         data-name='{{item.nickName}}'
                         data-userid='{{item.userId}}'
                         data-id='{{item.id}}'
-                        data-url='/pages/audio/detail/detail?id= {{item.id}}' 
+                        data-url='/pages/audio/detail/detail?id={{item.id}}' 
                         bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
                     </view>
                 </view>

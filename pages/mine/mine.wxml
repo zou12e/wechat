@@ -21,7 +21,7 @@
                         <view class='num' >{{info.collections}}</view>
                         <view class='explain' >收藏</view>
                     </navigator>
-                    <navigator  url='/pages/audio/detail/detail?id=1'  class='r' >
+                    <navigator  url='/pages/mine/co/detail'  class='r' >
                         <view class='num' >{{info.comments}}</view>
                         <view class='explain' >评论</view>
                     </navigator>

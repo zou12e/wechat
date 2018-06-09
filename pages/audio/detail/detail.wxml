@@ -19,10 +19,10 @@
              bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
         </view>
         
-        <view class='reply'>
+        <view class='reply' wx:if="{{comment.replyList && comment.replyList.length > 0}}"  >
 
             <block wx:for="{{comment.replyList}}" wx:for-index="idx" wx:key="item">
-                <view class='t'>
+                <view class='t' >
                     <image class='head' src='{{item.avatarUrl}}'></image>
                     {{item.nickName}}
                     <block wx:if="{{comment.userId != item.toUserId }}"> 回复 {{item.toNickName}}</block>
@@ -32,7 +32,7 @@
                         <image 
                         data-name='{{item.nickName}}'
                         data-userid='{{item.userId}}'
-                        data-id='{{item.id}}'
+                        data-id='{{comment.id}}'
                         bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
                     </view>
                 </view>

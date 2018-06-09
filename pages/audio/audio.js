@@ -26,7 +26,7 @@ Page({
             });
             this.setPlayInfo();
         }
-        await this.getComment();
+        this.getComment();
 
     },
     /**
@@ -226,16 +226,20 @@ Page({
     /**
      * 回调评论确定
      */
-    async _confirmMsgEvent () {
+    _confirmMsgEvent () {
         app.loading();
-        const ret = await this.comment(this.dialog.data.msgData);
-        if (ret && ret.code === 1) {
-
-            this.dialog.togglerMsg();
-            this.getComment();
-            app.success('评论成功');
-
+        const content = this.dialog.data.msgData.value;
+    
+        if (!content) {
+            app.fail('评论内容不能为空');
+            return ;
         }
+        if (content.length> 100) {
+            app.fail('评论内容不能超过100字');
+            return;
+        }
+        this.comment(this.dialog.data.msgData);
+        
     },
     /**
      * 关注
@@ -303,15 +307,21 @@ Page({
      * 评论
      */
     async comment (info) {
-
-        const ret = app.post('/comment/add', {
+        const ret = await app.post('/comment/add', {
             blogId: this.data.blogId,
-            id: info.id,
+            parentId: info.id,
             toUserId: info.toUserId,
             toUserNickName: info.toNickName,
             content: info.value
         });
-        return ret;
+
+        if (ret && ret.code === 1) {
+            this.dialog.togglerMsg();
+            this.getComment();
+            app.success('评论成功');
+        } else {
+            app.fail('评论失败');
+        }
     }
 
 })
