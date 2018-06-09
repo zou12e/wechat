@@ -57,9 +57,9 @@
                             <view class='l'>{{item.nickName}}</view>
                             <view class='r'>{{item.createTime}}</view>
                         </view>
-                        <view class='msg'>
+                        <navigator class='msg'url='/pages/audio/detail/detail?id={{item.id}}'>
                             {{item.content}}
-                        </view>
+                        </navigator>
                     </view>
                     <navigator wx:if="{{item.replys>0}}"  url='/pages/audio/detail/detail?id={{item.id}}' class='reply'>
                         <view class='t1'>

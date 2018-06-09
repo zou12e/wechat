@@ -31,7 +31,7 @@ Component({
             this.recorderManager = wx.getRecorderManager()
 
             this.recorderManager.onStop((cfg) => {
-              
+                
                 this.setData({
                     src: cfg.tempFilePath,
                     audioTime: this.data.time
@@ -39,7 +39,7 @@ Component({
             })
         },
         go() {
-
+            
             if (this.data.type == 0) { //点击录音
 
                 const options = {

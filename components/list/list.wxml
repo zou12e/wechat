@@ -57,7 +57,7 @@
         </block>
 
         <view hidden='{{isLoad}}'  class='my-nodata' >
-            {{count > data.length ? '上拉获取更多...' : '没有更多了...'}}
+            {{lastId !=-1 ? '上拉获取更多...' : '没有更多了...'}}
         </view>
         <view hidden='{{!isLoad}}'  class='my-nodata' >
            正在加载中...

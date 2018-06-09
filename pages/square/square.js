@@ -32,7 +32,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-        
+        // wx.pageScrollTo({
+        //     scrollTop: 0,
+        //     duration: 0
+        // })
         this.getBlogList(true);
     },
 
@@ -56,7 +59,8 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh () {
-       
+        app.loading('加载中');
+        this.getBlogList(true);
     },
 
     /**

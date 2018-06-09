@@ -11,29 +11,31 @@
                 {{comment.content}}
             </view>
         </view>
-        <view class='bottom'>
-            <image 
+        <view 
             data-name='{{comment.nickName}}'
             data-userid='{{comment.userId}}'
             data-id='{{comment.id}}'
-             bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+            bindtap="showReply"
+            class='bottom'>
+            <image src='/images/icon-square-6-reply.png'></image>
         </view>
         
         <view class='reply' wx:if="{{comment.replyList && comment.replyList.length > 0}}"  >
 
             <block wx:for="{{comment.replyList}}" wx:for-index="idx" wx:key="item">
-                <view class='t' >
+                <view 
+                    data-name='{{item.nickName}}'
+                    data-userid='{{item.userId}}'
+                    data-id='{{comment.id}}'
+                    bindtap="showReply"
+                    class='t' >
                     <image class='head' src='{{item.avatarUrl}}'></image>
                     {{item.nickName}}
                     <block wx:if="{{comment.userId != item.toUserId }}"> 回复 {{item.toNickName}}</block>
                     ：{{item.content}}
                     <view class='time flex-text'>
                        {{item.createTime}}
-                        <image 
-                        data-name='{{item.nickName}}'
-                        data-userid='{{item.userId}}'
-                        data-id='{{comment.id}}'
-                        bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+                        <image src='/images/icon-square-6-reply.png'></image>
                     </view>
                 </view>
             </block>

@@ -28,11 +28,11 @@ Component({
      */
     methods: {
         async setList (url, param, reload ){
-            if (reload){
-                wx.pageScrollTo({
-                    scrollTop: 0
-                })
-            }
+            // if (reload){
+            //     wx.pageScrollTo({
+            //         scrollTop: 0
+            //     })
+            // }
             if (this.data.lastId == -1 && !reload)
                 return ;
             this.setData({
@@ -40,6 +40,7 @@ Component({
             });
             _.extend(param, { lastId: reload ? 0 : this.data.lastId});
             const ret =await app.get(url, param);
+            app.hide();
             if(ret && ret.code ===1 ) {
                 let _data = this.data.data;
                 const data = ret.data.list;
@@ -48,12 +49,19 @@ Component({
                 } else {
                     _data =  _data.concat(data);
                 }
-                
+                let lastId = 0;
+                if (ret.data.count === _data.length){
+                    lastId = -1;
+                } else if (data && data.length) {
+                    lastId = data[data.length - 1].id;
+                } else {
+                    lastId = -1;
+                }
                 this.setData({
                     userInfo: app.globalData.userInfo,
                     data: _data,
                     count: ret.data.count,
-                    lastId: data && data.length ? data[data.length-1].id : -1,
+                    lastId: lastId,
                     isLoad:false,
                 })
 

@@ -161,6 +161,7 @@
     color: #353535;
     letter-spacing: 0.34rpx;
     margin-top: 7rpx;
+    display: block;
 }
 
 .comment .data .reply {
