@@ -1,4 +1,4 @@
-<view class='detali'>
+<view wx:if='{{list && list.length}}' class='detali'>
 
     <block wx:for="{{list}}" wx:for-index="idx" wx:key="item">
         <view class='data'>
@@ -22,9 +22,10 @@
         </view>
     </block>
 
-
-
 </view>
+<view wx:else class='my-nodata'>
+            暂无数据
+ </view>
 
 <dialog id='dialog' bind:confirmMsgEvent="_confirmMsgEvent">
 </dialog>

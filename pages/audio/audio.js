@@ -223,7 +223,7 @@ Page({
     showComment (event) {
         this.dialog.togglerMsg({
             id: 0,
-            toUserId: this.data.userId,
+            toUserId: this.data.blog.userId,
             toNickName: this.data.blog.nickName,
             placeholder: "评论",
             value: ""

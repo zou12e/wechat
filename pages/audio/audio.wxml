@@ -46,7 +46,7 @@
             </view>
         </view>
         <view wx:if="{{comment.comments==0}}" class='no-data'>
-            暂无评论
+            暂无数据
         </view>
         <view wx:else="{{comment.comments!=0}}" class='data'>
             <block wx:for="{{comment.list}}" wx:for-index="idx" wx:key="item">

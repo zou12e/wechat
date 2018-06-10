@@ -19,7 +19,7 @@
 
                         <view class='left' >
                                 <navigator url='/pages/audio/audio?id={{item.blogId}}'  class='title' >
-                                    {{item.title}}{{item.blogId}}
+                                    {{item.title}}
                                 </navigator>
                                 <view class='time' >
                                     {{item.createTime}}
