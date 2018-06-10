@@ -1,0 +1,30 @@
+<view class='detali'>
+
+    <block wx:for="{{list}}" wx:for-index="idx" wx:key="item">
+        <view class='data'>
+            <image class='head' src='{{item.avatarUrl}}'></image>
+            <view class='content'>
+                <view class='top'>
+                    <view class='l'>{{item.nickName}} 评论了你：</view>
+                    <view class='r'>{{item.createTime}}</view>
+                </view>
+                <view class='msg'>
+                    {{item.content}}
+                </view>
+            </view>
+            <view 
+            data-name='{{item.nickName}}' 
+            data-userid='{{item.userId}}' 
+            data-blogid='{{item.blogId}}' 
+            data-id='{{item.parentId ? item.parentId : item.id}}' bindtap="showReply" class='bottom'>
+                <image src='/images/icon-square-6-reply.png'></image>
+            </view>
+        </view>
+    </block>
+
+
+
+</view>
+
+<dialog id='dialog' bind:confirmMsgEvent="_confirmMsgEvent">
+</dialog>

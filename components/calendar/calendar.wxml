@@ -20,7 +20,7 @@
         <view class='line'>
             <block wx:for="{{data}}" wx:key="item">
 
-                <view wx:if='{{item.classer=="continu"}}' class='{{item.classer}} {{item.today}}'>{{item.day}}</view>
+                <view wx:if='{{item.continu}}' class='{{item.classer}} {{item.today}}'>{{item.day}}</view>
 
                 <text wx:else class='{{item.classer}} {{item.today}} '>{{item.day}}</text>
 

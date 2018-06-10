@@ -1,5 +1,7 @@
 import regeneratorRuntime from '../../utils/regenerator-runtime';
 const moment = require('../../utils/moment/moment');
+moment.locale('zh-cn');
+const _ = require('../../utils/underscore-min');
 const app = getApp();
 
 Component({
@@ -14,7 +16,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-        continuDays: 0,
         year: moment().year(),
         month: moment().month() + 1,
         data: []
@@ -45,22 +46,29 @@ Component({
             this.setData({
                 data: this.getData(days)
             })
-            return this.data.continuDays;
         },
         getData(days = []) {
           
             const current = this.getCurrentMonth();
-            const week = current.weekday();
             const year = current.year();
             const month = current.month();
+            const week = current.weekday();
+            const currentLastDay = current.daysInMonth();
 
             const todayYear = moment().year();
             const todayMonth = moment().month();
             const today = moment().date();
 
-            const currentLastDay = current.daysInMonth();
-            const lastMonth = current.subtract(1, 'month');
-            const lastMonthLastDay = lastMonth.daysInMonth();
+            
+            const lastCurrent = current.subtract(1, 'month');
+            const lastYear = lastCurrent.year();
+            const lastMonth = lastCurrent.month();
+            const lastMonthLastDay = lastCurrent.daysInMonth();
+
+            const nextCurrent = lastCurrent.add(2,  'month');
+            const nextYear = nextCurrent.year();
+            const nextMonth = nextCurrent.month();
+            
             
            
             let day = [];
@@ -72,6 +80,8 @@ Component({
                     if(i ==0 && j < week){
                         day.push({
                             classer: "no",
+                            year: lastYear,
+                            month: lastMonth + 1,
                             day: lastMonthLastDay - week + 1 + j
                         });
                     }else{
@@ -79,11 +89,15 @@ Component({
                         if (cday > currentLastDay){
                             day.push({
                                 classer: "no",
+                                year: nextYear,
+                                month: nextMonth + 1,
                                 day: nextDay++
                             });
                         }else {
                             day.push({
-                                classer: days.indexOf(cday)!=-1 ? "punch" : '',
+                                classer:"",
+                                year: year,
+                                month: month + 1,
                                 day: cday,
                                 today: (year == todayYear && month == todayMonth && cday == today)  ? "today" : ""
                             });
@@ -92,26 +106,35 @@ Component({
                     
                 }
             }
-            let currentDay = {};
-            let preDay = today - 1;
-            let continuDays = 0;
-            for(let i = day.length-1; i >= 0; i--) {
-                currentDay = day[i];
-                if (currentDay.classer =='punch' ){
-                    if (currentDay.day == today) {
-                        currentDay.classer ='continu'
-                        preDay = currentDay.day - 1;
-                        continuDays ++;
-                    } else if (currentDay.day == preDay) {
-                        currentDay.classer = 'continu'
-                        preDay = currentDay.day - 1;
-                        continuDays++;
+            console.log(days);
+            let ymd = '';
+            let index = -1;
+            day.forEach(item => {
+                ymd = item.year + '-' + (item.month < 10 ? '0' + item.month : item.month) + '-' + (item.day < 10 ? '0' + item.day : item.day);
+                index = _.findIndex(days, { date: ymd});
+                if (index!=-1) {
+                    if (days[index].continu){
+                        item.classer += ' continu';
+                        item.continu = true;
+                    } else {
+                        item.classer += ' punch';
                     }
                 }
-            }
-            this.setData({
-                continuDays: continuDays
-            })
+            });
+            // let currentDay = {};
+            // let preDay = today - 1;
+            // for(let i = day.length-1; i >= 0; i--) {
+            //     currentDay = day[i];
+            //     if (currentDay.classer =='punch' ){
+            //         if (currentDay.day == today) {
+            //             currentDay.classer ='continu'
+            //             preDay = currentDay.day - 1;
+            //         } else if (currentDay.day == preDay) {
+            //             currentDay.classer = 'continu'
+            //             preDay = currentDay.day - 1;
+            //         }
+            //     }
+            // }
             return day;
         },
         getCurrentMonth() {

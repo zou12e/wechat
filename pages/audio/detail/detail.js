@@ -1,4 +1,6 @@
 import regeneratorRuntime from '../../../utils/regenerator-runtime';
+import moment from '../../../utils/moment/moment';
+moment.locale('zh-cn');
 const app = getApp();
 
 Page({
@@ -13,7 +15,14 @@ Page({
     },
     async getCommentById () {
         const ret = await app.get('/comment/getCommentById', { id: this.data.commnetId });
+
+      
         if (ret && ret.code == 1) {
+
+            ret.data.comment.createTime = moment(ret.data.comment.createTime).fromNow();
+            ret.data.comment.replyList.forEach(item => {
+                item.createTime = moment(item.createTime).fromNow();
+            });
             this.setData({
                 blogId: ret.data.blogId,
                 comment: ret.data.comment

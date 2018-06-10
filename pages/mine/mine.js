@@ -1,5 +1,6 @@
 import regeneratorRuntime from '../../utils/regenerator-runtime';
 const moment = require('../../utils/moment/moment');
+moment.locale('zh-cn');
 const app = getApp();
 
 Page({
@@ -9,9 +10,6 @@ Page({
      */
     data: {
         userInfo: {},
-        allDays: 0,
-        punchDays: 0,
-        continuDays:0,
         info:{}
     },
     async getInfo(){
@@ -25,15 +23,11 @@ Page({
     async getPunchInfo(year, month){
         const ret = await app.get('/user/getPunchInfo',{
             year: year,
-            month: month
+            month: month < 10 ? '0' + month : month
         });
         if(ret && ret.code ==1){
             const continuDays = this.calendar.setDays(ret.data.list, year, month);
-            this.setData({
-                allDays: ret.data.allDays,
-                punchDays: ret.data.punchDays,
-                continuDays: continuDays,
-            })
+            
         }
     },
     /**

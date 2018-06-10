@@ -1,4 +1,6 @@
 import regeneratorRuntime from '../../utils/regenerator-runtime';
+const moment = require('../../utils/moment/moment');
+moment.locale('zh-cn');
 const app = getApp();
 
 Page({
@@ -35,6 +37,9 @@ Page({
     async getComment () {
         const ret = await app.get('/comment/getCommentByBlogId', { id: this.data.blogId });
         if (ret && ret.code == 1) {
+            ret.data.list.forEach(item => {
+                item.createTime = moment(item.createTime).fromNow();
+            });
             this.setData({
                 comment: ret.data
             });

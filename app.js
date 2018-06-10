@@ -11,13 +11,12 @@ App({
                 }
             }
         });
-        // this.login('code');
     },
     globalData: {
         userInfo: null,
         // host: 'http://192.168.4.94',
         // host: 'http://127.0.0.1',
-        host: "http://192.168.0.103",
+        host: "http://192.168.0.101",
         // host: "https://www.zourunze.com",
         port: "4001",
         // port: "443",
