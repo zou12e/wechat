@@ -6,6 +6,7 @@ const app = getApp()
 
 Page({
     data: {
+        load: true,
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
     onLoad () {
@@ -23,6 +24,10 @@ Page({
         const userInfo = app.globalData.userInfo;
         if (userInfo.nickName) {
             this.goHome();
+        } else {
+            this.setData({
+                load: false
+            })
         }
     },
     async getUserInfo (e) {

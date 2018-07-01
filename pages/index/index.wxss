@@ -1,6 +1,21 @@
-.head {
-
-    width: 300rpx;
-    height: 300rpx;
+.view {
+    text-align: center;
+}
+.logo {
+    width: 160rpx;
+    height: 160rpx;
     border-radius: 50%;
+    margin-top: 30%;
+    border:1rpx solid #eee;
+}
+
+.button {
+    width: 500rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 6rpx;
+    color: #fff;
+    background-color: green;
+    margin-top: 130rpx;
+    font-size: 28rpx;
 }

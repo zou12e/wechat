@@ -1,3 +1,8 @@
 <!-- 需要使用 button 来授权登录 -->
-<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
-<view wx:else>请升级微信版本</view>
+<view class='view'  wx:if="{{!load}}" >
+    <image class='logo' src='/images/logo.jpeg' ></image>
+    <button class='button' wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        使用微信账号授权登录
+    </button>
+    <view wx:else>请升级微信版本</view>
+</view>

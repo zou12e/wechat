@@ -106,7 +106,6 @@ Component({
                     
                 }
             }
-            console.log(days);
             let ymd = '';
             let index = -1;
             day.forEach(item => {

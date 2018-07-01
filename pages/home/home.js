@@ -30,12 +30,9 @@ Page({
             } else {
                 this.toNight();
             }
-            
         }
-
     },
     setPlayInfo() {
-
         const playInfo = this.data.data.read;
         playInfo.current = 0;
         this.setData({
@@ -101,9 +98,9 @@ Page({
     async onLoad (options) {
 
 
-        this.dialog = this.selectComponent("#dialog");
-        this.start = this.selectComponent("#startime");
-        this.end = this.selectComponent("#endtime");
+        this.dialog = this.selectComponent('#dialog');
+        this.start = this.selectComponent('#startime');
+        this.end = this.selectComponent('#endtime');
        
         this.getUserInfo();
         // wx.setTabBarBadge({
@@ -186,7 +183,7 @@ Page({
 
         wx.setNavigationBarColor({
             frontColor: '#ffffff',
-            backgroundColor: "#FFB307"
+            backgroundColor: '#FFB307'
         })
 
         wx.setTabBarStyle({
@@ -204,7 +201,7 @@ Page({
 
         wx.setNavigationBarColor({
             frontColor: '#ffffff',
-            backgroundColor: "#00132A"
+            backgroundColor: '#00132A'
         })
 
         wx.setTabBarStyle({
@@ -217,7 +214,7 @@ Page({
 
         if (this.data.isMorning) {
             wx.navigateTo({
-                url: '/pages/home/read/read?id=' +this.data.data.read.id
+                url: '/pages/home/detail/detail?id=' +this.data.data.read.id
             })
         } else {
             wx.navigateTo({

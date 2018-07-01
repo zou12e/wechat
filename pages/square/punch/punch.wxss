@@ -40,6 +40,9 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+
+    text-align: center;
+    
 }
 
 .ranking .navigator-hover {
@@ -51,6 +54,8 @@
     height: 218rpx;
     position: absolute;
     z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .ranking .head {
