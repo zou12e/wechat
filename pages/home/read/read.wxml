@@ -10,7 +10,7 @@
         </view>
 
         <scroll-view class='content' scroll-y='true'>
-            {{audio.content}}
+            <text>{{audio.content}}</text>
         </scroll-view>
         <image class='bg' src='/images/icon-read-1.png'></image>
     </view>

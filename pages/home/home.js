@@ -214,7 +214,8 @@ Page({
 
         if (this.data.isMorning) {
             wx.navigateTo({
-                url: '/pages/home/detail/detail?id=' +this.data.data.read.id
+                //url: '/pages/home/detail/detail?id=' +this.data.data.read.id
+                url: '/pages/home/read/read?id=' + this.data.data.read.id
             })
         } else {
             wx.navigateTo({

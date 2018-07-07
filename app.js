@@ -16,7 +16,7 @@ App({
         userInfo: null,
         // host: 'http://192.168.4.94',
         host: 'http://127.0.0.1',
-        host: "http://192.168.0.101",
+        host: "http://192.168.0.120",
         // host: "https://www.wisdomwords.cn",
         port: "4001",
         // port: "443",

@@ -90,7 +90,7 @@ Page({
         const time = this.record.data.audioTime;
         const ret =await app.post('/blog/save', {
             audioId: this.data.audioId,
-            type: 1,
+            type: this.data.audio.type,
             url: path,
             time: time
         });

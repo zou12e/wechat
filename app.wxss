@@ -287,7 +287,7 @@ button::after{
     color: #353535;
     letter-spacing: 0.42rpx;
     box-sizing: border-box;
-    text-indent: 55rpx;
+    /* text-indent: 55rpx; */
     z-index: 2
 
 }

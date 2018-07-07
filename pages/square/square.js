@@ -11,8 +11,7 @@ Page({
     },
     async getBlogList (reload) {
         const url = '/blog/list';
-        const param = { type: parseInt(this.data.tab) + 1};
-        this.audioList.setList(url, param,reload);
+        this.audioList.setList(url, {},reload);
     },
     /**
      * 生命周期函数--监听页面加载
