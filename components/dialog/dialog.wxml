@@ -28,3 +28,20 @@
     </view>
 
 </view>
+
+<view class='dialog' hidden="{{!isConfirm}}"  >
+    
+    <view class='confirm'  hidden="{{!isConfirm}}" >
+        <view class='title'>
+            {{confirmData.title}}
+        </view>
+        <view class='content'>
+           {{confirmData.content}}
+        </view>
+        <view class='bottom' >
+            <button catchtap='_cancelEvent' >取消</button>
+            <button class='right' catchtap='_confirmEvent' >确定</button>
+        </view>
+    </view>
+
+</view>

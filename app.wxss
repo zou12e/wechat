@@ -37,6 +37,7 @@ button::after{
     background-color: #fff;
     margin-bottom: 15rpx;
     position: relative;
+    overflow: hidden;
 }
 .my-list .li .top{
     height: 80rpx;
@@ -44,7 +45,7 @@ button::after{
     color: #888888;
     letter-spacing: 0.4rpx;
     padding: 0 30rpx;
-    border-bottom: 1rpx solid #DFDFDF;
+   
 }
 .my-list .li .top .left {
     float: left;
@@ -70,31 +71,58 @@ button::after{
 .my-list .li .head {
     width: 50rpx;
     height: 50rpx;
+    border-radius: 50%;
     margin-right: 20rpx;
 }
 .my-list .li .content {
-    border-bottom: 1rpx solid #DFDFDF;
     height: 150rpx;
-    padding:  0 35rpx 0 101rpx;
+    padding:  0 30rpx 0 0;
+    background:  #F9F9F9;
+    margin: 0 30rpx;
 }
 .my-list .li .content-left {
-    padding:  0 35rpx 0;
+    margin-top: 30rpx;
 }
 .my-list .li .content .left{
     float: left;
     
 }
+.my-list .li .content .banner {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 25rpx;
+}
 .my-list .li  .recom{
     position: absolute;
-    width: 82rpx;
-    height: 40rpx;
-    line-height: 40rpx;
+    width: 88rpx;
+    height: 50rpx;
+    line-height: 50rpx;
     background-color: #000;
-    top: 90rpx;
-    font-size: 20rpx;
+    top: 0;
+    right: 0;
+    font-size: 24rpx;
     color: #FFB307;
     letter-spacing: 0.29rpx;
     text-align: center;
+}
+.my-list .li  .recom::after,.my-list .li  .recom::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -12rpx;
+    right: 0;
+    border-left: 12rpx solid transparent;
+    border-right: 12rpx solid transparent;
+    border-top: 25rpx solid #999;
+    border-bottom: transparent;
+}
+.my-list .li  .recom::before{
+    bottom: 0;
+    border-left: 12rpx solid transparent;
+    border-right: 12rpx solid transparent;
+    border-top: transparent;
+    border-bottom: 25rpx solid #999;
 }
 .my-list .li .content .title{
     font-size: 28rpx;
@@ -132,6 +160,7 @@ button::after{
     text-align: center;
     height: 90rpx;
     line-height: 90rpx;
+    background: transparent;
     
 }
 .my-list .li .operation image {

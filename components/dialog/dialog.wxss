@@ -72,3 +72,35 @@
     padding: 0 40rpx;
     font-size: 26rpx;
 }
+
+.dialog .confirm {
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    width: 550rpx;
+    margin:-120rpx 0 0 -275rpx;
+    border-radius: 10rpx;
+    overflow: hidden
+}
+.dialog .confirm .title {
+    text-align: center;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #ddd;
+     font-size: 40rpx;
+}
+
+.dialog .confirm .content {
+    padding: 40rpx;
+    line-height: 40rpx;
+    font-size: 36rpx;
+    color: #666;
+}
+.dialog .confirm .bottom button {
+    float: left;
+    width: 50%;
+     border-radius: 0;
+     font-size: 36rpx;
+}
+.dialog .confirm .bottom .right {
+    border-left: 1px solid #ddd;
+}

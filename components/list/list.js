@@ -33,6 +33,8 @@ Component({
             //         scrollTop: 0
             //     })
             // }
+            this.dialog = this.dialog || this.selectComponent('#dialog');
+
             if (this.data.lastId == -1 && !reload)
                 return ;
             this.setData({
@@ -123,6 +125,18 @@ Component({
                 }
             }
         },
+        async goDelete(event) {
+            const index = event.currentTarget.dataset.index;
+            const blog = this.data.data[index];
+            console.log(blog);
+
+            this.dialog.togglerConfirm({
+                id: blog.id,
+                title: '温馨提示',
+                content: '确定删除 ' + blog.title + ' ？'
+            });
+
+        },
         async goFollow  (event) {
             const index = event.currentTarget.dataset.index;
             const blog = this.data.data[index];
@@ -184,6 +198,24 @@ Component({
         },
         onReachBottom() {
 
+            
+        },
+        onShareAppMessage (res) {
+            if (res.from === 'button') {
+                // 来自页面内转发按钮
+                console.log(res.target)
+                return {
+                    title: '这里可以设置分享标题',
+                    path: '/pages/audio/audio?id=1',
+                    imageUrl: 'https://www.zourunze.com/static/wechat/images/1.jpg'
+                }
+            }
+            return {
+                title: app.globalData.name,
+            }
+        },
+        async _confirmEvent () {
+            console.log(this.dialog.data.confirmData);
             
         }
     }

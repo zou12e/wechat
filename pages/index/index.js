@@ -47,7 +47,8 @@ Page({
         console.log(app.globalData.userInfo);
         wx.reLaunch({
             url: '/pages/home/home' 
-            // url: '/pages/mine/comment/comment' 
+            // url: '/pages/square/square'
+            // url: '/pages/mine/audio/audio' 
         })
     },
     async updateUser () {

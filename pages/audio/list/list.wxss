@@ -1,1 +1,38 @@
-/* pages/audio/list/list.wxss */
+.audio-list .sub-item{
+    height: 180rpx;
+    position: relative;
+   
+   
+}
+.sub-item .banner{
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    top: 30rpx;
+    left: 30rpx;
+}
+.sub-item .right {
+    margin: 0 30rpx;
+    padding: 30rpx 0 0 140rpx;
+    height: 150rpx;
+    border-bottom: 1rpx solid #EFEFEF;
+}
+.sub-item .right .title {
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0.4rpx;
+}
+
+.sub-item .right .content {
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    height: 66rpx;
+    margin-top: 10rpx;
+    
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box; 
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2; 
+}

@@ -46,7 +46,7 @@
                 <view class='node num {{mine.ranking==item.ranking?"on":""}}'>{{item.ranking }}</view>
                 <image class='node head' src='{{item.avatarUrl }}'></image>
                 <view class='node name'>
-                    {{item.nickName || '趣朗读会员'}}
+                    {{item.nickName || (name + '会员')}}
                     <block wx:if = "{{mine.ranking==item.ranking}}" > （我） </block>
                 </view>
                 <view class='node day'>{{item.days }}天</view>

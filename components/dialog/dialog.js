@@ -16,6 +16,7 @@ Component({
     data: {
         isShow: false,
         isMsg: false,
+        isConfirm: false,
         showData: {
             title: "",
             author: "",
@@ -24,6 +25,11 @@ Component({
         msgData: {
             placeholder: "",
             value:"",
+        },
+        confirmData: {
+            id: 0,
+            title: "温馨提示",
+            content: "确定操作？",
         }
     },
     /**
@@ -44,6 +50,13 @@ Component({
                     msgData: cfg
                 });
         },
+        togglerConfirm(cfg) {
+            cfg = cfg || this.data.confirmData,
+                this.setData({
+                     isConfirm: !this.data.isConfirm,
+                     confirmData: cfg
+                });
+        },
         bindMsg (e){
             var msgData = this.data.msgData;
             msgData.value = e.detail.value;
@@ -53,8 +66,14 @@ Component({
 
         },
         _confirmMsgEvent() {
-
             this.triggerEvent("confirmMsgEvent")
+        },
+        _cancelEvent() {
+            this.togglerConfirm();
+        },
+        _confirmEvent() {
+
+            this.triggerEvent("confirmEvent")
         }
     }
 })

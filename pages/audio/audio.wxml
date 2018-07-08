@@ -1,6 +1,6 @@
 <view class='audio'>
     <view class='top'>
-        <image class='bg' src="{{blog.banner ? blog.banner : '/images/banner.png'}}"></image>
+        <image mode="aspectFill"  class='bg' src="{{blog.banner ? blog.banner : '/images/banner.png'}}"></image>
         <view class='author'>
             <view class='left flex-text'>
                 <image src='{{blog.avatarUrl}}'></image>

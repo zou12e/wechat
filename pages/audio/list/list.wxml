@@ -1,2 +1,16 @@
-<!--pages/audio/list/list.wxml-->
-<text>pages/audio/list/list.wxml</text>
+<view wx:if="{{data && data.length > 0}}" class='audio-list '>
+        <block wx:for="{{data}}" wx:for-index="idx" wx:key="item" >
+            <navigator url="/pages/home/detail/detail?id={{item.id}}" class="sub-item" >
+                <image class="banner" mode="aspectFill"  src="{{item.banner ? item.banner : '/images/banner.png'}}" ></image>
+                <view class='right' >
+                    <view class="title">{{item.title}}</view>
+                    <view class="content" >{{item.content}}</view>
+                </view>
+            </navigator>
+    </block>
+</view>
+<view wx:else class='my-list'>
+        <view class='my-nodata'  >
+            暂无数据
+        </view>
+</view>

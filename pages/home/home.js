@@ -214,7 +214,7 @@ Page({
 
         if (this.data.isMorning) {
             wx.navigateTo({
-                //url: '/pages/home/detail/detail?id=' +this.data.data.read.id
+                // url: '/pages/home/detail/detail?id=' +this.data.data.read.id
                 url: '/pages/home/read/read?id=' + this.data.data.read.id
             })
         } else {
@@ -244,7 +244,8 @@ Page({
         this.innerAudioContext.seek(playInfo.current);
     },
     async changeAudio () {
-        const ret = await app.get('/home/changeInfo', { type: this.data.isMorning ? 1 : 2 });
+        const ret = await app.get('/home/changeInfo', { });
+        console.log(ret);
         if (ret && ret.code === 1) {
             const data = this.data.data;
             if (this.data.isMorning) {

@@ -44,7 +44,7 @@
             连续打卡 <text class='day'>{{info.continuDays}}</text> 天，累计打卡  <text class='day'>{{info.punchDays}}</text> 天
         </view>
          <view class='msg' >
-            趣朗读已陪伴你第 {{info.allDays}} 天
+            {{name}}已陪伴你第 {{info.allDays}} 天
         </view>
         <calendar  id='calendar'  
             bind:preMonth="_preMonth"

@@ -10,13 +10,15 @@
                             <image class='head' src='{{item.avatarUrl}}'></image>
                             {{item.nickName}}
                         </navigator>
-                        <button hidden='{{userInfo.id==item.userId}}' bindtap="goFollow" data-index='{{idx}}' class='follow-button' >
+                        <button hidden='{{userInfo.id==item.userId}}' bindtap="goFollow" data-index='{{idx}}' class='follow-button hide' >
                             {{item.isFollow ? "取关" : "关注"}}
                         </button>
                     </view>
 
                     <view class='content {{(type=="mine" || type=="others") ? "content-left":"" }}' >
-
+                        <navigator url='/pages/audio/audio?id={{item.blogId}}'  >
+                            <image class='left banner'  mode="aspectFill" src="{{item.banner ? item.banner : '/images/banner.png'}}" ></image>
+                        </navigator>
                         <view class='left' >
                                 <navigator url='/pages/audio/audio?id={{item.blogId}}'  class='title' >
                                     {{item.title}}
@@ -33,12 +35,16 @@
  
                     <view class='operation flex-text' >
 
-                        <view bindtap="goForward" data-index='{{idx}}' class='view flex-text' >
-                            <image src='/images/icon-square-4.png' ></image>
+                        <view hidden='{{type!="mine" }}' bindtap="goDelete" data-index='{{idx}}' class='view flex-text' >
+                            <image src='/images/icon-square-8.png' ></image>
                         </view>
 
-                        <view hidden='{{type=="collection" || type=="mine" }}' bindtap="goCollection" data-index='{{idx}}' class='view flex-text' >
-                            <image src='/images/icon-square-5{{item.isCollection ? "-on":""}}.png' ></image>
+                        <button open-type="share"  data-index='{{idx}}' class='view flex-text' >
+                            <image src='/images/icon-square-4.png' ></image>
+                        </button>
+
+                        <view hidden='{{type=="mine" }}' bindtap="goCollection" data-index='{{idx}}' class='view flex-text' >
+                            <image src='/images/icon-square-5{{(item.isCollection) ? "-on":""}}.png' ></image>
                         </view>
 
                         <navigator url='/pages/audio/audio?id={{item.blogId}}&comment=1' class='view flex-text' >
@@ -73,3 +79,6 @@
             </view>
             
     </view>
+
+<dialog id='dialog' bind:confirmEvent="_confirmEvent">
+</dialog>

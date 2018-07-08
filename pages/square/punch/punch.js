@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        name: app.globalData.name,
         tab: 0,
         ranking: [],
         mine: {}
