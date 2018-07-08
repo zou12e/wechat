@@ -13,13 +13,15 @@ Page({
         const param = { id: app.globalData.userInfo.id };
         this.audioList.setList(url, param, reload);
     },
-
+    async _load(options) {
+        this.getMyBlogList(true);
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad (options) {
+        wx.hideShareMenu();
         this.audioList = this.selectComponent("#audiolist");
-        
     },
 
     /**
@@ -28,12 +30,17 @@ Page({
     onReady () {
 
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow () {
-        this.getMyBlogList(true);
+    onShow(options) {
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
     },
 
     /**
@@ -67,7 +74,7 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage () {
-
+    onShareAppMessage (res) {
+        return this.audioList.onShareAppMessage(res);
     }
 })

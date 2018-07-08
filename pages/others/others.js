@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        first: true,
         userId: 0,
         user: {},
         userInfo: {},
@@ -25,17 +26,28 @@ Page({
             })
         }
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad (options) {
+    async _load(options) {
         this.audioList = this.selectComponent("#audiolist");
         this.setData({
             userId: options.id,
             userInfo: app.globalData.userInfo
         })
-        
+
         this.getUserById();
+        this.getOhtersBlogList(true);
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad (options) {
+        wx.hideShareMenu();
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
     },
 
     /**
@@ -49,7 +61,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-        this.getOhtersBlogList(true);
+        if (!this.data.first) {
+            this.getOhtersBlogList(true);
+        }
+        this.setData({
+            first: false
+        })
     },
 
     /**
@@ -83,8 +100,8 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage () {
-
+    onShareAppMessage (res) {
+        return this.audioList.onShareAppMessage(res);
     },
     async goFollow  (event) {
         const user = this.data.user;

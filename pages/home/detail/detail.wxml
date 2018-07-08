@@ -1,2 +1,42 @@
-<!--pages/home/detail/detail.wxml-->
-<text>pages/home/detail/detail.wxml</text>
+<view class='audio-play-detail'>
+    <view class='audio-play' >
+        <view class='play'>
+            <image mode="aspectFill" class='bg' src="{{data.banner ? data.banner : '/images/banner.png'}}"></image>
+
+            <image bindtap="play" class='play1' src='/images/icon-play-1{{isPlay?"-on":""}}.png'></image>
+
+        </view>
+        <view class='slider'>
+            <slider min="0" max="{{playInfo.time}}" value='{{playInfo.current}}' bindchange='changeTime' block-size="20" activeColor="#FFB307" backgroundColor="#F5F5F5">
+            </slider>
+            <view class='time'>
+                <stom id='startime'></stom>
+                <stom id='endtime' class='right'></stom>
+            </view>
+        </view>
+    </view>
+    <view class='audio-info' >
+            <view class='title' >{{data.title}}</view>
+            <view class='author' >【作】{{data.author}}</view>
+            <scroll-view class='content' scroll-y='true' >
+                <text>{{data.content}} </text>
+            </scroll-view>
+    </view>
+
+    <view class='audio-bottom' >
+        <button bindtap="changeAudio" class='flex-text'>
+            <image class='home5' src='/images/icon-home-5.png'></image>
+            <text>换一篇</text>
+        </button>
+
+        <button  open-type="share" class='flex-text'>
+            <image class='home7' src='/images/icon-home-7.png'></image>
+            <text>分享</text>
+        </button>
+
+        <button  bindtap="goRead" class='home-button'>
+            <image class='play2' src='/images/icon-play-2.png'></image>
+        </button>
+
+    </view>
+</view>

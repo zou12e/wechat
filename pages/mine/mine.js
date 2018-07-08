@@ -9,6 +9,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        first: true,
         name: app.globalData.name,
         userInfo: {},
         info:{}
@@ -31,16 +32,27 @@ Page({
             
         }
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad (options) {
+    async _load(options) {
         this.calendar = this.selectComponent("#calendar");
         const current = this.calendar.getCurrentMonth();
         this.getPunchInfo(current.year(), current.month() + 1);
         this.setData({
             userInfo: app.globalData.userInfo
         });
+        this.getInfo();
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad (options) {
+        wx.hideShareMenu();
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
     },
 
     /**
@@ -54,7 +66,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-        this.getInfo();
+        if (!this.data.first) {
+            this.getInfo();
+        }
+        this.setData({
+            first: false
+        })
     },
 
     /**
@@ -89,7 +106,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage () {
-
+        return {
+            title: '趣朗读，让世界听见你的声音',
+            path: '/pages/home/home'
+        }
     },
     _preMonth() {
         const last = this.calendar.getCurrentMonth().subtract(1, 'month');

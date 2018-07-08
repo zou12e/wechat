@@ -9,6 +9,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        first: true,
         isPlay: false,
         blogId: 0,
         userId: 0,
@@ -89,11 +90,7 @@ Page({
             this.start.stom(playInfo.current);
         })
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    async onLoad (options) {
-         
+    async _load(options) {
         this.dialog = this.selectComponent("#dialog");
         this.start = this.selectComponent("#startime");
         this.end = this.selectComponent("#endtime");
@@ -107,6 +104,20 @@ Page({
 
         if (options.comment) {
             this.showComment();
+        }
+
+        this.getComment();
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    async onLoad (options) {
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
         }
     },
     /**
@@ -154,7 +165,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-        this.getComment();
+        if (!this.data.first) {
+            this.getComment();
+        }
+        this.setData({
+            first: false
+        })
     },
 
     /**
@@ -188,7 +204,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage () {
-
+        return {
+            title: '趣朗读，让世界听见你的声音',
+            imageUrl: this.data.blog.banner
+        }
     },
     /**
      * 查看文章内容
@@ -221,6 +240,15 @@ Page({
      * 点击评论
      */
     showComment (event) {
+  
+        if (!app.globalData.userInfo.nickName) {
+            app.fail('请先登录！');
+            wx.navigateTo({
+                url: '/pages/index/index'
+            })
+            return;
+        }
+
         this.dialog.togglerMsg({
             id: 0,
             toUserId: this.data.blog.userId,
@@ -233,6 +261,8 @@ Page({
      * 回调评论确定
      */
     _confirmMsgEvent () {
+        
+
         app.loading();
         const content = this.dialog.data.msgData.value;
     
@@ -270,7 +300,7 @@ Page({
      */
     goForward (event) {
         const blog = this.data.blog;
-        app.success('转发成功');
+        
     },
     /**
      * 收藏

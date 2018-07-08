@@ -16,11 +16,11 @@ App({
         name: '趣朗读',
         userInfo: null,
         // host: 'http://192.168.4.94',
-        host: 'http://127.0.0.1',
-        host: "http://192.168.0.101",
-        // host: "https://www.wisdomwords.cn",
-        port: "4001",
-        // port: "443",
+        // host: 'http://127.0.0.1',
+        // host: "http://192.168.0.101",
+        host: "https://www.wisdomwords.cn",
+        // port: "4001",
+        port: "443",
         apiversion: '/wechat/api/v1',
     },
     uri () {
@@ -120,12 +120,20 @@ App({
         }).catch((err) => {
             this.fail('登录失败');
         });
-
         if (ret && ret.code) {
             this.globalData.userInfo = ret.data;
             if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback()
+            } else {
+                // 异常处理，过1秒在检查
+                setTimeout(()=>{
+                    if (this.userInfoReadyCallback) {
+                        this.userInfoReadyCallback()
+                    } 
+                },1000)
             }
+        } else {
+            this.fail('no login');
         }
     }
 })

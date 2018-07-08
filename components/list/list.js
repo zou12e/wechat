@@ -128,10 +128,8 @@ Component({
         async goDelete(event) {
             const index = event.currentTarget.dataset.index;
             const blog = this.data.data[index];
-            console.log(blog);
-
             this.dialog.togglerConfirm({
-                id: blog.id,
+                id: blog.blogId,
                 title: '温馨提示',
                 content: '确定删除 ' + blog.title + ' ？'
             });
@@ -167,7 +165,7 @@ Component({
             const index = event.currentTarget.dataset.index;
             const blog = this.data.data[index];
             app.loading();
-            const ret = await app.post('/blog/collection', { id: blog.id });
+            const ret = await app.post('/blog/collection', { id: blog.blogId });
             app.hide();
             if (ret && ret.code === 1) {
                 blog.isCollection = !blog.isCollection;
@@ -183,7 +181,7 @@ Component({
             const index = event.currentTarget.dataset.index;
             const blog = this.data.data[index];
             app.loading();
-            const ret = await app.post('/blog/thumb', { id: blog.id });
+            const ret = await app.post('/blog/thumb', { id: blog.blogId });
             app.hide();
             if (ret && ret.code === 1) {
                 blog.isThumb = !blog.isThumb;
@@ -202,21 +200,41 @@ Component({
         },
         onShareAppMessage (res) {
             if (res.from === 'button') {
-                // 来自页面内转发按钮
-                console.log(res.target)
+                const d = res.target.dataset;
                 return {
-                    title: '这里可以设置分享标题',
-                    path: '/pages/audio/audio?id=1',
-                    imageUrl: 'https://www.zourunze.com/static/wechat/images/1.jpg'
+                    title: '趣朗读，让世界听见你的声音',
+                    path: '/pages/audio/audio?id=' + d.blogId,
+                    imageUrl: d.banner
                 }
             }
             return {
-                title: app.globalData.name,
+                title: '趣朗读，让世界听见你的声音',
+                path: '/pages/home/home'
             }
         },
         async _confirmEvent () {
-            console.log(this.dialog.data.confirmData);
-            
+            app.loading();
+            const blogId = this.dialog.data.confirmData.id;
+            const ret = await app.post('/blog/delete', { id: blogId });
+            app.hide();
+            if (ret && ret.code === 1) {
+                let index = -1;
+                this.data.data.forEach((item, i) => {
+                    if (item.blogId === blogId) {
+                        index = i;
+                    }
+                })
+                if (index >= 0) {
+                    this.data.data.splice(index,index+1)
+                }
+                this.setData({
+                    data: this.data.data,
+                });
+                app.success();
+            } else {
+                app.fail();
+            }
+            this.dialog.togglerConfirm();
         }
     }
 })

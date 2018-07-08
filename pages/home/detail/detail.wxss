@@ -1,1 +1,107 @@
-/* pages/home/detail/detail.wxss */
+
+.audio-play-detail .play {
+    position: relative;
+    height: 460rpx;
+    overflow: hidden;
+}
+
+.audio-play-detail .play .bg {
+    width: 100%;
+    height: 460rpx;
+}
+
+.audio-play-detail .play .play1 {
+    width: 130rpx;
+    height: 130rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -65rpx 0 0 -65rpx;
+}
+
+.audio-play-detail .slider slider {
+    margin: 10rpx 30rpx;
+}
+
+.audio-play-detail .slider .time {
+    line-height: 40rpx;
+}
+
+.audio-play-detail .slider text {
+    padding: 0 30rpx;
+    font-size: 22rpx;
+    color: #888;
+    letter-spacing: 0.31rpx;
+    text-align: left;
+    line-height: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+}
+
+.audio-play-detail .slider .right {
+    float: right;
+}
+
+
+.audio-info {
+    position: absolute;
+    top: 580rpx;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 120rpx;
+}
+
+.audio-info .title {
+    font-size: 30rpx;
+    color: #000;
+    letter-spacing: 0.43rpx;
+}
+
+.audio-info .author {
+    font-size: 26rpx;
+    color: #888;
+    letter-spacing: 0.37rpx;
+    padding: 10rpx 0;
+}
+
+.audio-info .content {
+    font-size: 28rpx;
+    color: #353535;
+    letter-spacing: 0.4rpx;
+    line-height: 42rpx;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100rpx;
+    bottom: 0;
+}
+.audio-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100rpx;
+    border-top: 1rpx solid  #D0D0D0;
+}
+.audio-bottom .flex-text, .home-button {
+    float: left;
+    font-size: 26rpx;
+    color: #353535;
+    letter-spacing: 0.37rpx;
+    width: 200rpx;
+    height: 100rpx;
+    background: transparent;
+}
+.home5, .home7 {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
+.play2 {
+    width: 300rpx;
+    height: 110rpx;
+    position: fixed;
+    bottom: 10rpx;
+    right: 30rpx;
+}

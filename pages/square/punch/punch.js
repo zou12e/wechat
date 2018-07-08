@@ -21,17 +21,25 @@ Page({
             })
         }
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad (options) {
+    async _load(options) {
         this.getPunchRanking();
         wx.setNavigationBarColor({
             frontColor: '#ffffff',
             backgroundColor: "#000000"
         })
     },
-
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad (options) {
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -78,7 +86,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage () {
-
+        return {
+            title: '趣朗读，让世界听见你的声音',
+            path: '/pages/home/home'
+        }
     },
     toTab (event) {
         this.setData({

@@ -39,7 +39,7 @@
                             <image src='/images/icon-square-8.png' ></image>
                         </view>
 
-                        <button open-type="share"  data-index='{{idx}}' class='view flex-text' >
+                        <button open-type="share" data-id='{{item.blogId}}' data-banner='{{item.banner}}' data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-4.png' ></image>
                         </button>
 

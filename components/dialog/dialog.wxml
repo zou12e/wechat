@@ -4,9 +4,9 @@
         <image bindtap="togglerShow" class='close' src='/images/icon-dialog-1.png' ></image>
         <view class='my-article' >
             <view class='title' >{{showData.title}}</view>
-            <view class='author' >{{showData.author}}</view>
+            <view class='author' >【作】{{showData.author}}</view>
             <scroll-view class='content' scroll-y='true' >
-                {{showData.content}}
+               <text> {{showData.content}}</text>
             </scroll-view>
          </view>
     </view>

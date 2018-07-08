@@ -7,16 +7,22 @@ Page({
      * 页面的初始数据
      */
     data: {
+        first: true,
         tab: 0
     },
     async getBlogList (reload) {
         const url = '/blog/list';
         this.audioList.setList(url, {},reload);
     },
+    async _load(options) {
+       
+        this.getBlogList(true);
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad (options) {
+        wx.hideShareMenu();
         this.audioList = this.selectComponent("#audiolist");
     },
 
@@ -30,12 +36,14 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow () {
-        // wx.pageScrollTo({
-        //     scrollTop: 0,
-        //     duration: 0
-        // })
-        this.getBlogList(true);
+    onShow(options) {
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
     },
 
     /**
@@ -72,7 +80,7 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage (res) {
-        return this.audioList.onShareAppMessage(res)
+        return this.audioList.onShareAppMessage(res);
     },
     toPunch () {
         wx.navigateTo({

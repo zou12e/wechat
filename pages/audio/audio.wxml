@@ -89,9 +89,9 @@
 
 <view class='audio-operation'>
 
-    <view bindtap="goForward">
+    <button open-type="share" class='flex-item'  >
         <image src='/images/icon-square-4.png'></image>
-    </view>
+    </button>
 
     <view class='{{userId == blog.userId ? "hide" : "" }}' bindtap="goCollection">
         <image src='/images/icon-square-5{{blog.isCollection ? "-on":""}}.png'></image>

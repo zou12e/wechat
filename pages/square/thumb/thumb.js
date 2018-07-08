@@ -18,12 +18,14 @@ Page({
             })
         }
     },
-
+    async _load(options) {
+        this.getThumbRanking();
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad () {
-         
+        
     },
 
     /**
@@ -36,8 +38,14 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow () {
-        this.getThumbRanking();
+    onShow(options) {
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
     },
 
     /**
@@ -72,6 +80,9 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage () {
-
+        return {
+            title: '趣朗读，让世界听见你的声音',
+            path: '/pages/home/home'
+        }
     }
 })

@@ -1,66 +1,188 @@
-// pages/home/detail/detail.js
+import regeneratorRuntime from '../../../utils/regenerator-runtime';
+const app = getApp();
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        isPlay: false,
+        playInfo: {},
+        data: {}
+    },
+    /**
+     * 获取音频信息
+     */
+    async getAudioInfo(id) {
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad (options) {
-  
-  },
+        const ret = await app.get('/audio/getAudioById', {
+            id: id
+        });
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady () {
-  
-  },
+        if (ret && ret.code === 1) {
+            this.setData({
+                data: ret.data
+            });
+            this.setPlayInfo();
+            this.play();
+        }
+    },
+    setPlayInfo() {
+        const playInfo = this.data.data;
+        playInfo.current = 0;
+        this.setData({
+            playInfo: playInfo
+        });
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow () {
-  
-  },
+        this.start.stom(0);
+        this.end.stom(playInfo.time);
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide () {
-  
-  },
+        this.innerAudioContext = wx.createInnerAudioContext();
+        this.innerAudioContext.src = playInfo.url;
+        this.innerAudioContext.onPlay(() => {
+            console.log('开始播放')
+        })
+        this.innerAudioContext.onEnded(() => {
+            console.log('音频结束');
+            this.setData({
+                isPlay: false
+            })
+            const playInfo = this.data.playInfo;
+            playInfo.current = 0;
+            this.setData({
+                playInfo: playInfo
+            });
+            this.start.stom(0);
+        });
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload () {
-  
-  },
+        this.innerAudioContext.onTimeUpdate(() => {
+            const playInfo = this.data.playInfo;
+            playInfo.current = this.innerAudioContext.currentTime;
+            this.setData({
+                playInfo: playInfo
+            });
+            this.start.stom(playInfo.current);
+        })
+    },
+    async _load(options) {
+        
+        this.getAudioInfo(options.id);
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad(options) {
+        this.start = this.selectComponent('#startime');
+        this.end = this.selectComponent('#endtime');
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
+    },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh () {
-  
-  },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady() {
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom () {
-  
-  },
+    },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage () {
-  
-  }
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide() {
+        this.stop();
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload() {
+        this.stop();
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh() {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom() {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage() {
+        return {
+            title: '趣朗读，让世界听见你的声音',
+            imageUrl: this.data.data.banner
+        }
+    },
+    play() {
+
+        this.setData({
+            isPlay: !this.data.isPlay
+        })
+
+        if (this.data.isPlay) {
+            this.innerAudioContext.play();
+        } else {
+            this.innerAudioContext.pause();
+        }
+
+    },
+    stop() {
+        this.setData({
+            isPlay: false
+        })
+        this.innerAudioContext.pause();
+    },
+    changeTime(event) {
+        const playInfo = this.data.playInfo;
+        playInfo.current = (event && event.detail.value) || 0;
+        this.setData({
+            playInfo: playInfo
+        });
+        this.start.stom(playInfo.current);
+        this.innerAudioContext.seek(playInfo.current);
+    },
+    async changeAudio() {
+        const ret = await app.get('/home/changeInfo', {});
+        if (ret && ret.code === 1) {
+            this.stop();
+            this.setData({
+                data: ret.data
+            });
+            this.setPlayInfo();
+        }
+    }, goRead () {
+        if (!app.globalData.userInfo.nickName) {
+            app.fail('请先登录！');
+            wx.navigateTo({
+                url: '/pages/index/index'
+            })
+            return;            
+        } 
+        
+        wx.navigateTo({
+            url: '/pages/home/read/read?id=' + this.data.data.id
+        })
+    }
 })

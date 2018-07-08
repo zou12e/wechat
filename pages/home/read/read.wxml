@@ -6,13 +6,13 @@
             {{audio.title}}
         </view>
         <view class='author'>
-            {{audio.author}}
+           【作】 {{audio.author}}
         </view>
 
         <scroll-view class='content' scroll-y='true'>
             <text>{{audio.content}}</text>
         </scroll-view>
-        <image class='bg' src='/images/icon-read-1.png'></image>
+        <image mode="aspectFill" class='bg' src='/images/icon-read-1.png'></image>
     </view>
     
     <record  id='record' bind:savego="_savego"  ></record>

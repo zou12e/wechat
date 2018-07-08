@@ -59,7 +59,6 @@ Page({
             });
             this.start.stom(0);
         });
-
         this.innerAudioContext.onTimeUpdate(() => {
             const playInfo = this.data.playInfo;
             playInfo.current = this.innerAudioContext.currentTime;
@@ -68,18 +67,6 @@ Page({
             });
             this.start.stom(playInfo.current);
         })
-    },
-    /**
-     * 获取用户信息
-     */
-    getUserInfo () {
-        if (app.globalData.userInfo) {
-            this.getReadSpeak();
-        } else {
-            app.userInfoReadyCallback = () => {
-                this.getReadSpeak();
-            };
-        }
     },
     setHidden() {
         if (this.data.isMorning){
@@ -92,21 +79,23 @@ Page({
             });
         }
     },
+    async _load(options) {
+        this.dialog = this.selectComponent('#dialog');
+        this.start = this.selectComponent('#startime');
+        this.end = this.selectComponent('#endtime');
+        this.getReadSpeak();
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     async onLoad (options) {
-
-
-        this.dialog = this.selectComponent('#dialog');
-        this.start = this.selectComponent('#startime');
-        this.end = this.selectComponent('#endtime');
-       
-        this.getUserInfo();
-        // wx.setTabBarBadge({
-        //     index: 2,
-        //     text: '1'
-        // })
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
     },
 
     /**
@@ -118,7 +107,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    async onShow () {
+    onShow () {
         
     },
     /**
@@ -152,7 +141,9 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage () {
-
+        return {
+            title: '趣朗读，让世界听见你的声音',
+        }
     },
     play () {
         
@@ -214,8 +205,8 @@ Page({
 
         if (this.data.isMorning) {
             wx.navigateTo({
-                // url: '/pages/home/detail/detail?id=' +this.data.data.read.id
-                url: '/pages/home/read/read?id=' + this.data.data.read.id
+                url: '/pages/home/detail/detail?id=' +this.data.data.read.id
+                // url: '/pages/home/read/read?id=' + this.data.data.read.id
             })
         } else {
             wx.navigateTo({
@@ -245,7 +236,6 @@ Page({
     },
     async changeAudio () {
         const ret = await app.get('/home/changeInfo', { });
-        console.log(ret);
         if (ret && ret.code === 1) {
             const data = this.data.data;
             if (this.data.isMorning) {

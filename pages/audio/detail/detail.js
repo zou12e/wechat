@@ -30,17 +30,26 @@ Page({
         }
 
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad (options) {
+    async _load(options) {
         this.dialog = this.selectComponent("#dialog");
         this.setData({
             commnetId: options.id
         })
         this.getCommentById();
     },
-
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad (options) {
+        wx.hideShareMenu();
+        if (app.globalData.userInfo) {
+            this._load(options);
+        } else {
+            app.userInfoReadyCallback = () => {
+                this._load(options);
+            };
+        }
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -87,9 +96,20 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage () {
-
+        return {
+            title: '趣朗读，让世界听见你的声音',
+            path: '/pages/home/home'
+        }
     },
     showReply (event) {
+        if (!app.globalData.userInfo.nickName) {
+            app.fail('请先登录！');
+            wx.navigateTo({
+                url: '/pages/index/index'
+            })
+            return;
+        }
+
         const dataset = event.currentTarget.dataset;
         this.dialog.togglerMsg({
             id: dataset.id,
@@ -100,6 +120,7 @@ Page({
         });
     },
     _confirmMsgEvent () {
+        
         app.loading();
         this.comment(this.dialog.data.msgData);
         
