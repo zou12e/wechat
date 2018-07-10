@@ -7,15 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    data: []
+     isLoad: true,
+     data: []
   },
   async getAudiList (type) {
     const ret = await app.get('/audio/getAudiosByType', { type});
     if (ret && ret.code == 1) {
-        this.setData({
-            data: ret.data
+        return this.setData({
+            data: ret.data,
+            isLoad: false,
         });
     }
+    this.setData({
+        isLoad: false,
+    });
+    
   },
   async _load(options) {
       this.getAudiList(options.type);  

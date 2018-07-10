@@ -10,7 +10,10 @@
     </block>
 </view>
 <view wx:else class='my-list'>
-        <view class='my-nodata'  >
-            暂无数据
-        </view>
+        <view class='my-nodata' hidden='{{isLoad}}' >
+                暂无数据
+            </view>
+            <view class='my-nodata' hidden='{{!isLoad}}' >
+                数据加载中...
+            </view>
 </view>

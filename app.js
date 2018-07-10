@@ -42,6 +42,7 @@ App({
                 url: uri + fn,
                 method: type || 'GET',
                 header: {
+                    "Content-Type": "application/json;charset=UTF-8",
                     "user-sessionkey": user.session_key || "",
                     "user-openid": user.openid || "",
                     "user-id": user.id || 0
