@@ -239,11 +239,16 @@ Page({
         if (ret && ret.code === 1) {
             const data = this.data.data;
             if (this.data.isMorning) {
-                data.read = ret.data;
+                // data.read = ret.data;
                 this.stop();
                 this.setPlayInfo();
+
+                wx.navigateTo({
+                    url: '/pages/home/detail/detail?id=' + ret.data.id
+                })
+
             } else {
-                data.speak = ret.data;
+                // data.speak = ret.data;
             }
             this.setData({
                 data: data

@@ -127,12 +127,12 @@
     font-size: 28rpx;
     letter-spacing: 0.4rpx;
     color: #353535;
-    justify-content: left;
+    text-align: left;
 }
 .mine  .calendar .top .icon {
     width: 46rpx;
     height: 43rpx;
-    margin: 0rpx 20rpx 0rpx 31rpx;
+    margin: 26rpx 20rpx 0rpx 31rpx;
     float: left;
 
 }
@@ -146,5 +146,4 @@
     border-bottom: 1rpx solid #DFDFDF;
     padding-left: 97rpx;
     height: 60rpx;
- 
 }

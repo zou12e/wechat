@@ -112,15 +112,13 @@ button::after{
     height: 0;
     left: -12rpx;
     right: 0;
-    border-left: 12rpx solid transparent;
-    border-right: 12rpx solid transparent;
+    border-left: 14rpx solid transparent;
+    border-right: 14rpx solid transparent;
     border-top: 25rpx solid #999;
     border-bottom: transparent;
 }
 .my-list .li  .recom::before{
     bottom: 0;
-    border-left: 12rpx solid transparent;
-    border-right: 12rpx solid transparent;
     border-top: transparent;
     border-bottom: 25rpx solid #999;
 }
@@ -237,7 +235,7 @@ button::after{
     width: 190rpx;
     height: 55rpx;
     line-height: 55rpx;
-    background: #ddd;
+    background: rgba(0, 0, 0, .3);
     border-radius: 5rpx;
     padding: 0;
     font-size: 26rpx;
@@ -256,7 +254,7 @@ button::after{
     margin-left: -16rpx;
     border-left: 16rpx solid transparent;
     border-right: 16rpx solid transparent;
-    border-top: 16rpx solid #ddd;
+    border-top: 16rpx solid rgba(0, 0, 0, .3);
     border-bottom: 0 solid transparent;
 }
 .my-record .operation {

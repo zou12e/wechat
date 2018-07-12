@@ -18,16 +18,15 @@
                     <view class='content {{(type=="mine" || type=="others") ? "content-left":"" }}' >
                         <navigator url='/pages/audio/audio?id={{item.blogId}}'  >
                             <image class='left banner'  mode="aspectFill" src="{{item.banner ? item.banner : '/images/banner.png'}}" ></image>
+                            <view class='left' >
+                                    <view  class='title' >
+                                        {{item.title}}
+                                    </view>
+                                    <view   class='time' >
+                                        {{item.createTime}}
+                                    </view>
+                            </view>
                         </navigator>
-                        <view class='left' >
-                                <navigator url='/pages/audio/audio?id={{item.blogId}}'  class='title' >
-                                    {{item.title}}
-                                </navigator>
-                                <view class='time' >
-                                    {{item.createTime}}
-                                </view>
-                        </view>
-
                         <image bindtap="play" data-index='{{idx}}'  src='/images/icon-square-3{{item.isPlay?"-on":""}}.png'>
                         </image>
                     </view>
@@ -37,24 +36,30 @@
 
                         <view hidden='{{type!="mine" }}' bindtap="goDelete" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-8.png' ></image>
+                            删除
                         </view>
 
                         <button open-type="share" data-id='{{item.blogId}}' data-banner='{{item.banner}}' data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-4.png' ></image>
+                            分享
                         </button>
 
                         <view hidden='{{type=="mine" }}' bindtap="goCollection" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-5{{(item.isCollection) ? "-on":""}}.png' ></image>
+                            收藏
                         </view>
 
                         <navigator url='/pages/audio/audio?id={{item.blogId}}&comment=1' class='view flex-text' >
                             <image src='/images/icon-square-6.png' ></image>
-                             {{item.comments}}
+                              <!-- {{item.comments === 0 ? '评论' :  item.comments }} 
+                               -->
+                             <!-- 评论 -->
+                             {{item.comments }}
                         </navigator>
 
                         <view bindtap="goThumb" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-7{{item.isThumb ? "-on":""}}.png' ></image>
-                             {{item.thumbs}}
+                             {{item.thumbs === 0 ? '赞' : item.thumbs}}
                         </view>
 
                     </view>

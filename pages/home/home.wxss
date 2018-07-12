@@ -41,6 +41,7 @@
     letter-spacing: 0.51rpx;
     text-align: center;
     margin: 15rpx 0;
+    font-weight: bold;
     line-height: 50rpx;
 }
 .banner-audio-content {

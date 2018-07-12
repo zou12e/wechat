@@ -172,7 +172,7 @@ Component({
                 this.setData({
                     data: this.data.data,
                 });
-                app.success();
+                app.success(blog.isCollection ? '已收藏' : '取消收藏');
             } else {
                 app.fail();
             }
@@ -189,7 +189,7 @@ Component({
                 this.setData({
                     data: this.data.data,
                 });
-                app.success();
+                app.success(blog.isThumb ? '已点赞' : '取消点赞');
             } else {
                 app.fail();
             }

@@ -1,9 +1,9 @@
 <view class='audio-play-detail'>
     <view class='audio-play' >
-        <view class='play'>
+        <view class='play'  bindtap="play" >
             <image mode="aspectFill" class='bg' src="{{data.banner ? data.banner : '/images/banner.png'}}"></image>
 
-            <image bindtap="play" class='play1' src='/images/icon-play-1{{isPlay?"-on":""}}.png'></image>
+            <image class='play1' src='/images/icon-play-1{{isPlay?"-on":""}}.png'></image>
 
         </view>
         <view class='slider'>

@@ -11,7 +11,7 @@
         </view>
         <view class='banner-audio'>
             <view class='banner-audio-title'>
-                {{data.read.title}}
+                《{{data.read.title}}》
             </view>
             <view class='banner-audio-content'>
                 {{data.read.content}}

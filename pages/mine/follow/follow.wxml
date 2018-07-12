@@ -12,9 +12,9 @@
 
         <block wx:for="{{data}}" wx:key="index">
             <navigator url='/pages/others/others?id={{item.userId}}'  class='li'>
-                <view class='flex-text'>
+                <view >
                     <image src='{{item.avatarUrl}}'></image>
-                    {{item.nickName}}
+                   <view class='left'> {{item.nickName}}</view>
                 </view>
             </navigator>
         </block>

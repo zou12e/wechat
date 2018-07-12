@@ -75,6 +75,16 @@ Page({
     onLoad(options) {
         this.start = this.selectComponent('#startime');
         this.end = this.selectComponent('#endtime');
+
+        wx.setNavigationBarColor({
+            frontColor: '#000000',
+            backgroundColor: '#ffffff'
+        })
+
+        wx.setTabBarStyle({
+            backgroundColor: '#000000',
+        })
+
         if (app.globalData.userInfo) {
             this._load(options);
         } else {

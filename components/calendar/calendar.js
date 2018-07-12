@@ -77,7 +77,7 @@ Component({
             for (let i = 0; i < 6; i++) {
                 for (let j = 0 ;j < 7 ;j++) {
                    
-                    if(i ==0 && j < week){
+                    if(i ==0 && j  < week){
                         day.push({
                             classer: "no",
                             year: lastYear,

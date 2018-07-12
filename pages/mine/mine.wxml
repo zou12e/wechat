@@ -39,7 +39,7 @@
     </navigator>
 
     <view class='calendar' >
-        <view class='top flex-text'>
+        <view class='top '>
             <image class='icon' src='/images/icon-mine-3.png' ></image>
             连续打卡 <text class='day'>{{info.continuDays}}</text> 天，累计打卡  <text class='day'>{{info.punchDays}}</text> 天
         </view>

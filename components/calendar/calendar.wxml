@@ -6,13 +6,13 @@
         <view class='r' catchtap='_nextMonth'>下个月</view>
     </view>
     <view class='week'>
-        <view>日</view>
         <view>一</view>
         <view>二</view>
         <view>三</view>
         <view>四</view>
         <view>五</view>
         <view>六</view>
+         <view>日</view>
     </view>
 
     <view class='days'>

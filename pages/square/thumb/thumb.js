@@ -20,6 +20,10 @@ Page({
     },
     async _load(options) {
         this.getThumbRanking();
+        wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: "#000000"
+        })
     },
     /**
      * 生命周期函数--监听页面加载

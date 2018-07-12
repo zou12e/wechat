@@ -134,6 +134,7 @@
     position: absolute;
     width: 50rpx;
     height: 50rpx;
+    border-radius: 50%;
     left: 35rpx;
     top: 20rpx;
 }
@@ -142,7 +143,7 @@
     
 }
 .comment .data .content .top{
-    font-size: 24rpx;
+    font-size: 26rpx;
     color: #888888;
     letter-spacing: 0.34rpx;
     height: 33rpx;
@@ -151,16 +152,16 @@
 }
 .comment .data .content .top .r {
     position: absolute;
-    right: 30rpx;
+    right: 0rpx;
     top: 20rpx;
 
 }
 .comment .data .content .msg {
     text-align: left;
-    font-size: 24rpx;
+    font-size: 26rpx;
     color: #353535;
     letter-spacing: 0.34rpx;
-    margin-top: 7rpx;
+    margin-top: 17rpx;
     display: block;
 }
 
