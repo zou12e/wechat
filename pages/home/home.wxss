@@ -58,7 +58,7 @@
     -webkit-line-clamp:3; 
 }
 .banner-audio-go {
-    font-size: 24rpx;
+    font-size: 26rpx;
     color: #FFB307;
     letter-spacing: 0.34rpx;
     line-height: 38rpx;

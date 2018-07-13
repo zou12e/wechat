@@ -3,7 +3,7 @@
     <view class='my-article'>
 
         <view class='title'>
-            {{audio.title}}
+           《{{audio.title}}》
         </view>
         <view class='author'>
            【作】 {{audio.author}}

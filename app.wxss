@@ -285,8 +285,9 @@ button::after{
 /*----article----*/
 
 .my-article .title{
-    font-size: 36rpx;
+    font-size: 34rpx;
     color: #000000;
+    font-weight: bold;
     letter-spacing: 0.52rpx;
     text-align: center;
     line-height: 48rpx;
