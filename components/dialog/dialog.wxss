@@ -98,9 +98,9 @@
 .dialog .confirm .bottom button {
     float: left;
     width: 50%;
-     border-radius: 0;
-     font-size: 36rpx;
+    border-radius: 0;
+    font-size: 36rpx;
 }
 .dialog .confirm .bottom .right {
-    border-left: 1px solid #ddd;
+    border-left: 1rpx solid #ddd;
 }

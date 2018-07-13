@@ -88,13 +88,13 @@
     height: 100rpx;
     background: transparent;
 }
-.home5, .home7 {
+.audio-play-detail .image-home5, .audio-play-detail  .image-home7 {
     width: 40rpx;
     height: 40rpx;
     margin-right: 20rpx;
 }
 
-.play2 {
+.audio-play-detail .image-play2 {
     width: 300rpx;
     height: 110rpx;
     position: fixed;

@@ -88,7 +88,7 @@ Page({
     onShareAppMessage () {
         return {
             title: '趣朗读，让世界听见你的声音',
-            path: '/pages/home/home'
+            path: '/pages/home/home?share=1'
         }
     },
     /** 
@@ -108,7 +108,7 @@ Page({
             app.success('保存成功');
             setTimeout(() => {
                 wx.redirectTo({
-                    url: '/pages/audio/audio?id=' + ret.data.id + '&path=' + path
+                    url: '/pages/audio/audio?id=' + ret.data.id 
                 })
             }, 1000)
         } else {

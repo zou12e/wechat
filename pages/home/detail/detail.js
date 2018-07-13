@@ -8,6 +8,7 @@ Page({
      */
     data: {
         isPlay: false,
+        id: 0,
         playInfo: {},
         data: {}
     },
@@ -66,7 +67,9 @@ Page({
         })
     },
     async _load(options) {
-        
+        this.setData({
+            id: options.id
+        });
         this.getAudioInfo(options.id);
     },
     /**
@@ -142,7 +145,8 @@ Page({
     onShareAppMessage() {
         return {
             title: '趣朗读，让世界听见你的声音',
-            imageUrl: this.data.data.banner
+            imageUrl: this.data.data.banner,
+            path: '/pages/home/detail/detail?share=1&id=' + this.data.id,
         }
     },
     play() {

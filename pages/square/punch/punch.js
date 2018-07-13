@@ -88,7 +88,7 @@ Page({
     onShareAppMessage () {
         return {
             title: '趣朗读，让世界听见你的声音',
-            path: '/pages/home/home'
+            path: '/pages/home/home?share=1'
         }
     },
     toTab (event) {

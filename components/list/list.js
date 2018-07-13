@@ -203,13 +203,13 @@ Component({
                 const d = res.target.dataset;
                 return {
                     title: '趣朗读，让世界听见你的声音',
-                    path: '/pages/audio/audio?id=' + d.blogId,
+                    path: '/pages/audio/audio?share=1&id=' + d.blogId,
                     imageUrl: d.banner
                 }
             }
             return {
                 title: '趣朗读，让世界听见你的声音',
-                path: '/pages/home/home'
+                path: '/pages/home/home?share=1'
             }
         },
         async _confirmEvent () {

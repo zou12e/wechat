@@ -25,17 +25,17 @@
 
     <view class='audio-bottom' >
         <button bindtap="changeAudio" class='flex-text'>
-            <image class='home5' src='/images/icon-home-5.png'></image>
+            <image class='image-home5' src='/images/icon-home-5.png'></image>
             <text>换一篇</text>
         </button>
 
         <button  open-type="share" class='flex-text'>
-            <image class='home7' src='/images/icon-home-7.png'></image>
+            <image class='image-home7' src='/images/icon-home-7.png'></image>
             <text>分享</text>
         </button>
 
         <button  bindtap="goRead" class='home-button'>
-            <image class='play2' src='/images/icon-play-2.png'></image>
+            <image class='image-play2' src='/images/icon-play-2.png'></image>
         </button>
 
     </view>
