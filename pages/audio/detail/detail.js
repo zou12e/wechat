@@ -10,6 +10,7 @@ Page({
      */
     data: {
         blogId: 0,
+        userId: 0,
         commnetId: 0,
         comment: {},
     },
@@ -33,7 +34,8 @@ Page({
     async _load(options) {
         this.dialog = this.selectComponent("#dialog");
         this.setData({
-            commnetId: options.id
+            commnetId: options.id,
+            userId: app.globalData.userInfo.id
         })
         this.getCommentById();
     },
@@ -142,5 +144,28 @@ Page({
         } else {
             app.fail('评论失败');
         }
+    },
+    showDelete(event) {
+        const dataset = event.currentTarget.dataset;
+        this.dialog.togglerConfirm({
+            id: dataset.id,
+            title: '温馨提示',
+            content: '确定删除该条评论 ？'
+        });
+    },
+    async _confirmEvent() {
+        app.loading();
+        const commentId = this.dialog.data.confirmData.id;
+        const ret = await app.post('/comment/delete', { id: commentId });
+        app.hide();
+        if (ret && ret.code === 1) {
+            app.success('已删除');
+            setTimeout(()=> {
+                wx.navigateBack();
+            }, 1000)
+        } else {
+            app.fail();
+        }
+        this.dialog.togglerConfirm();
     }
 })

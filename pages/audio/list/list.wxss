@@ -28,7 +28,7 @@
     font-size: 26rpx;
     color: #888888;
     letter-spacing: 0.34rpx;
-    height: 66rpx;
+    height: 70rpx;
     margin-top: 10rpx;
     
     overflow: hidden;

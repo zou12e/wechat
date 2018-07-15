@@ -47,6 +47,7 @@ Page({
         console.log(app.globalData.userInfo);
         wx.reLaunch({
             url: '/pages/home/home' 
+            // url: '/pages/audio/audio?id=1'
         })
     },
     async updateUser () {

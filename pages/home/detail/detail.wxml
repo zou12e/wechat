@@ -18,25 +18,28 @@
     <view class='audio-info' >
             <view class='title' >{{data.title}}</view>
             <view class='author' >【作】{{data.author}}</view>
-            <scroll-view class='content' scroll-y='true' >
+            <view class='content' >
                 <text>{{data.content}} </text>
-            </scroll-view>
+            </view>
+            <view wx:if='{{share==1}}' bindtap="goHome" class='go-home'   >
+                <image src='/images/icon-home-10.png'></image>
+            </view>
     </view>
+
+
 
     <view class='audio-bottom' >
         <button bindtap="changeAudio" class='flex-text'>
-            <image class='image-home5' src='/images/icon-home-5.png'></image>
+            <image class='image-home5' src='/images/icon-home-5-new.png'></image>
             <text>换一篇</text>
         </button>
 
         <button  open-type="share" class='flex-text'>
-            <image class='image-home7' src='/images/icon-home-7.png'></image>
+            <image class='image-home7' src='/images/icon-home-7-new.png'></image>
             <text>分享</text>
         </button>
 
-        <button  bindtap="goRead" class='home-button'>
-            <image class='image-play2' src='/images/icon-play-2.png'></image>
-        </button>
+         <image bindtap="goRead" class='image-play2' src='/images/icon-play-2.png'></image>
 
     </view>
 </view>

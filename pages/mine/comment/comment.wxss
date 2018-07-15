@@ -8,13 +8,12 @@
     position: absolute;
     width: 50rpx;
     height: 50rpx;
-    left: 16rpx;
+    left: 25rpx;
     top: 30rpx;
-    border: 1rpx solid #979797;
     border-radius: 50%;
 }
 .data .content {
-    margin: 0 35rpx 0 86rpx;
+    margin: 0 35rpx 0 100rpx;
     
 }
 .data .content .top{
@@ -25,14 +24,7 @@
     line-height: 40rpx;
     padding-top: 33rpx;
 }
-.data .content .top .r {
-    position: absolute;
-    right: 30rpx;
-    top: 33rpx;
-    font-size: 24rpx;
-    letter-spacing: 0.34rpx;
-
-}
+ 
 .data .content .msg {
     text-align: left;
     font-size: 28rpx;
@@ -40,22 +32,35 @@
     letter-spacing: 0.35rpx;
     margin-top: 19rpx;
 }
- 
+
  
 .data .bottom {
-    margin: 0 35rpx 0 86rpx;
+    margin: 0 35rpx 0 100rpx;
     line-height: 60rpx;
     height: 60rpx;
     text-align: right;
-    border-bottom: 1rpx solid #CFCFCF;
+    
 }
 .data .bottom image{
     width: 30rpx;
     height: 24rpx;
 }
-
+ .data .bottom .left{
+    float: left;
+     font-size: 24rpx;
+     color: #888888;
+    letter-spacing: 0.34rpx;
+ }
 .data:last-child .bottom {
     border-bottom: none;
 }
 
- 
+.my-list .li{
+    border-bottom: 1rpx solid #E6E6E6;
+    padding-bottom: 20rpx;
+    margin: 0 30rpx 0 100rpx;
+}
+
+.my-list .li  .content {
+    margin: 0;
+}

@@ -1,4 +1,37 @@
 
+
+.audio-play-detail .audio-author {
+    height: 100rpx;
+    background: #FFFFFF;
+    border-top: 1rpx solid #D0D0D0;
+}
+.audio-play-detail .audio-author .left {
+    float: left;
+    margin-left: 30rpx;
+    height: 100rpx;
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0.4rpx;
+}
+.audio-play-detail .audio-author image{
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 20rpx;
+    border: 1rpx solid #fefefe;
+}
+
+.audio-play-detail .audio-author .follow-button {
+    float: right;
+    margin: 30rpx 30rpx 0 0;
+    background: #FFB307;
+    border-radius: 6rpx;
+    color: #fff;
+}
+.audio-play-detail .audio-author .follow-button.cancel {
+    color: #FFB307;
+    background: #fff;
+}
+
 .audio-play-detail .play {
     position: relative;
     height: 460rpx;
@@ -79,7 +112,7 @@
     border-top: 1rpx solid  #D0D0D0;
     background: #fff;
 }
-.audio-bottom .flex-text, .home-button {
+.audio-bottom .flex-text {
     float: left;
     font-size: 26rpx;
     color: #353535;
@@ -100,4 +133,17 @@
     position: fixed;
     bottom: 10rpx;
     right: 30rpx;
+}
+
+.audio-play-detail .go-home {
+    width: 100rpx;
+    height: 100rpx;
+    position: fixed;
+    left: 40rpx;
+    bottom: 110rpx;
+    z-index: 10;
+}
+.audio-play-detail .go-home image {
+    width: 100rpx;
+    height: 100rpx;
 }

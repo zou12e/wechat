@@ -1,4 +1,4 @@
-<view class='dialog' hidden="{{!isShow}}"  >
+<view class='dialog' wx:if="{{isShow}}" catchtouchmove='true'  >
 
     <view class='show'  hidden="{{!isShow}}" >
         <image bindtap="togglerShow" class='close' src='/images/icon-dialog-1.png' ></image>
@@ -11,14 +11,15 @@
          </view>
     </view>
 </view>
-
-<view class='dialog' hidden="{{!isMsg}}"  >
+<!-- catchtouchmove='true'  -->
+<view class='dialog' wx:if="{{isMsg}}"   >
     
     <view class='msg'  hidden="{{!isMsg}}" >
         <image bindtap="togglerMsg" class='close' src='/images/icon-dialog-1.png' ></image>
         <view class='box' >
             <textarea placeholder='{{msgData.placeholder}}'  name='msg' 
-                bindinput="bindMsg" value='{{msgData.value}}'
+                bindinput="bindMsg" value='{{msgData.value}}' auto-focus
+                placeholder-style = 'color: #bcbcbc;'
             >
             </textarea>
         </view>
@@ -29,7 +30,7 @@
 
 </view>
 
-<view class='dialog' hidden="{{!isConfirm}}"  >
+<view class='dialog' wx:if="{{isConfirm}}" catchtouchmove='true'  >
     
     <view class='confirm'  hidden="{{!isConfirm}}" >
         <view class='title'>

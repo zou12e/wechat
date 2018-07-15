@@ -32,10 +32,10 @@
 .dialog .msg {
     background: #fff;
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    height: 500rpx;
+    bottom: 0;
 }
 
 .dialog .msg .box {
@@ -46,18 +46,23 @@
     background: #f8f8f8;
     border-radius: 10rpx;
     font-size: 26rpx;
-    color: #888;
+    color: #666;
     letter-spacing: 0.31rpx;
     box-sizing: border-box;
     height: 240rpx;
     padding: 20rpx;
     width: 100%;
     line-height: 30rpx;
+    /* position: absolute; */
 }
+
 
 .dialog .msg .bottom {
     text-align: right;
     margin: 20rpx 30rpx 0;
+    /* position: absolute;
+    bottom: 0;
+    right: 0; */
 }
 
 .dialog .msg .bottom button {

@@ -35,7 +35,7 @@ Page({
     /**
      * 获取评论
      */
-    async getComment () {
+    async getComment(scrollTop) {
         const ret = await app.get('/comment/getCommentByBlogId', { id: this.data.blogId });
         if (ret && ret.code == 1) {
             ret.data.list.forEach(item => {
@@ -44,6 +44,16 @@ Page({
             this.setData({
                 comment: ret.data
             });
+        }
+        if (scrollTop) {
+            console.log(11);
+            wx.createSelectorQuery().select('#j_page').boundingClientRect(function (rect) {
+                console.log(rect.bottom);
+                wx.pageScrollTo({
+                    scrollTop: rect.bottom,
+                    duration: 0
+                })
+            }).exec();
         }
     },
     /**
@@ -91,7 +101,7 @@ Page({
         })
     },
     async _load(options) {
-        this.dialog = this.selectComponent("#dialog");
+ 
         this.start = this.selectComponent("#startime");
         this.end = this.selectComponent("#endtime");
         this.dialog = this.selectComponent("#dialog");
@@ -103,15 +113,21 @@ Page({
         await this.getBlogById();
 
         if (options.comment) {
-            this.showComment();
+            this.showComment();   
         }
 
-        this.getComment();
+        this.getComment(options.comment);
     },
     /**
      * 生命周期函数--监听页面加载
      */
     async onLoad (options) {
+
+        wx.setNavigationBarColor({
+            frontColor: '#000000',
+            backgroundColor: '#ffffff'
+        })
+
         if (app.globalData.userInfo) {
             this._load(options);
         } else {
@@ -210,17 +226,6 @@ Page({
         }
     },
     /**
-     * 查看文章内容
-     */
-    showContent () {
-
-        this.dialog.togglerShow({
-            title: this.data.blog.title,
-            author: this.data.blog.author,
-            content: this.data.blog.content
-        });
-    },
-    /**
      * 点击回复
      */
     showReply (event) {
@@ -253,7 +258,7 @@ Page({
             id: 0,
             toUserId: this.data.blog.userId,
             toNickName: this.data.blog.nickName,
-            placeholder: "评论",
+            placeholder: "说点什么吧...",
             value: ""
         });
     },
@@ -290,7 +295,7 @@ Page({
             this.setData({
                 blog: blog,
             });
-            app.success();
+            app.success(blog.isFollow ? '已关注':'已取消关注');
         } else {
             app.fail();
         }
@@ -315,7 +320,7 @@ Page({
             this.setData({
                 blog: blog,
             });
-            app.success();
+            app.success(blog.isCollection ? '已收藏' : '已取消收藏');
         } else {
             app.fail();
         }
@@ -334,7 +339,7 @@ Page({
             this.setData({
                 blog: blog,
             });
-            app.success();
+            app.success(blog.isThumb ? '已点赞' : '已取消点赞');
         } else {
             app.fail();
         }
@@ -353,11 +358,16 @@ Page({
 
         if (ret && ret.code === 1) {
             this.dialog.togglerMsg();
-            this.getComment();
+            this.getComment(true);
             app.success('评论成功');
         } else {
             app.fail('评论失败');
         }
+    },
+    goHome () {
+        wx.switchTab({
+            url: '/pages/home/home'
+        })
     }
 
 })

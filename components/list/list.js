@@ -151,7 +151,7 @@ Component({
                 this.setData({
                     data: this.data.data,
                 });
-                app.success();
+                app.success(item.isFollow ? '已关注' :'已取消关注');
             } else {
                 app.fail();
             }
@@ -230,7 +230,7 @@ Component({
                 this.setData({
                     data: this.data.data,
                 });
-                app.success();
+                app.success('已删除');
             } else {
                 app.fail();
             }

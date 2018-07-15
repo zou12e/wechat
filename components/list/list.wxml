@@ -46,18 +46,18 @@
 
                         <view hidden='{{type=="mine" }}' bindtap="goCollection" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-5{{(item.isCollection) ? "-on":""}}.png' ></image>
-                            收藏
+                            {{(item.isCollection) ? "已收藏":"收藏"}}
                         </view>
 
-                        <navigator url='/pages/audio/audio?id={{item.blogId}}&comment=1' class='view flex-text' >
+                        <navigator  hidden='{{type=="mine" }}'  url='/pages/audio/audio?id={{item.blogId}}&comment=1' class='view flex-text' >
                             <image src='/images/icon-square-6.png' ></image>
-                              <!-- {{item.comments === 0 ? '评论' :  item.comments }} 
-                               -->
+                              {{item.comments === 0 ? '评论' :  item.comments }}  
+                            
                              <!-- 评论 -->
-                             {{item.comments }}
+                             <!-- {{item.comments }} -->
                         </navigator>
 
-                        <view bindtap="goThumb" data-index='{{idx}}' class='view flex-text' >
+                        <view hidden='{{type=="mine" }}' bindtap="goThumb" data-index='{{idx}}' class='view flex-text' >
                             <image src='/images/icon-square-7{{item.isThumb ? "-on":""}}.png' ></image>
                              {{item.thumbs === 0 ? '赞' : item.thumbs}}
                         </view>

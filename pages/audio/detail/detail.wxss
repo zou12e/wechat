@@ -10,30 +10,26 @@
     height: 50rpx;
     left: 35rpx;
     top: 20rpx;
+    border-radius: 50%;
 }
 .data .content {
     margin: 0 35rpx 0 120rpx;
     
 }
 .data .content .top{
-    font-size: 24rpx;
+    font-size: 26rpx;
     color: #888888;
     letter-spacing: 0.34rpx;
     height: 33rpx;
     line-height: 33rpx;
     padding-top: 20rpx;
 }
-.data .content .top .r {
-    position: absolute;
-    right: 30rpx;
-    top: 20rpx;
 
-}
 .data .content .msg {
     text-align: left;
-    font-size: 24rpx;
+    font-size: 26rpx;
     color: #353535;
-    letter-spacing: 0.34rpx;
+    letter-spacing: 0.37rpx;
     margin-top: 7rpx;
 }
 
@@ -42,9 +38,9 @@
     margin: 0 35rpx 0 120rpx;
 }
 .data .reply {
-    font-size: 22rpx;
+    font-size: 26rpx;
     color: #353535;
-    letter-spacing: 0.31rpx;
+    letter-spacing: 0.44px;
     padding: 15rpx 20rpx;
     margin-top: 15rpx;
 }
@@ -52,10 +48,13 @@
     padding: 5rpx 0 15rpx 60rpx;
     position: relative;
 }
+.data .reply .t text{
+    color: #888888;
+}
 .data .reply .t .head{
     width: 45rpx;
     height: 45rpx;
-    border-radius: 100%;
+    border-radius: 50%;
     position: absolute;
     left: 0;
     top: 0;
@@ -64,27 +63,35 @@
     font-size: 20rpx;
     color: #888888;
     letter-spacing: 0.29rpx;
-    text-align: right;
     line-height: 50rpx;
     height: 50rpx;
-
-
-    justify-content: flex-end;
+    text-align: left;
 }
 .data .reply .time image {
     width: 30rpx;
     height: 24rpx;
-    margin-left: 20rpx;
+    margin:13rpx 0 0 30rpx;
+    float: right;
 }
 .data .bottom {
     margin: 0 35rpx 0 120rpx;
     line-height: 60rpx;
     height: 60rpx;
-    text-align: right;
+    text-align: left;
+    position: relative;
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
 }
 .data .bottom image{
     width: 30rpx;
     height: 24rpx;
+    position: absolute;
+    top: 16rpx;
+    right: 0;
+}
+.data .bottom .delete {
+    right: 60rpx;
 }
 
  

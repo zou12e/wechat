@@ -1,52 +1,71 @@
-<view class='audio'>
-    <view class='top'>
-        <image mode="aspectFill"  class='bg' src="{{blog.banner ? blog.banner : '/images/banner.png'}}"></image>
-        <view class='author'>
-            <view class='left flex-text'>
-                <image src='{{blog.avatarUrl}}'></image>
-                {{blog.nickName}}
-            </view>
-            <button hidden='{{userId == blog.userId}}' bindtap="goFollow" class='follow-button'>
-                {{blog.isFollow ? "取关" : "关注"}}
-            </button>
+<view class='audio-play-detail' id='j_page'>
+    <view hidden='{{userId == blog.userId}}' class='audio-author'>
+        <view class='left flex-text'>
+            <image src='{{blog.avatarUrl}}'></image>
+            {{blog.nickName}}
         </view>
+        <button bindtap="goFollow" class='follow-button {{blog.isFollow? "cancel" : ""}}'>
+            {{blog.isFollow ? "取关" : "关注"}}
+        </button>
     </view>
-    <view class='info'>
-        <view class='title'>
-            <view class='left'>
-                {{playInfo.title}}
-            </view>
-            <image bindtap="showContent" src='/images/icon-home-3.png'></image>
-        </view>
-        <view class='time'>
-            {{blog.createTime}}
-        </view>
+    <view class='audio-play'>
+        <view class='play' bindtap="play">
+            <image mode="aspectFill" class='bg' src="{{blog.banner ? blog.banner : '/images/banner.png'}}"></image>
 
-        <view class='player'>
-            <image bindtap="play" class='button' src='/images/icon-home-6{{isPlay?"-on":""}}.png'></image>
+            <image class='play1' src='/images/icon-play-1{{isPlay?"-on":""}}.png'></image>
 
-            <view class='slider'>
-                <slider min="0" max="{{playInfo.time}}" value='{{playInfo.current}}' bindchange='changeTime' activeColor="#FFB307" backgroundColor="#F5F5F5">
-                </slider>
-                <view class='time'>
-                    <stom id='startime'></stom>
-                    <stom id='endtime' class='right'></stom>
-                </view>
+        </view>
+        <view class='slider'>
+            <slider min="0" max="{{playInfo.time}}" value='{{playInfo.current}}' bindchange='changeTime' block-size="20" activeColor="#FFB307" backgroundColor="#F5F5F5">
+            </slider>
+            <view class='time'>
+                <stom id='startime'></stom>
+                <stom id='endtime' class='right'></stom>
             </view>
         </view>
     </view>
+    <view class='audio-info'>
+        <view class='title'>{{blog.title}}</view>
+        <view class='author'>【作】{{blog.author}}</view>
+        <view class='content'>
+            <text>{{blog.content}} </text>
+        </view>
+        <view wx:if='{{share==1}}' bindtap="goHome" class='go-home'>
+            <image src='/images/icon-home-10.png'></image>
+        </view>
+    </view>
 
-    <view class='comment'>
+    <view class='audio-option'>
+
+         <view bindtap="goCollection" class='' >
+            <image src='/images/icon-square-10{{blog.isCollection ? "-on":""}}.png'></image>
+            {{blog.isCollection ? '已收藏' :  '收藏' }}  
+        </view>
+    
+        <view bindtap="goThumb" class='' >
+            <image src='/images/icon-square-9{{blog.isThumb ? "-on":""}}.png'></image>
+             {{!blog.isThumb ? '赞' : blog.thumbs}}
+        </view>
+
+        <button hidden='{{userId != blog.userId}}' class='button hide' >
+            <image src='/images/icon-square-11.png'></image>
+            查看言值分
+        </button>
+
+        <navigator hidden='{{userId == blog.userId}}' url='/pages/home/read/read?id={{blog.audioId}}' class='button-image' >
+            <image src='/images/icon-square-12.png'></image>
+        </navigator>
+
+    </view>
+
+    <view class='audio-comment'>
         <view class='title'>
             <view class='my-left'>
                 评论（{{comment.comments}}）
             </view>
-            <view class='my-right'>
-                赞 （{{blog.thumbs}}）
-            </view>
         </view>
         <view wx:if="{{comment.comments==0}}" class='no-data'>
-            暂无数据
+            暂无评论
         </view>
         <view wx:else="{{comment.comments!=0}}" class='data'>
             <block wx:for="{{comment.list}}" wx:for-index="idx" wx:key="item">
@@ -54,58 +73,58 @@
                     <image class='head' src='{{item.avatarUrl}}'></image>
                     <view class='content'>
                         <view class='top'>
-                            <view class='l'>{{item.nickName}}</view>
-                            <view class='r'>{{item.createTime}}</view>
+                            {{item.nickName}}
                         </view>
-                        <navigator class='msg'url='/pages/audio/detail/detail?id={{item.id}}'>
+                        <navigator class='msg' url='/pages/audio/detail/detail?id={{item.id}}'>
                             {{item.content}}
                         </navigator>
                     </view>
-                    <navigator wx:if="{{item.replys>0}}"  url='/pages/audio/detail/detail?id={{item.id}}' class='reply'>
+
+                    <view class='bottom'>
+
+                        <view class='left'>{{item.createTime}}</view>
+                        <image data-name='{{item.nickName}}' data-userid='{{item.userId}}' data-id='{{item.id}}' data-url='/pages/audio/detail/detail?id={{item.id}}' bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
+                    </view>
+
+
+                    <navigator wx:if="{{item.replys>0}}" url='/pages/audio/detail/detail?id={{item.id}}' class='reply'>
                         <view class='t1'>
-                            {{item.replyList[0].nickName}}
-                            <block wx:if="{{item.userId != item.replyList[0].toUserId }}" > 回复 {{item.replyList[0].toNickName}}</block>
+                            <text>{{item.replyList[0].nickName}}</text>
+                            <block wx:if="{{item.userId != item.replyList[0].toUserId }}"> 回复 {{item.replyList[0].toNickName}}</block>
                             ：{{item.replyList[0].content}}
                         </view>
                         <view class='t2'>
                             共{{item.replys}}条回复 >
                         </view>
                     </navigator>
-                    <view class='bottom'>
-                        <image 
-                        data-name='{{item.nickName}}'
-                        data-userid='{{item.userId}}'
-                        data-id='{{item.id}}'
-                        data-url='/pages/audio/detail/detail?id={{item.id}}' 
-                        bindtap="showReply" src='/images/icon-square-6-reply.png'></image>
-                    </view>
-                </view>
 
+                </view>
             </block>
-            
+
         </view>
     </view>
+
+    <view class='audio-bottom'>
+
+        <button bindtap="goHome" class='flex-text button-go-home'>
+            <image src='/images/icon-home-12.png'></image>
+            回到首页
+        </button>
+
+        <button bindtap="showComment" class='flex-text button'>
+            <image class='image-home5' src='/images/icon-home-11.png'></image>
+            <text>评论</text>
+        </button>
+
+        <button open-type="share" class='flex-text button'>
+            <image class='image-home7' src='/images/icon-home-7-new.png'></image>
+            <text>分享</text>
+        </button>
+
+
+
+    </view>
 </view>
-
-<view class='audio-operation'>
-
-    <button open-type="share" class='flex-item'  >
-        <image src='/images/icon-square-4.png'></image>
-    </button>
-
-    <view class='{{userId == blog.userId ? "hide" : "" }}' bindtap="goCollection">
-        <image src='/images/icon-square-5{{blog.isCollection ? "-on":""}}.png'></image>
-    </view>
-
-    <view bindtap="showComment">
-        <image src='/images/icon-square-6.png'></image>
-    </view>
-
-    <view bindtap="goThumb">
-        <image src='/images/icon-square-7{{blog.isThumb ? "-on":""}}.png'></image>
-    </view>
-
-</view>
-
+ 
 <dialog id='dialog' bind:confirmMsgEvent="_confirmMsgEvent">
 </dialog>

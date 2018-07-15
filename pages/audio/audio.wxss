@@ -1,182 +1,152 @@
-.audio {
-    padding-bottom: 100rpx;
-    box-sizing: border-box;
-}
-.audio .top {
-    height: 350rpx;
-    position: relative;
-}
-.audio .top .bg{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-.audio .author {
-    height: 90rpx;
-    font-size: 28rpx;
-    color: #FFFFFF;
-    letter-spacing: 0.4rpx;
-    padding:  20rpx 30rpx 0;
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, .4);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-.audio .author image{ 
-    width: 50rpx;
-    height: 50rpx;
-    margin: 0 20rpx 0 0rpx;
-}
-.audio .author .left {
-    float: left;
-}
-.audio .author button{ 
-    background-color: transparent;
-    float: right;
-    margin-top: 4rpx;
+@import '../home/detail/detail.wxss';
+
+.audio-play-detail  .audio-info {
+    padding-bottom: 20rpx;
 }
 
-.audio .info {
-    height: 380rpx;
-    padding: 35rpx 30rpx;
-    background: #fff;
-    box-sizing: border-box;
-}
-.audio .info .title {
-    line-height: 48rpx;
-    height: 48rpx;
-}
-.audio .info .title .left{
-    float: left;
-    font-size: 34rpx;
-    color: #353535;
-    letter-spacing: 0.49rpx;
-}
-.audio .info .title image{
-    float: right;
-    width: 44rpx;
-    height: 47rpx;
-}
-.audio .info .time {
-    font-size: 26rpx;
-    color: #888888;
-    letter-spacing: 0.37rpx;
-    line-height: 37rpx;
+.audio-play-detail  .audio-option {
     margin-top: 20rpx;
+    height: 110rpx;
 }
 
-.player {
-    position: relative;
-    overflow: hidden;
-}
-.player .button{
-    position: absolute;
-    width: 90rpx;
-    height: 90rpx;
-    left: 50rpx;
-    top: 60rpx;
-}
-.player .slider {
-    margin:85rpx 0 0 200rpx;
-}
-
-.player .slider text {
-    padding: 0 40rpx;
-    font-size: 22rpx;
-    color: #888;
-    letter-spacing: 0.31rpx;
+.audio-play-detail  .audio-option>view {
+    float: left;
+    width: 160rpx;
+    margin: 0 10rpx 0 30rpx;
+    font-size: 26rpx;
+    color: #353535;
+    letter-spacing: 0.37rpx;
     text-align: left;
-    line-height: 30rpx;
-    height: 30rpx;
-    display: inline-block;
+    line-height: 80rpx;
+    height: 80rpx;
+}
+.audio-play-detail  .audio-option>view image{
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0 10rpx -10rpx 0;
 }
 
-.player  .slider .right {
+.audio-play-detail  .audio-option .button {
+    border: 1px solid #FF3B53;
+    border-radius: 8rpx;
+    width: 280rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #FF644F;
+    letter-spacing: 0.4rpx;
+    background: transparent;
     float: right;
+    margin-right: 30rpx;
+}
+.audio-play-detail  .audio-option .button-image {
+    float: right;
+    margin-right: 30rpx;
+}
+.audio-play-detail  .audio-option .button-image image {
+    width: 242rpx;
+    height: 78rpx;
+
+}
+.audio-play-detail  .audio-option .button image {
+    width: 51rpx;
+    height: 57rpx;
+    margin: 0 15rpx -18rpx 0;
+}
+
+.audio-play-detail  .button-go-home {
+    width: 240rpx;
+    height: 66rpx;
+    line-height: 66rpx;
+    background: #FFF8EC;
+    border-radius: 100rpx;
+    font-size: 28rpx;
+    color: #FFB307;
+    letter-spacing: 0.4rpx;
+    float: left;
+    margin: 16rpx 50rpx 0 23rpx;
+
+}
+.audio-play-detail  .button-go-home image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+    
 }
 
 
-.audio .comment {
+.audio-play-detail .audio-comment {
     border-top: 20rpx solid #f1f1ef;
     background: #fff;
-    min-height: 350rpx;
+    padding: 0 0 120rpx;
 }
-.audio .comment .title{
+.audio-play-detail .audio-comment .title{
     line-height: 90rpx;
     height: 90rpx;
     font-size: 28rpx;
     color: #888888;
     letter-spacing: 0.4rpx;
     padding:  0 30rpx;
-    border-bottom: 1rpx solid #CFCFCF;
+    border-bottom: 1rpx solid #E6E6E6;
     overflow: hidden;
 }
 
 
-.audio .comment .no-data {
-    padding-top: 100rpx;
+.audio-play-detail .audio-comment .no-data {
+    padding: 100rpx 0;
     text-align: center;
     font-size: 28rpx;
     color: #B2B2B2;
     letter-spacing: 0.4rpx;
 }
 
-.audio .comment .data .li{
+.audio-play-detail .audio-comment .data .li{
     position: relative;
-
-    
+    border-bottom: 1rpx solid  #E6E6E6;
+    margin: 0  35rpx 0 120rpx;
 }
-.audio .comment .data .head {
+.audio-play-detail .audio-comment .data .li:last-child{
+    border-bottom: none;
+}
+.audio-play-detail .audio-comment .data .head {
     position: absolute;
     width: 50rpx;
     height: 50rpx;
     border-radius: 50%;
-    left: 35rpx;
+    left: -85rpx;
     top: 20rpx;
 }
-.audio .comment .data .content {
-    margin: 0 35rpx 0 120rpx;
-    
-}
-.comment .data .content .top{
-    font-size: 26rpx;
+
+.audio-comment .data .content .top{
+    font-size: 28rpx;
     color: #888888;
-    letter-spacing: 0.34rpx;
-    height: 33rpx;
-    line-height: 33rpx;
+    letter-spacing: 0.4rpx;
+    height: 40rpx;
+    line-height: 40rpx;
     padding-top: 20rpx;
 }
-.comment .data .content .top .r {
-    position: absolute;
-    right: 0rpx;
-    top: 20rpx;
-
-}
-.comment .data .content .msg {
+.audio-comment .data .content .msg {
     text-align: left;
-    font-size: 26rpx;
+    font-size: 28rpx;
     color: #353535;
-    letter-spacing: 0.34rpx;
-    margin-top: 17rpx;
+    letter-spacing: 0.4rpx;
+    margin-top: 14rpx;
     display: block;
+    line-height: 40rpx;
 }
 
-.comment .data .reply {
+.audio-comment .data .reply {
     background: #F0F3F7;
-    margin: 0 35rpx 0 120rpx;
+    margin-bottom: 20rpx;
 }
-.comment .data .reply {
-    font-size: 22rpx;
+.audio-comment .data .reply {
+    font-size: 28rpx;
     color: #353535;
     letter-spacing: 0.31rpx;
-    padding: 15rpx 20rpx;
+    padding: 20rpx;
     margin-top: 15rpx;
 }
-.comment .data .reply .t1{
+.audio-comment .data .reply .t1{
     height: 30rpx;
     line-height: 30rpx;
     overflow: hidden;
@@ -184,51 +154,29 @@
     white-space: nowrap;
     text-overflow:ellipsis;
 }
-.comment .data .reply .t2 {
+.audio-comment .data .reply .t1 text {
+    color: #888888;
+}
+.audio-comment .data .reply .t2 {
     color: #3273BC;
-    margin-top: 10rpx;
+    margin-top: 15rpx;
+    font-size: 24rpx;
 }
 
-.comment .data .bottom {
-    margin: 0 35rpx 0 120rpx;
+.audio-comment .data .bottom {
     line-height: 60rpx;
     height: 60rpx;
-    text-align: right;
-    border-bottom: 1rpx solid #CFCFCF;
+    text-align: left;
+    font-size: 24rpx;
+    color: #888888;
+    letter-spacing: 0.34rpx;
+    position: relative;
 }
-.comment .data .bottom image{
+.audio-comment .data .bottom image{
     width: 30rpx;
     height: 24rpx;
-}
-
-.comment .data .li:last-child .bottom{
-    border-bottom: none;
-}
-
-
-.audio-operation {
-    display: flex;
-    height: 90rpx;
-    position: fixed;
-    left: 0;
+    position: absolute;
     right: 0;
-    bottom: 0;
-    background: #fff;
-    box-shadow: 0 10rpx 24rpx 0 #BBBBBB;
-    
+    top: 18rpx;
 }
-.audio-operation >view,.audio-operation .flex-item {
-    flex: 1;
-    font-size: 20rpx;
-    color: #888888;
-    letter-spacing: 0.29rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-}
-.audio-operation image {
-    width: 36rpx;
-    height: 36rpx;
-    margin-right: 10rpx;
-}
+ 

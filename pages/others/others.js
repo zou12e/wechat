@@ -113,7 +113,7 @@ Page({
             this.setData({
                 user: user,
             });
-            app.success();
+            app.success(user.isFollow ? '已关注' : '已取消关注');
         } else {
             app.fail();
         }

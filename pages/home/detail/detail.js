@@ -8,6 +8,7 @@ Page({
      */
     data: {
         isPlay: false,
+        share: 0,
         id: 0,
         playInfo: {},
         data: {}
@@ -68,7 +69,8 @@ Page({
     },
     async _load(options) {
         this.setData({
-            id: options.id
+            id: options.id,
+            share: options.share || 0
         });
         this.getAudioInfo(options.id);
     },
@@ -197,6 +199,10 @@ Page({
         
         wx.navigateTo({
             url: '/pages/home/read/read?id=' + this.data.data.id
+        })
+    }, goHome () {
+        wx.switchTab({
+            url: '/pages/home/home' 
         })
     }
 })

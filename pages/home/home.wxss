@@ -17,18 +17,18 @@
     position: absolute;
     right: 40rpx;
     top: 260rpx;
-    border: 1rpx solid #fff;
+    border: 1rpx solid #000;
     width: 78rpx;
     height: 78rpx;
     font-size: 40rpx;
-    color: #FFFFFF;
+    color: #000;
     letter-spacing: 0.8rpx;
     text-align: center;
     line-height: 78rpx;
 }
 .banner-ymw {
     font-size: 23rpx;
-    color: #FFFFFF;
+    color: #000;
     letter-spacing: 0.33rpx;
     position: absolute;
     right: 40rpx;

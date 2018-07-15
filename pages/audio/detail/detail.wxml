@@ -5,37 +5,38 @@
         <view class='content'>
             <view class='top'>
                 <view class='l'>{{comment.nickName}}</view>
-                <view class='r'>{{comment.createTime}}</view>
+                
             </view>
             <view class='msg'>
                 {{comment.content}}
             </view>
         </view>
-        <view 
-            data-name='{{comment.nickName}}'
-            data-userid='{{comment.userId}}'
-            data-id='{{comment.id}}'
-            bindtap="showReply"
-            class='bottom'>
+        <view data-name='{{comment.nickName}}' data-userid='{{comment.userId}}' data-id='{{comment.id}}' bindtap="showReply" class='bottom'>
+            <view class='left'>{{comment.createTime}}</view>
+
+            <image wx:if='{{comment.userId==userId}}' data-id='{{comment.id}}' catchtap="showDelete"  class='delete' src='/images/icon-square-13.png'></image>
+
             <image src='/images/icon-square-6-reply.png'></image>
         </view>
-        
-        <view class='reply' wx:if="{{comment.replyList && comment.replyList.length > 0}}"  >
+
+        <view class='reply' wx:if="{{comment.replyList && comment.replyList.length > 0}}">
 
             <block wx:for="{{comment.replyList}}" wx:for-index="idx" wx:key="item">
-                <view 
-                    data-name='{{item.nickName}}'
-                    data-userid='{{item.userId}}'
-                    data-id='{{comment.id}}'
-                    bindtap="showReply"
-                    class='t' >
+                <view data-name='{{item.nickName}}' data-userid='{{item.userId}}' data-id='{{comment.id}}' bindtap="showReply" class='t'>
                     <image class='head' src='{{item.avatarUrl}}'></image>
-                    {{item.nickName}}
-                    <block wx:if="{{comment.userId != item.toUserId }}"> 回复 {{item.toNickName}}</block>
+                    <text>{{item.nickName}}</text>
+                    <block wx:if="{{comment.userId != item.toUserId }}"> 回复
+                        <text>{{item.toNickName}}</text>
+                    </block>
                     ：{{item.content}}
-                    <view class='time flex-text'>
-                       {{item.createTime}}
+                    <view class='time'>
+                        {{item.createTime}}
+                        
                         <image src='/images/icon-square-6-reply.png'></image>
+                        
+                        <image  wx:if='{{item.userId==userId}}'  data-id='{{item.id}}' catchtap="showDelete" class='delete' src='/images/icon-square-13.png'></image>
+
+                        
                     </view>
                 </view>
             </block>
@@ -47,5 +48,8 @@
 
 </view>
 
-<dialog id='dialog' bind:confirmMsgEvent="_confirmMsgEvent">
+<dialog id='dialog' 
+bind:confirmMsgEvent="_confirmMsgEvent"
+bind:confirmEvent="_confirmEvent"
+>
 </dialog>
