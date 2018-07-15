@@ -37,22 +37,22 @@
 
     <view class='audio-option'>
 
-         <view bindtap="goCollection" class='' >
+        <view bindtap="goCollection" class=''>
             <image src='/images/icon-square-10{{blog.isCollection ? "-on":""}}.png'></image>
-            {{blog.isCollection ? '已收藏' :  '收藏' }}  
-        </view>
-    
-        <view bindtap="goThumb" class='' >
-            <image src='/images/icon-square-9{{blog.isThumb ? "-on":""}}.png'></image>
-             {{!blog.isThumb ? '赞' : blog.thumbs}}
+            {{blog.isCollection ? '已收藏' : '收藏' }}
         </view>
 
-        <button hidden='{{userId != blog.userId}}' class='button hide' >
+        <view bindtap="goThumb" class=''>
+            <image src='/images/icon-square-9{{blog.isThumb ? "-on":""}}.png'></image>
+            {{!blog.isThumb ? '赞' : blog.thumbs}}
+        </view>
+
+        <button bindtap="goScore" hidden='{{userId != blog.userId}}' class='button'>
             <image src='/images/icon-square-11.png'></image>
             查看言值分
         </button>
 
-        <navigator hidden='{{userId == blog.userId}}' url='/pages/home/read/read?id={{blog.audioId}}' class='button-image' >
+        <navigator hidden='{{userId == blog.userId}}' url='/pages/home/read/read?id={{blog.audioId}}' class='button-image'>
             <image src='/images/icon-square-12.png'></image>
         </navigator>
 
@@ -125,6 +125,67 @@
 
     </view>
 </view>
- 
+
 <dialog id='dialog' bind:confirmMsgEvent="_confirmMsgEvent">
 </dialog>
+
+<view class='dialog' wx:if='{{isScore}}' catchtouchmove='true'>
+    <view class='close' bindtap="closeScore">
+        关闭
+    </view>
+    <view class='content' >
+        <text class='tip'>
+            快去朋友圈炫耀下你的‘言值’吧 ~
+        </text>
+
+        <view class='bg'>
+
+            <text class='title-text'>言值分</text>
+            
+            <image mode="widthFix" class='star-image' src='/images/icon-score-star{{star}}.png'></image>
+            
+            <view class='score-image'>
+                <image mode="widthFix" src='/images/icon-score-{{score}}.png'></image>
+                <image mode="widthFix" src='/images/icon-score-{{blog.score%10}}.png'></image>
+            </view>
+            <text class='score-text'>恭喜您，超过{{blog.percent || 30}}%朗读者</text>
+            <image class='bg-image' src='/images/icon-score-{{random}}-jpg.jpg'></image>
+            <view class='white'>
+                <view class='top'>
+                    <image src='{{blog.avatarUrl}}'></image>
+                    {{blog.nickName}}
+                </view>
+
+                <view class='days'>
+                    <view class='left'>
+                        <text>连续打卡</text> {{info.continuDays}}天
+                    </view>
+                    <view class='right'>
+                        <text>累计打卡</text> {{info.punchDays}}次
+                    </view>
+                </view>
+            </view>
+
+
+            <image mode="widthFix" class='bottom-image' src='/images/icon-score-bottom.png'></image>
+
+        </view>
+
+        <view class='save' >
+            保存图片，朋友圈-右上角-从相机中选择
+        </view>
+
+        <button  bindtap="saveImage" class='save-button' >
+            保存图片
+        </button>
+
+        <view class='option-box'  >
+            <view class='left' bindtap="goHome" >
+                回到主页
+            </view>
+            <view class='right' bindtap="closeScore" >
+                查看详情
+            </view>
+        </view>
+    </view>
+</view>

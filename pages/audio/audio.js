@@ -11,17 +11,22 @@ Page({
     data: {
         first: true,
         isPlay: false,
+        isScore: false,
         blogId: 0,
         userId: 0,
         blog: {},
         comment: {},
-        playInfo: {}
+        playInfo: {},
+        info: {},
+        star: 3,
+        random:1,
+        score: 7
     },
     /**
      * 获取blog详情
      */
-    async getBlogById () {
-     
+    async getBlogById() {
+
         const ret = await app.get('/blog/getBlogById', { id: this.data.blogId });
         if (ret && ret.code == 1) {
             this.setData({
@@ -29,7 +34,7 @@ Page({
             });
             this.setPlayInfo();
         }
-       
+
 
     },
     /**
@@ -63,7 +68,7 @@ Page({
         this.innerAudioContext = wx.createInnerAudioContext();
         const playInfo = {
             title: this.data.blog.title,
-            src:  this.data.blog.url,
+            src: this.data.blog.url,
             time: this.data.blog.time,
             current: 0
         };
@@ -101,7 +106,7 @@ Page({
         })
     },
     async _load(options) {
- 
+
         this.start = this.selectComponent("#startime");
         this.end = this.selectComponent("#endtime");
         this.dialog = this.selectComponent("#dialog");
@@ -113,7 +118,10 @@ Page({
         await this.getBlogById();
 
         if (options.comment) {
-            this.showComment();   
+            this.showComment();
+        }
+        if (options.score) {
+            this.goScore();
         }
 
         this.getComment(options.comment);
@@ -121,7 +129,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    async onLoad (options) {
+    async onLoad(options) {
 
         wx.setNavigationBarColor({
             frontColor: '#000000',
@@ -174,13 +182,13 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady () {
+    onReady() {
 
     },
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow () {
+    onShow() {
         if (!this.data.first) {
             this.getComment();
         }
@@ -192,34 +200,34 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide () {
+    onHide() {
         this.stop();
     },
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload () {
+    onUnload() {
         this.stop();
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh () {
+    onPullDownRefresh() {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom () {
+    onReachBottom() {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage () {
+    onShareAppMessage() {
         return {
             title: '趣朗读，让世界听见你的声音',
             imageUrl: this.data.blog.banner
@@ -228,7 +236,7 @@ Page({
     /**
      * 点击回复
      */
-    showReply (event) {
+    showReply(event) {
         const dataset = event.currentTarget.dataset;
         wx.navigateTo({
             url: dataset.url
@@ -244,8 +252,8 @@ Page({
     /**
      * 点击评论
      */
-    showComment (event) {
-  
+    showComment(event) {
+
         if (!app.globalData.userInfo.nickName) {
             app.fail('请先登录！');
             wx.navigateTo({
@@ -265,27 +273,27 @@ Page({
     /**
      * 回调评论确定
      */
-    _confirmMsgEvent () {
-        
+    _confirmMsgEvent() {
+
 
         app.loading();
         const content = this.dialog.data.msgData.value;
-    
+
         if (!content) {
             app.fail('评论内容不能为空');
-            return ;
+            return;
         }
-        if (content.length> 100) {
+        if (content.length > 100) {
             app.fail('评论内容不能超过100字');
             return;
         }
         this.comment(this.dialog.data.msgData);
-        
+
     },
     /**
      * 关注
      */
-    async goFollow () {
+    async goFollow() {
         const blog = this.data.blog;
         app.loading();
         const ret = await app.post('/user/follow', { id: blog.userId });
@@ -295,7 +303,7 @@ Page({
             this.setData({
                 blog: blog,
             });
-            app.success(blog.isFollow ? '已关注':'已取消关注');
+            app.success(blog.isFollow ? '已关注' : '已取消关注');
         } else {
             app.fail();
         }
@@ -303,14 +311,14 @@ Page({
     /**
      * 转发
      */
-    goForward (event) {
+    goForward(event) {
         const blog = this.data.blog;
-        
+
     },
     /**
      * 收藏
      */
-    async goCollection (event) {
+    async goCollection(event) {
         const blog = this.data.blog;
         app.loading();
         const ret = await app.post('/blog/collection', { id: blog.id });
@@ -328,7 +336,7 @@ Page({
     /**
      * 点赞
      */
-    async goThumb (event) {
+    async goThumb(event) {
         const blog = this.data.blog;
         app.loading();
         const ret = await app.post('/blog/thumb', { id: blog.id });
@@ -347,7 +355,7 @@ Page({
     /**
      * 评论
      */
-    async comment (info) {
+    async comment(info) {
         const ret = await app.post('/comment/add', {
             blogId: this.data.blogId,
             parentId: info.id,
@@ -364,10 +372,76 @@ Page({
             app.fail('评论失败');
         }
     },
-    goHome () {
+    goHome() {
         wx.switchTab({
             url: '/pages/home/home'
         })
+    },
+    async goScore() {
+
+        const ret = await app.get('/user/getInfo');
+        
+        if (ret && ret.code) {
+            let star = 3;
+            if (this.data.blog.score >= 90) {
+                star = 5;
+            } else if(this.data.blog.score >= 80) {
+                star = 4;
+            }
+               
+            this.setData({
+                info: ret.data,
+                isScore: 1,
+                random: parseInt(Math.random()*9 ) + 1,
+                star: star,
+                score: parseInt(this.data.blog.score/10)
+            })
+ 
+
+            wx.setNavigationBarColor({
+                frontColor: '#ffffff',
+                backgroundColor: '#000000'
+            })
+        }
+
+    },
+    async saveImage () {
+        app.loading('保存中...');
+        const ret = await app.post('/blog/saveImage', {
+            star: this.data.star,
+            continuDays: this.data.info.continuDays,
+            punchDays: this.data.info.punchDays,
+            random: this.data.random,
+            blog: this.data.blog
+        });
+        if (ret && ret.code) { 
+            wx.downloadFile({
+                url: ret.data, //仅为示例，并非真实的资源
+                success: function (res) {
+                    app.hide();
+                    if (res.statusCode === 200) {
+                        wx.saveImageToPhotosAlbum({
+                            filePath: res.tempFilePath,
+                            success: function (res) {
+                                app.success('保存图片成功');
+                            },
+                            fail: function (res) {
+                                app.fail('保存图片失败');
+                            }
+                        });
+                    } else {
+                        app.fail('保存图片失败');
+                    }
+                }
+            })
+        } else {
+            app.fail('保存图片失败');
+        }
+    },
+    closeScore() {
+        this.setData({
+            isScore: 0
+        });
     }
 
 })

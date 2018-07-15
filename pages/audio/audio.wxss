@@ -20,34 +20,37 @@
     line-height: 80rpx;
     height: 80rpx;
 }
-.audio-play-detail  .audio-option>view image{
+
+.audio-play-detail  .audio-option>view image {
     width: 40rpx;
     height: 40rpx;
     margin: 0 10rpx -10rpx 0;
 }
 
 .audio-play-detail  .audio-option .button {
-    border: 1px solid #FF3B53;
+    border: 1px solid #ff3b53;
     border-radius: 8rpx;
     width: 280rpx;
     height: 80rpx;
     line-height: 80rpx;
     font-size: 28rpx;
-    color: #FF644F;
+    color: #ff644f;
     letter-spacing: 0.4rpx;
     background: transparent;
     float: right;
     margin-right: 30rpx;
 }
+
 .audio-play-detail  .audio-option .button-image {
     float: right;
     margin-right: 30rpx;
 }
+
 .audio-play-detail  .audio-option .button-image image {
     width: 242rpx;
     height: 78rpx;
-
 }
+
 .audio-play-detail  .audio-option .button image {
     width: 51rpx;
     height: 57rpx;
@@ -58,56 +61,56 @@
     width: 240rpx;
     height: 66rpx;
     line-height: 66rpx;
-    background: #FFF8EC;
+    background: #fff8ec;
     border-radius: 100rpx;
     font-size: 28rpx;
-    color: #FFB307;
+    color: #ffb307;
     letter-spacing: 0.4rpx;
     float: left;
     margin: 16rpx 50rpx 0 23rpx;
-
 }
+
 .audio-play-detail  .button-go-home image {
     width: 40rpx;
     height: 40rpx;
     margin-right: 20rpx;
-    
 }
-
 
 .audio-play-detail .audio-comment {
     border-top: 20rpx solid #f1f1ef;
     background: #fff;
     padding: 0 0 120rpx;
 }
-.audio-play-detail .audio-comment .title{
+
+.audio-play-detail .audio-comment .title {
     line-height: 90rpx;
     height: 90rpx;
     font-size: 28rpx;
-    color: #888888;
+    color: #888;
     letter-spacing: 0.4rpx;
-    padding:  0 30rpx;
-    border-bottom: 1rpx solid #E6E6E6;
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #e6e6e6;
     overflow: hidden;
 }
-
 
 .audio-play-detail .audio-comment .no-data {
     padding: 100rpx 0;
     text-align: center;
     font-size: 28rpx;
-    color: #B2B2B2;
+    color: #b2b2b2;
     letter-spacing: 0.4rpx;
 }
 
-.audio-play-detail .audio-comment .data .li{
+.audio-play-detail .audio-comment .data .li {
     position: relative;
-    border-bottom: 1rpx solid  #E6E6E6;
-    margin: 0  35rpx 0 120rpx;
+    border-bottom: 1rpx solid #e6e6e6;
+    margin: 0 35rpx 0 120rpx;
 }
-.audio-play-detail .audio-comment .data .li:last-child{
+
+.audio-play-detail .audio-comment .data .li:last-child {
     border-bottom: none;
 }
+
 .audio-play-detail .audio-comment .data .head {
     position: absolute;
     width: 50rpx;
@@ -117,14 +120,15 @@
     top: 20rpx;
 }
 
-.audio-comment .data .content .top{
+.audio-comment .data .content .top {
     font-size: 28rpx;
-    color: #888888;
+    color: #888;
     letter-spacing: 0.4rpx;
     height: 40rpx;
     line-height: 40rpx;
     padding-top: 20rpx;
 }
+
 .audio-comment .data .content .msg {
     text-align: left;
     font-size: 28rpx;
@@ -136,9 +140,10 @@
 }
 
 .audio-comment .data .reply {
-    background: #F0F3F7;
+    background: #f0f3f7;
     margin-bottom: 20rpx;
 }
+
 .audio-comment .data .reply {
     font-size: 28rpx;
     color: #353535;
@@ -146,19 +151,22 @@
     padding: 20rpx;
     margin-top: 15rpx;
 }
-.audio-comment .data .reply .t1{
+
+.audio-comment .data .reply .t1 {
     height: 30rpx;
     line-height: 30rpx;
     overflow: hidden;
     margin: 0;
     white-space: nowrap;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
 }
+
 .audio-comment .data .reply .t1 text {
-    color: #888888;
+    color: #888;
 }
+
 .audio-comment .data .reply .t2 {
-    color: #3273BC;
+    color: #3273bc;
     margin-top: 15rpx;
     font-size: 24rpx;
 }
@@ -168,15 +176,185 @@
     height: 60rpx;
     text-align: left;
     font-size: 24rpx;
-    color: #888888;
+    color: #888;
     letter-spacing: 0.34rpx;
     position: relative;
 }
-.audio-comment .data .bottom image{
+
+.audio-comment .data .bottom image {
     width: 30rpx;
     height: 24rpx;
     position: absolute;
     right: 0;
     top: 18rpx;
 }
- 
+
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog .close {
+    font-size: 28rpx;
+    color: #fff;
+    letter-spacing: 0.4rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 60rpx;
+}
+
+.dialog .content {
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 100rpx 0;
+}
+
+.dialog .tip, .dialog .save {
+    font-size: 28rpx;
+    color: #fff;
+    letter-spacing: 0.4rpx;
+}
+
+.dialog .save {
+    font-size: 26rpx;
+    margin: 40rpx 0;
+}
+
+.dialog .bg {
+    width: 375rpx;
+    height: 667rpx;
+    position: relative;
+    margin: 40rpx auto 0;
+}
+
+.bg-image {
+    width: 375rpx;
+    height: 667rpx;
+}
+
+.dialog .white {
+    width: 315rpx;
+    height: 120rpx;
+    background-color: #fff;
+    position: absolute;
+    left: 30rpx;
+    bottom: 108rpx;
+    text-align: left;
+    border-radius: 10rpx;
+}
+
+.dialog .white .top {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 15rpx;
+    width: 100%;
+}
+
+.dialog .white image {
+    width: 25rpx;
+    height: 25rpx;
+    border-radius: 50%;
+    margin: 0 10rpx -6rpx 20rpx;
+}
+
+.dialog .white .days {
+    font-size: 15rpx;
+    color: #000;
+    line-height: 60rpx;
+    height: 60rpx;
+    border-top: 0.5rpx solid #dfdfdf;
+    margin: 0 20rpx;
+}
+
+.dialog .white .days >view {
+    float: left;
+    width: 50%;
+}
+
+.dialog .white .days .right {
+    text-align: right;
+}
+
+.dialog .white .days text {
+    color: #999;
+    margin: 0 10rpx 0 0;
+}
+
+.dialog .bg .title-text, .dialog .bg .score-text {
+    width: 100%;
+    text-align: center;
+    font-size: 15rpx;
+    color: #fff;
+    position: absolute;
+    top: 260rpx;
+}
+
+.dialog .bg .score-text {
+    font-size: 17rpx;
+    top: 400rpx;
+}
+
+.dialog .bg .score-image, .dialog .bg .star-image {
+    position: absolute;
+    top: 270rpx;
+    width: 160rpx;
+    left: 50%;
+    margin-left: -80rpx;
+    text-align: center;
+}
+
+.dialog .bg .score-image image {
+    width: 78rpx;
+}
+
+.dialog .bg .star-image {
+    top: 190rpx;
+    width: 320rpx;
+    margin-left: -160rpx;
+}
+
+.dialog .bg .bottom-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.dialog .content .save-button {
+    background: #ffb307;
+    border-radius: 8rpx;
+    width: 600rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    color: #fff;
+    letter-spacing: 0.4rpx;
+}
+
+.dialog .content .option-box {
+    width: 600rpx;
+    font-size: 30rpx;
+    color: #ffb307;
+    letter-spacing: 0.43rpx;
+    margin-top: 30rpx;
+}
+
+.dialog .content .option-box .left {
+    float: left;
+    text-decoration: underline;
+}
+
+.dialog .content .option-box .right {
+    text-decoration: underline;
+    float: right;
+    text-align: right;
+}

@@ -108,7 +108,7 @@ Page({
             app.success('保存成功');
             setTimeout(() => {
                 wx.redirectTo({
-                    url: '/pages/audio/audio?id=' + ret.data.id 
+                    url: '/pages/audio/audio?score=1&id=' + ret.data.id 
                 })
             }, 1000)
         } else {
