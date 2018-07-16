@@ -10,7 +10,7 @@
     </view>
     <view class='audio-play'>
         <view class='play' bindtap="play">
-            <image mode="aspectFill" class='bg' src="{{blog.banner ? blog.banner : '/images/banner.png'}}"></image>
+            <image mode="aspectFill" class='bg' src="{{blog.banner ? blog.banner : ''}}"></image>
 
             <image class='play1' src='/images/icon-play-1{{isPlay?"-on":""}}.png'></image>
 

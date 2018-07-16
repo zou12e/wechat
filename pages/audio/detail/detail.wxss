@@ -40,7 +40,7 @@
 .data .reply {
     font-size: 26rpx;
     color: #353535;
-    letter-spacing: 0.44px;
+    letter-spacing: 0.44rpx;
     padding: 15rpx 20rpx;
     margin-top: 15rpx;
 }

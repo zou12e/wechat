@@ -228,7 +228,8 @@ Page({
     onShareAppMessage() {
         return {
             title: '趣朗读，让世界听见你的声音',
-            imageUrl: this.data.blog.banner
+            imageUrl: this.data.blog.banner,
+            path: '/pages/audio/audio?share=1&id=' + this.data.blogId
         }
     },
     /**

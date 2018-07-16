@@ -28,7 +28,7 @@
 }
 
 .audio-play-detail  .audio-option .button {
-    border: 1px solid #ff3b53;
+    border: 1rpx solid #ff3b53;
     border-radius: 8rpx;
     width: 280rpx;
     height: 80rpx;

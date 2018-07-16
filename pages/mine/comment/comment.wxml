@@ -20,7 +20,7 @@
             <view class='my-list '>
                 <view class='li'>
                     <navigator url='/pages/audio/audio?id={{item.blogId}}' class='content'>
-                            <image class='left banner' mode="aspectFill" src="{{item.banner ? item.banner : '/images/banner.png'}}"></image>
+                            <image class='left banner' mode="aspectFill" src="{{item.banner ? item.banner : ''}}"></image>
                             <view class='left'>
                                 <view class='title'>
                                     {{item.title}}

@@ -2,7 +2,7 @@
 
     <view class='banner' bindtap="toUrl">
         <!--mode="widthFix"  -->
-        <image mode="aspectFill" class='banner-img' src="{{data.read.banner ? data.read.banner : '/images/banner.png'}}"></image>
+        <image mode="aspectFill" class='banner-img' src="{{data.read.banner ? data.read.banner : ''}}"></image>
         <view class='banner-day'>
             {{data.info.day}}
         </view>
