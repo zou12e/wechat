@@ -116,6 +116,7 @@ Component({
             }
         },
         rego() {
+            this.innerAudioContext.pause();
             this.innerAudioContext = null;
             this.setData({
                 type: 0,
