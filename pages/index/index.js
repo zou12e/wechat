@@ -10,6 +10,9 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
     onLoad () {
+        
+    },
+    onShow() {
         app.loading('加载中...');
         if (app.globalData.userInfo) {
             this.judge();

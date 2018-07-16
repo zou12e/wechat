@@ -1,9 +1,9 @@
 <view class='audio-play-detail' id='j_page'>
     <view hidden='{{userId == blog.userId}}' class='audio-author'>
-        <view class='left flex-text'>
+        <navigator url='/pages/others/others?id={{blog.userId}}' class='left flex-text'>
             <image src='{{blog.avatarUrl}}'></image>
             {{blog.nickName}}
-        </view>
+        </navigator>
         <button bindtap="goFollow" class='follow-button {{blog.isFollow? "cancel" : ""}}'>
             {{blog.isFollow ? "取关" : "关注"}}
         </button>

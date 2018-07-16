@@ -51,9 +51,7 @@ Page({
             });
         }
         if (scrollTop) {
-            console.log(11);
             wx.createSelectorQuery().select('#j_page').boundingClientRect(function (rect) {
-                console.log(rect.bottom);
                 wx.pageScrollTo({
                     scrollTop: rect.bottom,
                     duration: 0
