@@ -47,7 +47,7 @@ Page({
     },
     goHome () {
         console.log('--goHome--');
-        console.log(app.globalData.userInfo);
+        // console.log(app.globalData.userInfo);
         wx.switchTab({
             url: '/pages/home/home'
         })
