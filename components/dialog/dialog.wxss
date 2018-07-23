@@ -82,8 +82,9 @@
     background: #fff;
     position: absolute;
     left: 50%;
+    top: 50%;
     width: 550rpx;
-    margin:-120rpx 0 0 -275rpx;
+    margin:-200rpx 0 0 -275rpx;
     border-radius: 10rpx;
     overflow: hidden
 }
