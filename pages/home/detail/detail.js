@@ -17,17 +17,21 @@ Page({
      * 获取音频信息
      */
     async getAudioInfo(id) {
-
+        app.loading();
         const ret = await app.get('/audio/getAudioById', {
             id: id
         });
 
         if (ret && ret.code === 1) {
+            app.hide();
             this.setData({
                 data: ret.data
             });
             this.setPlayInfo();
             this.play();
+        } else {
+            app.hide();
+            app.fail('网络延迟，请稍后再试');
         }
     },
     setPlayInfo() {
@@ -40,10 +44,13 @@ Page({
         this.start.stom(0);
         this.end.stom(playInfo.time);
 
-        this.innerAudioContext = wx.createInnerAudioContext();
+        this.innerAudioContext = wx.getBackgroundAudioManager();
+        this.innerAudioContext.title = this.data.data.title;
+        this.innerAudioContext.coverImgUrl = this.data.data.banner;
         this.innerAudioContext.src = playInfo.url;
         this.innerAudioContext.onPlay(() => {
-            console.log('开始播放')
+            console.log('开始播放');
+            app.hide();
         })
         this.innerAudioContext.onEnded(() => {
             console.log('音频结束');
@@ -158,7 +165,10 @@ Page({
         })
 
         if (this.data.isPlay) {
-            this.innerAudioContext.play();
+            // app.loading('加载中...');
+            this.innerAudioContext.title = this.data.data.title;
+            this.innerAudioContext.coverImgUrl = this.data.data.banner;
+            this.innerAudioContext.src = this.data.data.url;
         } else {
             this.innerAudioContext.pause();
         }
@@ -168,7 +178,9 @@ Page({
         this.setData({
             isPlay: false
         })
-        this.innerAudioContext.pause();
+        if (this.innerAudioContext) {
+            this.innerAudioContext.stop();
+        }
     },
     changeTime(event) {
         const playInfo = this.data.playInfo;

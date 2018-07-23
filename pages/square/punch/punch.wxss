@@ -82,6 +82,10 @@
     letter-spacing: 0.4rpx;
     line-height: 40rpx;
     margin-top: 218rpx;
+    white-space: nowrap;
+    max-width: 200rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .ranking .day {

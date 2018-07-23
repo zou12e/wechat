@@ -53,7 +53,8 @@ Component({
                 this.recorderManager.start(options);
 
                 this.setData({
-                    type: 1
+                    type: 1,
+                    time: 0
                 })
                 this.time.stom(this.data.time);
                 this.cleartime = setInterval(() => {
@@ -116,8 +117,8 @@ Component({
             }
         },
         rego() {
-            this.innerAudioContext.pause();
-            this.innerAudioContext = null;
+            this.innerAudioContext.stop();
+            // this.innerAudioContext = null;
             this.setData({
                 type: 0,
                 time: 0,

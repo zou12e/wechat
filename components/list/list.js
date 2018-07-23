@@ -78,7 +78,9 @@ Component({
             blog.isPlay = !blog.isPlay;
 
             if (!blog.audio) {
-                blog.audio = wx.createInnerAudioContext();
+                blog.audio = wx.getBackgroundAudioManager();
+                blog.audio.title = blog.title;
+                blog.audio.coverImgUrl = blog.banner;
                 blog.audio.src = blog.url;
                 blog.audio.onPlay(() => {
                     console.log('开始播放')
@@ -110,7 +112,9 @@ Component({
 
             if (blog.isPlay) {
                 app.loading('加载中...');
-                blog.audio.play();
+                blog.audio.title = blog.title;
+                blog.audio.coverImgUrl = blog.banner;
+                blog.audio.src = blog.url;
             } else {
                 blog.audio.pause();
             }
@@ -120,7 +124,7 @@ Component({
                 const lastBlog = this.data.data[this.data.last];
                 if (lastBlog.isPlay) {
                     lastBlog.isPlay = false;
-                    lastBlog.audio.pause();
+                    lastBlog.audio.stop();
                     this.setData({data: this.data.data});
                 }
             }
@@ -155,11 +159,6 @@ Component({
             } else {
                 app.fail();
             }
-        },
-        goForward (event) {
-            const index = event.currentTarget.dataset.index;
-            const blog = this.data.data[index];
-            app.success('转发成功');
         },
         async goCollection (event) {
             const index = event.currentTarget.dataset.index;
@@ -203,7 +202,7 @@ Component({
                 const d = res.target.dataset;
                 return {
                     title: '趣朗读，让世界听见你的声音',
-                    path: '/pages/audio/audio?share=1&id=' + d.blogId,
+                    path: '/pages/audio/audio?share=1&id=' + d.id,
                     imageUrl: d.banner
                 }
             }

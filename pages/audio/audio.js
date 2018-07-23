@@ -26,7 +26,6 @@ Page({
      * 获取blog详情
      */
     async getBlogById() {
-
         const ret = await app.get('/blog/getBlogById', { id: this.data.blogId });
         if (ret && ret.code == 1) {
             this.setData({
@@ -34,8 +33,6 @@ Page({
             });
             this.setPlayInfo();
         }
-
-
     },
     /**
      * 获取评论
@@ -63,7 +60,7 @@ Page({
      * 设置播放器
      */
     setPlayInfo() {
-        this.innerAudioContext = wx.createInnerAudioContext();
+        this.innerAudioContext = wx.getBackgroundAudioManager();
         const playInfo = {
             title: this.data.blog.title,
             src: this.data.blog.url,
@@ -76,8 +73,9 @@ Page({
 
         this.start.stom(0);
         this.end.stom(playInfo.time);
-
-        this.innerAudioContext.src = playInfo.src;
+        
+        this.innerAudioContext.title = this.data.blog.title;
+        this.innerAudioContext.coverImgUrl = this.data.blog.banner;
         this.innerAudioContext.onPlay(() => {
             console.log('开始播放')
             app.hide();
@@ -108,7 +106,7 @@ Page({
         this.start = this.selectComponent("#startime");
         this.end = this.selectComponent("#endtime");
         this.dialog = this.selectComponent("#dialog");
-
+        
         this.setData({
             blogId: options.id,
             userId: app.globalData.userInfo.id
@@ -149,11 +147,15 @@ Page({
         this.setData({
             isPlay: !this.data.isPlay
         })
-        if (this.data.isPlay) {
-            app.loading('加载中...');
-            this.innerAudioContext.play();
-        } else {
-            this.innerAudioContext.pause();
+        if (this.innerAudioContext) {
+            if (this.data.isPlay) {
+                // app.loading('加载中...');
+                this.innerAudioContext.title = this.data.blog.title;
+                this.innerAudioContext.coverImgUrl = this.data.blog.banner;
+                this.innerAudioContext.src = this.data.blog.url;
+            } else {
+                this.innerAudioContext.pause();
+            }
         }
     },
     /**
@@ -163,7 +165,9 @@ Page({
         this.setData({
             isPlay: false
         })
-        this.innerAudioContext.pause();
+        if (this.innerAudioContext) {
+            this.innerAudioContext.stop();
+        }
     },
     /**
      * 改变进度
@@ -306,13 +310,6 @@ Page({
         } else {
             app.fail();
         }
-    },
-    /**
-     * 转发
-     */
-    goForward(event) {
-        const blog = this.data.blog;
-
     },
     /**
      * 收藏

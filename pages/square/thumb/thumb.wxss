@@ -28,6 +28,7 @@
     height: 30rpx;
     line-height: 30rpx;
     margin-top: 25rpx;
+    
 }
 .top .name .article{
     font-size: 28rpx;
