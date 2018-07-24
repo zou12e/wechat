@@ -209,6 +209,7 @@
     position: absolute;
     top: 20rpx;
     right: 60rpx;
+    z-index: 2;
 }
 
 .dialog .content {
@@ -235,7 +236,6 @@
     position: relative;
     margin: 40rpx auto 0;
 }
-
 .bg-image {
     width: 375rpx;
     height: 667rpx;
@@ -249,7 +249,6 @@
     left: 30rpx;
     bottom: 108rpx;
     text-align: left;
-    border-radius: 10rpx;
 }
 
 .dialog .white .top {
@@ -267,9 +266,8 @@
 }
 
 .dialog .white .days {
-    font-size: 15rpx;
+    font-size: 13rpx;
     color: #000;
-    line-height: 60rpx;
     height: 60rpx;
     border-top: 0.5rpx solid #dfdfdf;
     margin: 0 20rpx;
@@ -277,16 +275,24 @@
 
 .dialog .white .days >view {
     float: left;
-    width: 50%;
+    width: 33%;
+    text-align: center;
+    white-space: nowrap;
+    
 }
-
+.dialog .white .days .left {
+    text-align: left;
+}
 .dialog .white .days .right {
+    width: 34%;
     text-align: right;
 }
-
 .dialog .white .days text {
+    font: 15rpx;
     color: #999;
-    margin: 0 10rpx 0 0;
+    display: block;
+    line-height: 30rpx;
+    margin-bottom: 3rpx;
 }
 
 .dialog .bg .title-text, .dialog .bg .score-text {
@@ -295,31 +301,30 @@
     font-size: 15rpx;
     color: #fff;
     position: absolute;
-    top: 260rpx;
+    top: 210rpx;
 }
 
 .dialog .bg .score-text {
-    font-size: 17rpx;
-    top: 400rpx;
+    top: 380rpx;
 }
 
 .dialog .bg .score-image, .dialog .bg .star-image {
     position: absolute;
-    top: 270rpx;
-    width: 160rpx;
+    top: 225rpx;
+    width: 140rpx;
     left: 50%;
-    margin-left: -80rpx;
+    margin-left: -70rpx;
     text-align: center;
 }
 
 .dialog .bg .score-image image {
-    width: 78rpx;
+    width: 70rpx;
 }
 
 .dialog .bg .star-image {
-    top: 190rpx;
-    width: 320rpx;
-    margin-left: -160rpx;
+    top: 350rpx;
+    width:200rpx;
+    margin-left: -100rpx;
 }
 
 .dialog .bg .bottom-image {
@@ -357,4 +362,83 @@
     text-decoration: underline;
     float: right;
     text-align: right;
+}
+
+/** 变大 */
+.dialog .big .bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    z-index: 1;
+}
+
+.dialog .big .bg .title-text, .dialog .big .bg .score-text {
+    font-size:30rpx;
+    top:400rpx;
+}
+
+.dialog .big .bg .score-image {
+    width: 280rpx;
+    margin-left:-140rpx;
+    top:420rpx;
+}
+.dialog .big .bg .score-image image {
+    width: 140rpx;
+}
+.dialog .big .bg .star-image {
+    top:660rpx;
+    width:400rpx;
+    margin-left:-200rpx;
+}
+.dialog  .big .bg .score-text {
+    top: 710rpx;
+}
+.dialog .big .white {
+    width:600rpx;
+    height:180rpx;
+    position:absolute;
+    left: 50%;
+    margin-left: -300rpx;
+    top:820rpx;
+    text-align:left;
+   
+}
+.dialog .big .white .top {
+    line-height: 90rpx;
+    height: 90rpx;
+    font-size: 30rpx;
+}
+.dialog .big .white image {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 0 15rpx -15rpx 40rpx;
+}
+.dialog .big .white .days {
+    font-size: 24rpx;
+}
+.dialog .big .white .days text{
+    line-height: 45rpx;
+    margin-bottom: 5rpx;
+    font-size: 28rpx;
+}
+.big .bg-image {
+    width: 100%;
+    height: auto;
+}
+.dialog .big.content .tip{
+    display: none;
+}
+.dialog .big.content .save{
+    display: none;
+}
+.dialog .big.content .save-button {
+    display: none
+}
+.dialog .big.content .option-box {
+    display: none
 }

@@ -47,10 +47,12 @@ Page({
     },
     goHome () {
         console.log('--goHome--');
-        // console.log(app.globalData.userInfo);
         wx.switchTab({
             url: '/pages/home/home'
         })
+        // wx.reLaunch({
+        //     url: '/pages/audio/audio?id=1&score=1',
+        // })
     },
     async updateUser () {
         const ret = await app.post('/user/update',{

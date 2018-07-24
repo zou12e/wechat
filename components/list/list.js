@@ -28,11 +28,12 @@ Component({
      */
     methods: {
         async setList (url, param, reload ){
-            // if (reload){
-            //     wx.pageScrollTo({
-            //         scrollTop: 0
-            //     })
-            // }
+            if (reload){
+                wx.pageScrollTo({
+                    scrollTop: 0,
+                    duration: 0
+                })
+            }
             this.dialog = this.dialog || this.selectComponent('#dialog');
 
             if (this.data.lastId == -1 && !reload)

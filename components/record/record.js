@@ -127,7 +127,7 @@ Component({
             })
         },
         async _savego() {
-
+            this.innerAudioContext.stop();
             if (!this.data.isCommit && this.data.src) {
                 this.setData({
                     isCommit: true,

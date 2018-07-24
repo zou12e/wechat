@@ -15,6 +15,7 @@ App({
     globalData: {
         name: '趣朗读',
         userInfo: null,
+        refresh: true,
         // host: 'http://192.168.4.94',
         // host: 'http://127.0.0.1',
         // host: "http://192.168.0.101",

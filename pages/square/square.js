@@ -2,12 +2,10 @@ import regeneratorRuntime from '../../utils/regenerator-runtime';
 const app = getApp();
 
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
-        first: true,
         tab: 0
     },
     async getBlogList (reload) {
@@ -15,8 +13,10 @@ Page({
         this.audioList.setList(url, {},reload);
     },
     async _load(options) {
-       
-        this.getBlogList(true);
+        if (app.globalData.refresh) {
+            app.globalData.refresh = false;
+            this.getBlogList(true);
+        }
     },
     /**
      * 生命周期函数--监听页面加载
@@ -25,14 +25,12 @@ Page({
         wx.hideShareMenu();
         this.audioList = this.selectComponent("#audiolist");
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady () {
         
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
@@ -50,15 +48,12 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide () {
-        
         this.audioList.stop();
     },
-
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload () {
-        
         this.audioList.stop();
     },
 
@@ -66,8 +61,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh () {
-        app.loading('加载中');
-        this.getBlogList(true);
     },
 
     /**
@@ -91,11 +84,5 @@ Page({
         wx.navigateTo({
             url: '/pages/thumb/thumb'
         })
-    },
-    toTab (event) {
-        this.setData({
-            tab: event.currentTarget.dataset.tab
-        })
-        this.getBlogList(true);
     }
 })

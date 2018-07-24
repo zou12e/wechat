@@ -12,6 +12,7 @@ Page({
         first: true,
         isPlay: false,
         isScore: false,
+        isSaveFail: false,
         blogId: 0,
         userId: 0,
         blog: {},
@@ -48,7 +49,7 @@ Page({
             });
         }
         if (scrollTop) {
-            wx.createSelectorQuery().select('#j_page').boundingClientRect(function (rect) {
+            wx.createSelectorQuery().select('#j_page').boundingClientRect(rect => {
                 wx.pageScrollTo({
                     scrollTop: rect.bottom,
                     duration: 0
@@ -388,6 +389,7 @@ Page({
             this.setData({
                 info: ret.data,
                 isScore: 1,
+                isSaveFail: false,
                 random: parseInt(Math.random()*9 ) + 1,
                 star: star,
                 score: parseInt(this.data.blog.score/10)
@@ -412,32 +414,38 @@ Page({
         });
         if (ret && ret.code) { 
             wx.downloadFile({
-                url: ret.data, //仅为示例，并非真实的资源
-                success: function (res) {
+                url: ret.data, 
+                success:  (res) =>{
                     app.hide();
                     if (res.statusCode === 200) {
                         wx.saveImageToPhotosAlbum({
                             filePath: res.tempFilePath,
-                            success: function (res) {
-                                app.success('保存图片成功');
+                            success:  (res) => {
+                                app.success('保存图片成功,');
                             },
-                            fail: function (res) {
-                                app.fail('保存图片失败');
+                            fail:  (res) => {
+                                this.saveFail('!!');
                             }
                         });
                     } else {
-                        app.fail('保存图片失败');
+                        this.saveFail('!');
                     }
                 }
             })
         } else {
-            app.fail('保存图片失败');
+            this.saveFail('');
         }
     },
     closeScore() {
         this.setData({
-            isScore: 0
+            isScore: 0,
+            isSaveFail: false,
         });
+    },
+    saveFail (msg) {
+        app.fail('保存图片失败, 请截屏分享' + msg);
+        this.setData({
+            isSaveFail: true
+        })
     }
-
 })

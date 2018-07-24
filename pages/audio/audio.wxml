@@ -133,14 +133,14 @@
     <view class='close' bindtap="closeScore">
         关闭
     </view>
-    <view class='content' >
+    <view class='content {{isSaveFail ? "big" : ""}}' >
         <text class='tip'>
             快去朋友圈炫耀下你的‘言值’吧 ~
         </text>
 
         <view class='bg'>
 
-            <text class='title-text'>言值分</text>
+            <text class='title-text'>经过“趣朗读”人工智能测评，你的言值分</text>
             
             <image mode="widthFix" class='star-image' src='/images/icon-score-star{{star}}.png'></image>
             
@@ -148,8 +148,10 @@
                 <image mode="widthFix" src='/images/icon-score-{{score}}.png'></image>
                 <image mode="widthFix" src='/images/icon-score-{{blog.score%10}}.png'></image>
             </view>
-            <text class='score-text'>恭喜您，超过{{blog.percent || 30}}%朗读者</text>
-            <image class='bg-image' src='/images/icon-score-{{random}}-jpg.jpg'></image>
+            <text class='score-text'>
+            {{blog.text}}
+            </text>
+            <image mode="widthFix" class='bg-image' src='/images/icon-score-{{random}}-jpg.jpg'></image>
             <view class='white'>
                 <view class='top'>
                     <image src='{{blog.avatarUrl}}'></image>
@@ -158,10 +160,16 @@
 
                 <view class='days'>
                     <view class='left'>
-                        <text>连续打卡</text> {{info.continuDays}}天
+                        <text>连续打卡</text>
+                         {{info.continuDays}}天
+                    </view>
+                    <view class='center'>
+                        <text>累计打卡</text>
+                         {{info.punchDays}}次
                     </view>
                     <view class='right'>
-                        <text>累计打卡</text> {{info.punchDays}}次
+                       <text>言值超过全国</text>
+                       {{blog.percent || 70}}%人
                     </view>
                 </view>
             </view>
