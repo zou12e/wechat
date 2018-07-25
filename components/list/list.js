@@ -202,13 +202,13 @@ Component({
             if (res.from === 'button') {
                 const d = res.target.dataset;
                 return {
-                    title: '趣朗读，让世界听见你的声音',
+                    title: app.globalData.shareMsg[parseInt(Math.random() * 7)],
                     path: '/pages/audio/audio?share=1&id=' + d.id,
                     imageUrl: d.banner
                 }
             }
             return {
-                title: '趣朗读，让世界听见你的声音',
+                title: app.globalData.shareMsg[parseInt(Math.random() * 7)],
                 path: '/pages/home/home?share=1'
             }
         },

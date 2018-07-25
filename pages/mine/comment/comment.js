@@ -89,7 +89,7 @@ Page({
    */
   onShareAppMessage () {
       return {
-          title: '趣朗读，让世界听见你的声音',
+          title: app.globalData.shareMsg[parseInt(Math.random() * 7)],
           path: '/pages/home/home?share=1'
       }
   },

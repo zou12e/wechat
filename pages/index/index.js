@@ -51,7 +51,7 @@ Page({
             url: '/pages/home/home'
         })
         // wx.reLaunch({
-        //     url: '/pages/audio/audio?id=1&score=1',
+        //     url: '/pages/mine/mine?id=1&score=1',
         // })
     },
     async updateUser () {

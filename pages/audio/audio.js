@@ -232,7 +232,7 @@ Page({
      */
     onShareAppMessage() {
         return {
-            title: '趣朗读，让世界听见你的声音',
+            title: app.globalData.shareMsg[parseInt(Math.random() * 7)],
             imageUrl: this.data.blog.banner,
             path: '/pages/audio/audio?share=1&id=' + this.data.blogId
         }

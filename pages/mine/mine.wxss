@@ -37,7 +37,7 @@
     display: flex;
     margin-top: 40rpx;
 }
-.top .bom .info> navigator {
+.top .bom .info> view {
     flex: 1;
     text-align: center;
     position: relative;
@@ -90,15 +90,24 @@
     top: -2rpx;
     right: -8rpx;
 }
+.mine  .my {
+    border-top:  20rpx solid #f1f1ef;
+    height: 196rpx;
+}
 .mine  .my-audio {
     height: 98rpx;
     background: #fff;
-    border-top: 20rpx solid #f1f1ef;
+    border-top:  1rpx solid #f1f1ef;
     line-height: 98rpx;
     font-size: 28rpx;
     color: #000000;
     letter-spacing: 0.4rpx;
-    
+    width: 50%;
+    float: left;
+}
+.mine  .my-audio.r {
+    border-left:  1rpx solid #f1f1ef;
+    margin-left: -1rpx;
 }
 .mine  .my-audio .icon {
     width: 46rpx;
@@ -131,7 +140,7 @@
 }
 .mine  .calendar .top .icon {
     width: 46rpx;
-    height: 43rpx;
+    height: 46rpx;
     margin: 26rpx 20rpx 0rpx 31rpx;
     float: left;
 

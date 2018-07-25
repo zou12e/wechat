@@ -117,7 +117,9 @@ Component({
             }
         },
         rego() {
-            this.innerAudioContext.stop();
+            if (this.innerAudioContext) {
+                this.innerAudioContext.stop();
+            }
             // this.innerAudioContext = null;
             this.setData({
                 type: 0,
@@ -127,7 +129,9 @@ Component({
             })
         },
         async _savego() {
-            this.innerAudioContext.stop();
+            if (this.innerAudioContext) {
+                this.innerAudioContext.stop();
+            }
             if (!this.data.isCommit && this.data.src) {
                 this.setData({
                     isCommit: true,

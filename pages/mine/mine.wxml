@@ -13,31 +13,53 @@
 
             <view class='info' >
                     <!-- 新的 new -->
-                    <navigator url='/pages/mine/follow/follow' class='l ' >
-                        <view class='num' >{{info.follows}}</view>
-                        <view class='explain' >关注</view>
-                    </navigator>
-                    <navigator  url='/pages/mine/collection/collection'  class='c' >
-                        <view class='num' >{{info.collections}}</view>
-                        <view class='explain' >收藏</view>
-                    </navigator>
-                    <navigator  url='/pages/mine/comment/comment'  class='r' >
+                    <view  class='l ' >
+                        <view class='num' >{{info.thumbs}}</view>
+                        <view class='explain' >获赞</view>
+                    </view>
+                    <view  class='c' >
+                        <view class='num' >{{info.score}}</view>
+                        <view class='explain' >言值分</view>
+                    </view>
+                    <!--
+                    url='/pages/mine/follow/follow'
+                    url='/pages/mine/collection/collection' 
+                    url='/pages/mine/comment/comment' 
+                      -->
+                    <!-- <navigator  class='r' >
                         <view class='num' >{{info.comments}}</view>
                         <view class='explain' >评论</view>
-                    </navigator>
+                    </navigator> -->
             </view>
         </view>
     
     </view>
-
-    <navigator url='/pages/mine/audio/audio' class='my-audio ' >
-        <view class='left flex-text' >
-            <image class='icon' src='/images/icon-mine-2.png' ></image>
-            我的语音
-        </view>
-        <image class='right' src='/images/icon-mine-4.png' ></image>
-    </navigator>
-
+    <view class='my'>
+        <navigator url='/pages/mine/audio/audio' class='my-audio ' >
+            <view class='left flex-text' >
+                <image class='icon' src='/images/icon-mine-5.png' ></image>
+                我的语音
+            </view>
+        </navigator>
+        <navigator url='/pages/mine/comment/comment'  class='my-audio r' >
+            <view class='left flex-text' >
+                <image class='icon' src='/images/icon-mine-6.png' ></image>
+                评论
+            </view>
+        </navigator>
+        <navigator url='/pages/mine/collection/collection'  class='my-audio ' >
+            <view class='left flex-text' >
+                <image class='icon' src='/images/icon-mine-7.png' ></image>
+                收藏
+            </view>
+        </navigator>
+        <navigator url='/pages/mine/follow/follow' class='my-audio r' >
+            <view class='left flex-text' >
+                <image class='icon' src='/images/icon-mine-8.png' ></image>
+                关注
+            </view>
+        </navigator>
+    </view>
     <view class='calendar' >
         <view class='top '>
             <image class='icon' src='/images/icon-mine-3.png' ></image>

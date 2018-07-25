@@ -16,6 +16,15 @@ App({
         name: '趣朗读',
         userInfo: null,
         refresh: true,
+        shareMsg: [
+            "我已坚持在“趣朗读”打卡99天，免费邀请你来和我一起练就魅力好声音。",
+            "最后100个名额，美化声音训练打卡软件免费体验。",
+            "简单照做，普通人也能练免费就魅力好嗓音。",
+            "微信语音不好听的人注意了，来“趣朗读”小程序打卡训练一周就能改善。",
+            "普通话说不好的人注意了，来“趣朗读”小程序打卡训练一周就能改善。",
+            "跟我一起“趣朗读”，改善乡音，自信讲话。",
+            "邀请你加入“趣朗读”，坚持打卡为自己的声音整整容。"
+        ],
         // host: 'http://192.168.4.94',
         // host: 'http://127.0.0.1',
         // host: "http://192.168.0.101",
@@ -124,6 +133,16 @@ App({
         });
         if (ret && ret.code) {
             this.globalData.userInfo = ret.data;
+            const shareMsg = [
+                "我是" + this.globalData.userInfo.nickName + "，我已坚持在“趣朗读”打卡" + (this.globalData.userInfo.days || 1) + "天，免费邀请你来和我一起练就魅力好声音。",
+                "最后100个名额，美化声音训练打卡软件免费体验。",
+                "简单照做，普通人也能练免费就魅力好嗓音。",
+                "微信语音不好听的人注意了，来“趣朗读”小程序打卡训练一周就能改善。",
+                "普通话说不好的人注意了，来“趣朗读”小程序打卡训练一周就能改善。",
+                "我是" + this.globalData.userInfo.nickName + "，跟我一起“趣朗读”，改善乡音，自信讲话。",
+                "我是" + this.globalData.userInfo.nickName + "，邀请你加入“趣朗读”，坚持打卡为自己的声音整整容。"
+            ];
+            this.globalData.shareMsg = shareMsg;
             if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback()
             } else {
