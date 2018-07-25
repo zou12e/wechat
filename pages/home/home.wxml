@@ -49,3 +49,4 @@
     </view>
 </view>
 
+<dialog id='dialog' ></dialog>

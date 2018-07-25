@@ -26,6 +26,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     async onLoad (options) {
+        if (!wx.getStorageSync('alert') || (new Date().getTime() - wx.getStorageSync('alert') > 1000 * 60 * 60  * 24)) {
+            this.dialog = this.selectComponent('#dialog');
+            this.dialog.togglerImage();
+            wx.setStorageSync('alert', new Date().getTime());
+        }
         if (app.globalData.userInfo) {
             this._load(options);
         } else {

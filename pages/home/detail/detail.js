@@ -117,7 +117,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        
     },
 
     /**
@@ -165,10 +165,11 @@ Page({
         })
 
         if (this.data.isPlay) {
-            // app.loading('加载中...');
-            this.innerAudioContext.title = this.data.data.title;
-            this.innerAudioContext.coverImgUrl = this.data.data.banner;
-            this.innerAudioContext.src = this.data.data.url;
+            try {
+                this.innerAudioContext.play();
+            } catch (e) {
+                this.setPlayInfo();
+            }
         } else {
             this.innerAudioContext.pause();
         }
@@ -180,6 +181,7 @@ Page({
         })
         if (this.innerAudioContext) {
             this.innerAudioContext.stop();
+            this.innerAudioContext = null;
         }
     },
     changeTime(event) {

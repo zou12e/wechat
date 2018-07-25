@@ -110,3 +110,10 @@
 .dialog .confirm .bottom .right {
     border-left: 1rpx solid #ddd;
 }
+.dialog.deep {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.dialog .dialog-image {
+    width: 620rpx;
+    height: 907rpx;
+}

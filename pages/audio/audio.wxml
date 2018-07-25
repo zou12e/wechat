@@ -52,10 +52,13 @@
             查看言值分
         </button>
 
-        <navigator hidden='{{userId == blog.userId}}' url='/pages/home/read/read?id={{blog.audioId}}' class='button-image'>
+        <navigator wx:if = '{{nickName}}' hidden='{{userId == blog.userId}}' url='/pages/home/read/read?id={{blog.audioId}}' class='button-image'>
             <image src='/images/icon-square-12.png'></image>
         </navigator>
-
+        <navigator wx:else hidden='{{userId == blog.userId}}' url='/pages/index/index' class='button-image'>
+            <image src='/images/icon-square-12.png'></image>
+        </navigator>
+    
     </view>
 
     <view class='audio-comment'>

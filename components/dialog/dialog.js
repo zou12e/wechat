@@ -17,6 +17,7 @@ Component({
         isShow: false,
         isMsg: false,
         isConfirm: false,
+        isImage: false,
         showData: {
             title: "",
             author: "",
@@ -55,6 +56,11 @@ Component({
                 this.setData({
                      isConfirm: !this.data.isConfirm,
                      confirmData: cfg
+                });
+        },
+        togglerImage() {
+                this.setData({
+                    isImage: !this.data.isImage
                 });
         },
         bindMsg (e){

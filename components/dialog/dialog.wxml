@@ -47,3 +47,6 @@
 
 </view>
 
+<view class='dialog deep' wx:if="{{isImage}}" catchtouchmove='true' bindtap = 'togglerImage'  >
+    <image class='dialog-image' src='/images/icon-dialog-2.png' ></image>
+</view>

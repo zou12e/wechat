@@ -13,6 +13,7 @@ Page({
         isPlay: false,
         isScore: false,
         isSaveFail: false,
+        nickName: null,
         blogId: 0,
         userId: 0,
         blog: {},
@@ -32,7 +33,7 @@ Page({
             this.setData({
                 blog: ret.data
             });
-            this.setPlayInfo();
+            
         }
     },
     /**
@@ -74,7 +75,7 @@ Page({
 
         this.start.stom(0);
         this.end.stom(playInfo.time);
-        
+        this.innerAudioContext.src = this.data.blog.url;
         this.innerAudioContext.title = this.data.blog.title;
         this.innerAudioContext.coverImgUrl = this.data.blog.banner;
         this.innerAudioContext.onPlay(() => {
@@ -110,6 +111,7 @@ Page({
         
         this.setData({
             blogId: options.id,
+            nickName: app.globalData.userInfo.nickName,
             userId: app.globalData.userInfo.id
         });
         await this.getBlogById();
@@ -148,15 +150,14 @@ Page({
         this.setData({
             isPlay: !this.data.isPlay
         })
-        if (this.innerAudioContext) {
-            if (this.data.isPlay) {
-                // app.loading('加载中...');
-                this.innerAudioContext.title = this.data.blog.title;
-                this.innerAudioContext.coverImgUrl = this.data.blog.banner;
-                this.innerAudioContext.src = this.data.blog.url;
-            } else {
-                this.innerAudioContext.pause();
+        if (this.data.isPlay) {
+            try {
+                this.innerAudioContext.play();
+            } catch (e) {
+                this.setPlayInfo();
             }
+        } else {
+            this.innerAudioContext.pause();
         }
     },
     /**
@@ -168,6 +169,7 @@ Page({
         })
         if (this.innerAudioContext) {
             this.innerAudioContext.stop();
+            this.innerAudioContext = null;
         }
     },
     /**
