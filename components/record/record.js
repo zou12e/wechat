@@ -86,6 +86,7 @@ Component({
                     type: 3
                 });
                 if (this.innerAudioContext) {
+                    this.innerAudioContext.src = this.data.src;
                     this.innerAudioContext.play();
                     return;
                 }

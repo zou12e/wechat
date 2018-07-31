@@ -67,6 +67,9 @@ Page({
 
         this.innerAudioContext.onTimeUpdate(() => {
             const playInfo = this.data.playInfo;
+            if (!this.innerAudioContext)  {
+                return ;
+            }
             playInfo.current = this.innerAudioContext.currentTime;
             this.setData({
                 playInfo: playInfo

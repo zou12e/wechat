@@ -1,6 +1,11 @@
 import regeneratorRuntime from '/utils/regenerator-runtime';
 
 App({
+    onError (err) {
+        this.post('/user/err', {
+            err: err
+        })
+    },
     onLaunch () {
         wx.login({
             success: (res) => {
