@@ -74,6 +74,9 @@ Component({
 
 
             } else if (this.data.type == 1) {//点击停止
+                if (this.data.time < 3 ) {
+                    return ;
+                }
                 this.setData({
                     type: 2
                 })
@@ -152,6 +155,8 @@ Component({
                 } else {
                     app.fail('上传文件保存失败');
                 }
+            } else {
+                app.fail('录音保存失败');
             }
         }
     }
