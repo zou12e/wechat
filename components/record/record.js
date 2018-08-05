@@ -38,6 +38,12 @@ Component({
                 })
             })
         },
+        fail() {
+            app.fail('保存失败！');
+            this.setData({
+                isCommit: false
+            });
+        },
         go() {
             
             if (this.data.type == 0) { //点击录音
@@ -107,6 +113,9 @@ Component({
                     this.time.stom(this.data.time);
                 });
                 this.innerAudioContext.onTimeUpdate(() => {
+                    if (!this.innerAudioContext) {
+                        return;
+                    }
                     this.setData({
                         time: this.innerAudioContext.currentTime
                     });
@@ -136,27 +145,31 @@ Component({
             if (this.innerAudioContext) {
                 this.innerAudioContext.stop();
             }
+            if (this.data.isCommit) {
+                app.loading();
+                return ;
+            }
             if (!this.data.isCommit && this.data.src) {
                 this.setData({
                     isCommit: true,
                 })
                 app.loading();
                 const ret =await app.uploadFile('/blog/uploadFile', this.data.src).catch((err) => {
-                    app.fail('上传文件失败');
+                    app.fail('上传录音文件失败');
                 });
-                this.setData({
-                    isCommit: false
-                })
                 if( ret && ret.code==1 ){
                     this.setData({
                         src: ret.data.path
                     })
                     this.triggerEvent("savego");
                 } else {
-                    app.fail('上传文件保存失败');
+                    app.fail('上传录音文件保存失败');
+                    this.setData({
+                        isCommit: false
+                    });
                 }
             } else {
-                app.fail('录音保存失败');
+                app.fail('录音失败，请检查是否授权“趣朗读”录音功能');
             }
         }
     }

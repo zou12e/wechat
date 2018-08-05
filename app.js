@@ -7,6 +7,10 @@ App({
         })
     },
     onLaunch () {
+        // 保持屏幕常亮
+        wx.setKeepScreenOn({
+            keepScreenOn: true
+        })
         wx.login({
             success: (res) => {
                 if (res.code) {

@@ -112,9 +112,7 @@ Page({
                 })
             }, 1000)
         } else {
-            app.fail();
+            this.record.fail();
         }
-        
-
     }
 })
