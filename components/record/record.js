@@ -1,4 +1,5 @@
 import regeneratorRuntime from '../../utils/regenerator-runtime';
+import qiniuUploader from '../../utils/qiniu/qiniuUploader';
 const app = getApp();
 
 Component({
@@ -154,19 +155,39 @@ Component({
                     isCommit: true,
                 })
                 app.loading();
-                const ret =await app.uploadFile('/blog/uploadFile', this.data.src).catch((err) => {
-                    app.fail('上传录音文件失败');
-                });
-                if( ret && ret.code==1 ){
-                    this.setData({
-                        src: ret.data.path
-                    })
-                    this.triggerEvent("savego");
+
+                const ret = await app.get('/blog/getUploadToken');
+
+                if (ret && ret.code === 1) {
+                    const filePath = this.data.src;
+                    const uptoken = ret.data;
+                    const key = 'audio3/' + app.globalData.userInfo.id + '/' + new Date().getTime() + '.mp3';
+
+                    qiniuUploader.upload(filePath, (res) => {
+                        if (res && res.imageURL) {
+                            this.setData({
+                                src: res.imageURL
+                            })
+                            this.triggerEvent("savego");
+                        } else {
+                            app.fail('上传录音文件失败');
+                            this.setData({
+                                isCommit: false
+                            });
+                        }
+                    }, (error) => {
+                        app.fail('上传录音文件保存失败');
+                        this.setData({
+                            isCommit: false
+                        });
+                    }, {
+                        region: 'SCN',
+                        domain: 'https://audio.wisdomwords.cn', 
+                        key, 
+                        uptoken: uptoken, 
+                    }, (res) => {});
                 } else {
-                    app.fail('上传录音文件保存失败');
-                    this.setData({
-                        isCommit: false
-                    });
+                    app.fail('获取上传凭证失败');
                 }
             } else {
                 app.fail('录音失败，请检查是否授权“趣朗读”录音功能');
