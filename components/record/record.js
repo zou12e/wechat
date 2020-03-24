@@ -159,14 +159,14 @@ Component({
                 const ret = await app.get('/blog/getUploadToken');
 
                 if (ret && ret.code === 1) {
+                    const domain = 'https://audio.zourunze.com';
                     const filePath = this.data.src;
                     const uptoken = ret.data;
                     const key = 'audio3/' + app.globalData.userInfo.id + '/' + new Date().getTime() + '.mp3';
-
                     qiniuUploader.upload(filePath, (res) => {
                         if (res && res.imageURL) {
                             this.setData({
-                                src: res.imageURL
+                              src: domain + "/" + key
                             })
                             this.triggerEvent("savego");
                         } else {
@@ -182,7 +182,7 @@ Component({
                         });
                     }, {
                         region: 'SCN',
-                        domain: 'https://audio.wisdomwords.cn', 
+                        domain, 
                         key, 
                         uptoken: uptoken, 
                     }, (res) => {});

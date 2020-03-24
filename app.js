@@ -37,7 +37,7 @@ App({
         // host: 'http://192.168.4.94',
         // host: 'http://127.0.0.1',
         // host: "http://192.168.0.101",
-        host: "https://www.wisdomwords.cn",
+        host: "https://www.zourunze.com",
         // port: "4001",
         port: "443",
         apiversion: '/wechat/api/v1',

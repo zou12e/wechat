@@ -1,52 +1,53 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/home/home",
-        "pages/square/square",
-        "pages/home/read/read",
-        "pages/audio/detail/detail",
-        "pages/mine/mine",
-        "pages/audio/audio",
-        "pages/others/others",
-        "pages/square/punch/punch",
-        "pages/square/thumb/thumb",
-        "pages/mine/follow/follow",
-        "pages/mine/audio/audio",
-        "pages/mine/collection/collection",
-        "pages/mine/comment/comment",
-        "pages/audio/list/list",
-        "pages/home/detail/detail"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "backgroundColorTop": "#FFB307",
-        "navigationBarBackgroundColor": "#FFB307",
-        "navigationBarTitleText": "趣朗读",
-        "navigationBarTextStyle": "#fff"
-    },
-    "tabBar": {
-        "color": "#888",
-        "selectedColor": "#000",
-        "backgroundColor": "#fff",
-        "list": [
-            {
-                "iconPath": "images/icon-nav-1.png",
-                "selectedIconPath": "images/icon-nav-1-on.png",
-                "pagePath": "pages/home/home",
-                "text": "主页"
-            },
-            {
-                "iconPath": "images/icon-nav-2.png",
-                "selectedIconPath": "images/icon-nav-2-on.png",
-                "pagePath": "pages/square/square",
-                "text": "发现"
-            },
-            {
-                "iconPath": "images/icon-nav-3.png",
-                "selectedIconPath": "images/icon-nav-3-on.png",
-                "pagePath": "pages/mine/mine",
-                "text": "我的"
-            }
-        ]
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/square/square",
+    "pages/home/read/read",
+    "pages/audio/detail/detail",
+    "pages/mine/mine",
+    "pages/audio/audio",
+    "pages/others/others",
+    "pages/square/punch/punch",
+    "pages/square/thumb/thumb",
+    "pages/mine/follow/follow",
+    "pages/mine/audio/audio",
+    "pages/mine/collection/collection",
+    "pages/mine/comment/comment",
+    "pages/audio/list/list",
+    "pages/home/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColorTop": "#FFB307",
+    "navigationBarBackgroundColor": "#FFB307",
+    "navigationBarTitleText": "趣朗读",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "iconPath": "images/icon-nav-1.png",
+        "selectedIconPath": "images/icon-nav-1-on.png",
+        "pagePath": "pages/home/home",
+        "text": "主页"
+      },
+      {
+        "iconPath": "images/icon-nav-2.png",
+        "selectedIconPath": "images/icon-nav-2-on.png",
+        "pagePath": "pages/square/square",
+        "text": "发现"
+      },
+      {
+        "iconPath": "images/icon-nav-3.png",
+        "selectedIconPath": "images/icon-nav-3-on.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }
