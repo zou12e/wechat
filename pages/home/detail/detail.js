@@ -93,11 +93,11 @@ Page({
 
         wx.setNavigationBarColor({
             frontColor: '#000000',
-            backgroundColor: '#ffffff'
+            backgroundColor: 'white'
         })
 
         wx.setTabBarStyle({
-            backgroundColor: '#000000',
+          backgroundColor: '#000000',
         })
 
         if (app.globalData.userInfo) {

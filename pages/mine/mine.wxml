@@ -1,79 +1,83 @@
-<view class='mine' >
+<view class='mine'>
 
-    <view class='top ' >
+  <view class='top '>
 
-        <image class='bg' src='/images/icon-mine-1.png' ></image>
-        <!-- <open-data type="userAvatarUrl"></open-data> -->
+    <image class='bg' src='/images/icon-mine-1.png'></image>
+    <!-- <open-data type="userAvatarUrl"></open-data> -->
 
-         <image class='head' src='{{userInfo.avatarUrl}}' ></image> 
+    <image class='head' src='{{userInfo.avatarUrl}}'></image>
 
-        <view class='bom' >
-             <view class='nick'  >{{userInfo.nickName}}</view> 
-            <!-- <open-data  type="userNickName"></open-data> -->
+    <view class='bom'>
 
-            <view class='info' >
-                    <!-- 新的 new -->
-                    <view  class='l ' >
-                        <view class='num' >{{info.thumbs}}</view>
-                        <view class='explain' >获赞</view>
-                    </view>
-                    <view  class='c' >
-                        <view class='num' >{{info.score}}</view>
-                        <view class='explain' >言值分</view>
-                    </view>
-                    <!--
+      <!-- <open-data  type="userNickName"></open-data> -->
+ 
+      <view wx:if='{{userInfo.nickName}}' class='nick'>{{userInfo.nickName}}</view>
+      <navigator wx:else  url='/pages/index/index' >
+        <view class='nick'>点击登录账户</view>
+      </navigator>
+
+      <view class='info'>
+        <!-- 新的 new -->
+        <view class='l '>
+          <view class='num'>{{info.thumbs}}</view>
+          <view class='explain'>获赞</view>
+        </view>
+        <view class='c'>
+          <view class='num'>{{info.score || 0}}</view>
+          <view class='explain'>言值分</view>
+        </view>
+        <!--
                     url='/pages/mine/follow/follow'
                     url='/pages/mine/collection/collection' 
                     url='/pages/mine/comment/comment' 
                       -->
-                    <!-- <navigator  class='r' >
+        <!-- <navigator  class='r' >
                         <view class='num' >{{info.comments}}</view>
                         <view class='explain' >评论</view>
                     </navigator> -->
-            </view>
-        </view>
-    
+      </view>
     </view>
-    <view class='my'>
-        <navigator url='/pages/mine/audio/audio' class='my-audio ' >
-            <view class='left flex-text' >
-                <image class='icon' src='/images/icon-mine-5.png' ></image>
-                我的语音
-            </view>
-        </navigator>
-        <navigator url='/pages/mine/comment/comment'  class='my-audio r' >
-            <view class='left flex-text' >
-                <image class='icon' src='/images/icon-mine-6.png' ></image>
-                评论
-            </view>
-        </navigator>
-        <navigator url='/pages/mine/collection/collection'  class='my-audio ' >
-            <view class='left flex-text' >
-                <image class='icon' src='/images/icon-mine-7.png' ></image>
-                收藏
-            </view>
-        </navigator>
-        <navigator url='/pages/mine/follow/follow' class='my-audio r' >
-            <view class='left flex-text' >
-                <image class='icon' src='/images/icon-mine-8.png' ></image>
-                关注
-            </view>
-        </navigator>
+
+  </view>
+  <view class='my'>
+    <navigator url='/pages/mine/audio/audio' class='my-audio '>
+      <view class='left flex-text'>
+        <image class='icon' src='/images/icon-mine-5.png'></image>
+        我的语音
+      </view>
+    </navigator>
+    <navigator url='/pages/mine/comment/comment' class='my-audio r'>
+      <view class='left flex-text'>
+        <image class='icon' src='/images/icon-mine-6.png'></image>
+        评论
+      </view>
+    </navigator>
+    <navigator url='/pages/mine/collection/collection' class='my-audio '>
+      <view class='left flex-text'>
+        <image class='icon' src='/images/icon-mine-7.png'></image>
+        收藏
+      </view>
+    </navigator>
+    <navigator url='/pages/mine/follow/follow' class='my-audio r'>
+      <view class='left flex-text'>
+        <image class='icon' src='/images/icon-mine-8.png'></image>
+        关注
+      </view>
+    </navigator>
+  </view>
+  <view class='calendar'>
+    <view class='top '>
+      <image class='icon' src='/images/icon-mine-3.png'></image>
+      连续打卡
+      <text class='day'>{{info.continuDays}}</text> 天，累计打卡
+      <text class='day'>{{info.punchDays}}</text> 天
     </view>
-    <view class='calendar' >
-        <view class='top '>
-            <image class='icon' src='/images/icon-mine-3.png' ></image>
-            连续打卡 <text class='day'>{{info.continuDays}}</text> 天，累计打卡  <text class='day'>{{info.punchDays}}</text> 天
-        </view>
-         <view class='msg' >
-            {{name}}已陪伴你第 {{info.allDays}} 天
-        </view>
-        <calendar  id='calendar'  
-            bind:preMonth="_preMonth"
-            bind:nextMonth="_nextMonth"
-        ></calendar>
+    <view class='msg'>
+      {{name}}已陪伴你第 {{info.allDays}} 天
+    </view>
+    <calendar id='calendar' bind:preMonth="_preMonth" bind:nextMonth="_nextMonth"></calendar>
 
 
-    </view>
+  </view>
 
 </view>

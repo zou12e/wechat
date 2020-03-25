@@ -22,7 +22,7 @@ Page({
         this.getThumbRanking();
         wx.setNavigationBarColor({
             frontColor: '#ffffff',
-            backgroundColor: "#000000"
+            backgroundColor: "black"
         })
     },
     /**

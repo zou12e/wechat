@@ -25,7 +25,7 @@ Page({
         this.getPunchRanking();
         wx.setNavigationBarColor({
             frontColor: '#ffffff',
-            backgroundColor: "#000000"
+            backgroundColor: "black"
         })
     },
     /**

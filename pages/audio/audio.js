@@ -135,7 +135,7 @@ Page({
 
         wx.setNavigationBarColor({
             frontColor: '#000000',
-            backgroundColor: '#ffffff'
+            backgroundColor: 'white'
         })
 
         if (app.globalData.userInfo) {
@@ -403,7 +403,7 @@ Page({
 
             wx.setNavigationBarColor({
                 frontColor: '#ffffff',
-                backgroundColor: '#000000'
+                backgroundColor: 'black'
             })
         }
 
